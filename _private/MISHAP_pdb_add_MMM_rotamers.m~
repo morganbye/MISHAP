@@ -1,0 +1,283 @@
+function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
+
+% MISHAP_PDB_ADD_MMM_ROTAMERS This script takes a PDB structure in memory and adds a
+%       MMM rotamer structure to it
+% 
+%
+% Syntax:   PDB out = MISHAP_PDB_ADD_MMM_ROTAMERS(...
+%               PDB structure, ...
+%               MMM structure, ...
+%               MMM rotamer number)
+%
+% Inputs:
+%    input1 - PDB structure
+%
+%    input2 - MMM structure
+%
+%    input3 - desired MMM rotamer number to add
+%
+%    input4 - Label
+%               'R1A' / 'IA1'
+%
+% Outputs:
+%    output1 - output PDB structure
+%
+%
+% Other m-files required:   n/a
+%
+% Subfunctions:             none
+%
+% MAT-files required:       none
+%
+% See also: PDBIMPORT PDBEXPORT MMM
+
+%                                        _                             _   
+%                                       | |                           | |  
+%  _ __ ___   ___  _ __ __ _  __ _ _ __ | |__  _   _  ___   _ __   ___| |_ 
+% | '_ ` _ \ / _ \| '__/ _` |/ _` | '_ \| '_ \| | | |/ _ \ | '_ \ / _ \ __|
+% | | | | | | (_) | | | (_| | (_| | | | | |_) | |_| |  __/_| | | |  __/ |_ 
+% |_| |_| |_|\___/|_|  \__, |\__,_|_| |_|_.__/ \__, |\___(_)_| |_|\___|\__|
+%                       __/ |                   __/ |                      
+%                      |___/                   |___/                       
+%
+%
+% M. Bye v13.06
+%
+% Author:       Morgan Bye
+% Work address: Henry Wellcome Unit for Biological EPR
+%               University of East Anglia
+%               NORWICH, UK
+% Email:        morgan.bye@uea.ac.uk
+% Website:      http://www.morganbye.net/mishap/
+% May 2013;     Last revision: 06-May-2013
+%
+% Version history:
+% May 13        > Pull from EPR toolbox
+%               > Made MISHAP compatible
+%
+% Aug 12        > Removal of dependency on the MATLAB Bioinformatics
+%                   toolbox
+
+% Arguments in
+% ===================================================
+
+switch nargin
+    case 0      
+       error('Not enough inputs')
+       
+    case 1      
+       error('Not enough inputs')
+    
+    case 2      
+       error('Not enough inputs, add the label type')     
+       
+    case 3
+       pdb_in     = varargin{1};
+       pdb_MMM    = varargin{2};
+       Label      = varargin{3};
+       r.residue  = 1;
+       Chain      = 'A';
+       
+    case 4
+       pdb_in     = varargin{1};
+       pdb_MMM    = varargin{2};
+       Label      = varargin{3};
+       r.residue  = varargin{4};
+       Chain      = 'A';
+
+    case 5
+       pdb_in     = varargin{1};
+       pdb_MMM    = varargin{2};
+       Label      = varargin{3};
+       r.residue  = varargin{4};
+       Chain      = varargin{5};
+       
+    otherwise
+        errordlg('The number of inputs was not recognised');
+end
+
+% find atom numbers of residue to replace in PDB
+% ===================================================
+
+r.ToBeReplaced = [];
+
+% for every atom
+for k = 1:numel(pdb_in.Model.Atom)
+    
+    % if atom residue number = rotamer residue, copy atom number across
+    if pdb_in.Model.Atom(k).resSeq == r.residue
+        r.ToBeReplaced(k) = pdb_in.Model.Atom(k).AtomSerNo;   
+    end
+end
+
+% find the atom number to start at
+r.ToBeReplaced = find(r.ToBeReplaced);
+
+% Split atoms before and after the residue
+% ===================================================
+
+% Slight adjustment if the residue to replace is residue 1
+if r.ToBeReplaced(1) == 1
+    r.Atoms_afterresidue  = pdb_in.Model.Atom((r.ToBeReplaced(end)):end);
+else
+    % remove old residue from PDB
+    r.Atoms_minusresidue = [pdb_in.Model.Atom(1:(r.ToBeReplaced(1))) pdb_in.Model.Atom((r.ToBeReplaced(end)):end)];
+    r.Atoms_beforeresidue = pdb_in.Model.Atom(1:(r.ToBeReplaced(1)));
+    r.Atoms_afterresidue  = pdb_in.Model.Atom((r.ToBeReplaced(end)):end);
+end
+
+
+% find MMM rotamer
+% ===================================================
+
+switch Label
+    case 'R1A'
+        atomNo = 36;
+    case 'IA1'
+        atomNo = 41;
+end
+  
+if r.residue == 1
+    r.Atoms_insert = pdb_MMM.Model.Atom(1:atomNo);
+    
+else
+r.Atoms_insert = pdb_MMM.Model.Atom(...
+    (r.residue*atomNo)+1:...
+    ((r.residue+1)*atomNo));
+end
+
+% Then update the residue information to match the PDB
+for k = 1:atomNo
+    r.Atoms_insert(k).resSeq     = r.residue;
+    r.Atoms_insert(k).chainID    = Chain;
+    r.Atoms_insert(k).occupancy  = 1;
+    r.Atoms_insert(k).tempFactor = 0;
+end
+
+% ===================================================
+% NOW FOR THE MERGE
+% ===================================================
+
+% If residue 1 is label then
+if r.ToBeReplaced(1) == 1
+    outmodel = [r.Atoms_insert r.Atoms_afterresidue];
+
+% Normal residues
+else
+    outmodel = [r.Atoms_beforeresidue ...
+        r.Atoms_insert ...
+        r.Atoms_afterresidue];
+end
+
+% Renumber atoms
+
+% increase atom number of rotamer
+for k = 1:numel(outmodel)
+
+%     A = char(r.atoms(k,2));   % convert cell to string
+%     B = str2num(A);           % string to number
+%     C = B + AtomIncrease;     % add the increase
+%     D = num2cell(C);          % convert number to cell
+%     r.atoms(k,2) = D;         % write cell back to array
+
+    r.atoms(k,2) = num2cell(str2num(char(r.atoms(k,2))) + AtomIncrease);
+    
+end
+
+
+
+
+% Insert atoms into PDB
+% ===================================================
+
+
+
+
+r.Atoms_insert = r.Atoms_afterresidue(1:36);
+
+% change the insert amino acid info
+for k = 1:numel(r.Atoms_insert)
+    
+    r.Atoms_insert(k).resName    = char(rotamerInfo(5));  % R1A/IAP
+    r.Atoms_insert(k).chainID    = r.chain;
+    r.Atoms_insert(k).resSeq     = r.residue;
+    
+    r.Atoms_insert(k).AtomSerNo  = str2num(mat2str(cell2mat(r.atoms(k,2))));
+    r.Atoms_insert(k).AtomName   = char(r.atoms(k,3));
+    r.Atoms_insert(k).X          = str2num(char(r.atoms(k,7)));
+    r.Atoms_insert(k).Y          = str2num(char(r.atoms(k,8)));
+    r.Atoms_insert(k).Z          = str2num(char(r.atoms(k,9)));
+    r.Atoms_insert(k).occupancy  = 1;
+    r.Atoms_insert(k).tempFactor = 0;
+    r.Atoms_insert(k).element    = char(r.atoms(k,12));
+
+end
+
+% stick insert into atom list
+output.Model.Atom = [r.Atoms_beforeresidue r.Atoms_insert r.Atoms_afterresidue];
+
+% Connectivity
+% ===================================================
+
+% Spin label atoms
+
+for k = 1:numel(r.atoms(:,1))
+    
+    output.Connectivity(k).AtomSerNo = str2num(mat2str(cell2mat(r.atoms(k,2))));
+    output.Connectivity(k).BondAtomList = r.connections(k,3:end);           % maybe need str2double
+
+    % remove blank cells from BondAtomList
+    A = cellfun('isempty', output.Connectivity(k).BondAtomList);
+    output.Connectivity(k).BondAtomList(A) = [];
+    
+end
+
+% Connection to residue before
+
+for j = 1:numel(output.Model.Atom)                                          % for every atom in PDB
+    
+    if strcmp(output.Model.Atom(j).chainID , r.chain) > 0                   % that's the correct chain
+        
+        if output.Model.Atom(j).resSeq == str2num(r.residue)-1              % and residue -1
+            
+            if strcmp(output.Model.Atom(j).AtomName,'O')                    % and oxygen atom
+                
+                output.Connectivity(k).AtomSerNo = ...                      % put into CONECT
+                    output.Model.Atom(j).AtomSerNo;
+                
+                % connect to N (3rd atom) of R1A residue
+                output.Connectivity(k).BondAtomList = ...
+                    r.Atoms_insert(3).AtomSerNo;
+            end
+        end
+    end
+end
+
+% Connection to residue after
+
+for j = 1:numel(output.Model.Atom)                                           % for every atom in PDB
+    
+    if strcmp(output.Model.Atom(j).chainID , r.chain) > 0                    % that's the correct chain
+        
+        if strcmp(num2str(output.Model.Atom(j).resSeq) , r.residue+1) == 1   % and residue +1
+            
+            if strcmp(num2str(output.Model.Atom(j).AtomName) , 'N') == 1     % and nitrogen atom
+                
+                output.Connectivity(k).AtomSerNo = ...                       % put into CONECT
+                    output.Model.Atom(j).AtomSerNo;
+                
+                % connect to O (3rd atom) of R1A residue
+                output.Connectivity(k).BondAtomList = ...
+                    r.Atoms_insert(18).AtomSerNo;
+            end
+        end
+    end
+end
+
+
+
+% Output sorting
+% ===================================================
+
+    
+

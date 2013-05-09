@@ -60,24 +60,21 @@ function structure = MISHAP_pdbimport(varargin)
 %                       __/ |                   __/ |                      
 %                      |___/                   |___/                       
 %
-% M. Bye v13.06
+% M. Bye v12.9
 %
 % Author:       Morgan Bye
 % Work address: Henry Wellcome Unit for Biological EPR
 %               University of East Anglia
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
-% Website:      http://www.morganbye.net/mishap/
-% May 2013;     Last revision: 06-May-2013
+% Website:      http://www.morganbye.net/eprtoolbox/
+% Aug 2012;     Last revision: 23-August-2012
 %
 % Approximate coding time of file:
 %               12 hours
 %
 %
 % Version history:
-% May 13        > Removed messaging to command window
-%               > Handles PDBs without a sequence
-%
 % Aug 12        > After initial load, text is split using the \t delimiter
 %                   rather than assuming that the PDB is true to the PDB
 %                   format and uses exactly 80 characters per line
@@ -398,45 +395,40 @@ clear structure.Atom
 % Sequence sorting
 % ===================================================
 
+% Make all fields the same length
+q = strcat(structure.Sequence);
+% Remove any blank fields
+w = char(q(~cellfun(@isempty,q)));
 
-if isfield(structure,'Sequence')
-    % Make all fields the same length
-    q = strcat(structure.Sequence);
-    % Remove any blank fields
-    w = char(q(~cellfun(@isempty,q)));
-    
-    % Split each line of the sequence into individual strings
-    for k = 1:size(w,1)
-        Sequence.Preformated{k} = textscan(w(k,:),'%s');
+% Split each line of the sequence into individual strings
+for k = 1:size(w,1)
+    Sequence.Preformated{k} = textscan(w(k,:),'%s');
+end
+
+highestChain = Sequence.Preformated{end}{1}{3};
+
+% Convert Chain "Letter" to Chain "Number" through ASCII number
+ChainMax = double(highestChain)-64;
+
+% Find where each chain ends
+for k = 1:numel(Sequence.Preformated)
+    Chains(k) = Sequence.Preformated{k}{1}{3};
+end
+
+[~,b] = unique(Chains,'first');      % gives row number of each new Chain
+[~,c] = unique(Chains,'last');       % gives row of last
+
+warning off
+
+for k = 1:ChainMax
+
+    % Remove header lines
+    for l = b(k) : c(k)
+        Sequence.Formating{l} = Sequence.Preformated{l}(5:end);
     end
     
-    highestChain = Sequence.Preformated{end}{1}{3};
-    
-    % Convert Chain "Letter" to Chain "Number" through ASCII number
-    ChainMax = double(highestChain)-64;
-    
-    % Find where each chain ends
-    for k = 1:numel(Sequence.Preformated)
-        Chains(k) = Sequence.Preformated{k}{1}{3};
-    end
-    
-    [~,b] = unique(Chains,'first');      % gives row number of each new Chain
-    [~,c] = unique(Chains,'last');       % gives row of last
-    
-    warning off
-    
-    for k = 1:ChainMax
-        
-        % Remove header lines
-        for l = b(k) : c(k)
-            Sequence.Formating{l} = Sequence.Preformated{l}(5:end);
-        end
-        
-        % Split the chains and merge them into single column of text
-        structure.Sequence.(['Chain' (char(k-1+'A'))]) = (cat(1,Sequence.Formating{b(k):c(k)}));
-    end
-else
-    % Do nothing. Sequence probably not needed
+    % Split the chains and merge them into single column of text
+    structure.Sequence.(['Chain' (char(k-1+'A'))]) = (cat(1,Sequence.Formating{b(k):c(k)}));
 end
 
 warning on
