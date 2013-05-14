@@ -14,10 +14,19 @@ function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
 %
 %    input2 - MMM structure
 %
-%    input3 - desired MMM rotamer number to add
-%
-%    input4 - Label
+%    input3 - Label
 %               'R1A' / 'IA1'
+%
+%    input4 - PDB residue number
+%               the residue number to replace with the label
+%
+%    input5 - MMM rotamer number
+%               the desired rotamer number to be inserted, if not used this
+%               will default to rotamer 1 as MMM lists rotamers by
+%               population
+%
+%    input6 - Chain
+%               the PDB structure chain to insert onto, by default 'A'
 %
 % Outputs:
 %    output1 - output PDB structure
@@ -54,6 +63,9 @@ function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
 % Version history:
 % May 13        > Pull from EPR toolbox
 %               > Made MISHAP compatible
+%               > Added MMM rotamer option
+%               > Added residue rotamer option
+%               > Fixed insert residue number
 %
 % Aug 12        > Removal of dependency on the MATLAB Bioinformatics
 %                   toolbox
@@ -75,6 +87,7 @@ switch nargin
        pdb_in     = varargin{1};
        pdb_MMM    = varargin{2};
        Label      = varargin{3};
+       pdb_resi   = pdb_MMM.Model.Atom(1).resSeq;
        r.residue  = 1;
        Chain      = 'A';
        
@@ -82,15 +95,25 @@ switch nargin
        pdb_in     = varargin{1};
        pdb_MMM    = varargin{2};
        Label      = varargin{3};
-       r.residue  = varargin{4};
+       pdb_resi   = varargin{4};
+       r.residue  = 1;
        Chain      = 'A';
 
     case 5
        pdb_in     = varargin{1};
        pdb_MMM    = varargin{2};
        Label      = varargin{3};
-       r.residue  = varargin{4};
-       Chain      = varargin{5};
+       pdb_resi   = varargin{4};
+       r.residue  = varargin{5};
+       Chain      = 'A';
+       
+    case 6
+       pdb_in     = varargin{1};
+       pdb_MMM    = varargin{2};
+       Label      = varargin{3};
+       pdb_resi   = varargin{4};
+       r.residue  = varargin{5};
+       Chain      = varargin{6};
        
     otherwise
         errordlg('The number of inputs was not recognised');
@@ -105,7 +128,7 @@ r.ToBeReplaced = [];
 for k = 1:numel(pdb_in.Model.Atom)
     
     % if atom residue number = rotamer residue, copy atom number across
-    if pdb_in.Model.Atom(k).resSeq == r.residue
+    if pdb_in.Model.Atom(k).resSeq == pdb_resi
         r.ToBeReplaced(k) = pdb_in.Model.Atom(k).AtomSerNo;   
     end
 end
@@ -148,7 +171,7 @@ end
 
 % Then update the residue information to match the PDB
 for k = 1:atomNo
-    r.Atoms_insert(k).resSeq     = r.residue;
+    r.Atoms_insert(k).resSeq     = pdb_resi;
     r.Atoms_insert(k).chainID    = Chain;
     r.Atoms_insert(k).occupancy  = 1;
     r.Atoms_insert(k).tempFactor = 0;

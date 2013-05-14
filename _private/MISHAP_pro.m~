@@ -63,7 +63,7 @@ function varargout = MISHAP_pro(varargin)
 
 % Edit the above text to modify the response to help MISHAP_pro
 
-% Last Modified by GUIDE v2.5 14-May-2013 19:00:25
+% Last Modified by GUIDE v2.5 14-May-2013 17:18:14
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -257,28 +257,15 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-
-function edit_rot1_Callback(hObject, eventdata, handles)
-% hObject    handle to edit_rot1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit_rot1 as text
-%        str2double(get(hObject,'String')) returns contents of edit_rot1 as a double
-
+% --- Executes on selection change in popupmenu_rot1.
+function popupmenu_rot1_Callback(hObject, eventdata, handles)
 
 % --- Executes during object creation, after setting all properties.
-function edit_rot1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit_rot1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
+function popupmenu_rot1_CreateFcn(hObject, eventdata, handles)
 
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 
 
 function edit_save1_Callback(hObject, eventdata, handles)
@@ -401,29 +388,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-
-
-function edit_rot2_Callback(hObject, eventdata, handles)
-% hObject    handle to edit_rot2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit_rot2 as text
-%        str2double(get(hObject,'String')) returns contents of edit_rot2 as a double
-
-
 % --- Executes during object creation, after setting all properties.
-function edit_rot2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit_rot2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
+function popupmenu_rot2_CreateFcn(hObject, eventdata, handles)
 
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 
 
 
@@ -665,7 +635,5 @@ MISHAP.MMM.(['p' partner]) = m;
 set(MISHAP.handles.pro.(['edit_label' partner]),'String',m.Label);
 set(MISHAP.handles.pro.(['edit_resid' partner]),'String',m.Residue);
 set(MISHAP.handles.pro.(['edit_temp' partner]),'String',m.Temp);
-set(MISHAP.handles.pro.(['edit_rot' partner]),'String','1');
-
 
 

@@ -47,8 +47,6 @@ github.com/morganbye/MISHAP         (developer release)
 
 For other useful tools, please see the EPR toolbox
 morganbye.net/eprtoolbox
-or as a direct download from
-sourceforge.net/projects/eprtoolbox
 
 
 CONTACT ME:
