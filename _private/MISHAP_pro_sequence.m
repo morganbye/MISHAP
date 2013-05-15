@@ -71,12 +71,46 @@ editbox = MISHAP.handles.pro.(['edit_seq' num2str(partner)]);
 % global model
 % seq = sprintf('%c%c%c%c%c ',model.structures{structure}(chain).sequence);
 
-seq = sprintf('%c%c%c%c%c ' ,...
-    MISHAP.PDB.model.structures{structure}(chain).sequence);
+% seq = sprintf('%c%c%c%c%c ' ,...
+%    MISHAP.PDB.model.structures{structure}(chain).sequence);
+
+p1StructNum = get(MISHAP.handles.pro.popupmenu_structure1,'Value');
+p1StructOpt = get(MISHAP.handles.pro.popupmenu_structure1,'String');
+if size(p1StructOpt,1) == 1
+    p1StructStr = p1StructOpt;
+else
+    p1StructStr = p1StructOpt{p1StructNum};
+end
+
+p1ChainNum = get(MISHAP.handles.pro.popupmenu_chain1,'Value');
+p1ChainOpt = get(MISHAP.handles.pro.popupmenu_chain1,'String');
+if size(p1ChainOpt,1) == 1
+    p1ChainStr = p1ChainOpt;
+else
+    p1ChainStr = p1ChainOpt{p1ChainNum};
+end
+
+a = MISHAP.PDB.p1.PDB.Sequence.(['Chain' p1ChainStr]);
+
+% Remove all white space
+for k =1:size(a,1)
+   a(k) = regexprep(a(k),' ',''); 
+end
+
+% Invert
+a = a';
+
+b = cell2mat(a);
+
+seq = sprintf('%c%c%c %c%c%c %c%c%c    ', b);
+
+
 
 seq = linewrap(seq,30);
 seq = textwrap(editbox,seq);
 set(editbox,'String',seq);
+
+
 
 
 

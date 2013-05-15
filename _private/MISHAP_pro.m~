@@ -63,7 +63,7 @@ function varargout = MISHAP_pro(varargin)
 
 % Edit the above text to modify the response to help MISHAP_pro
 
-% Last Modified by GUIDE v2.5 14-May-2013 17:18:14
+% Last Modified by GUIDE v2.5 14-May-2013 19:00:25
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -203,7 +203,7 @@ end
 % --- Executes on selection change in pushbutton_loadmmm_file1.
 function pushbutton_loadmmm_file1_Callback(hObject, eventdata, handles)
 
-get_MMM_rotamers('1');
+get_MMM_rotamers('file','1');
 
 
 % --- Executes during object creation, after setting all properties.
@@ -257,15 +257,52 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on selection change in popupmenu_rot1.
-function popupmenu_rot1_Callback(hObject, eventdata, handles)
+
+function edit_rot1_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_rot1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_rot1 as text
+%        str2double(get(hObject,'String')) returns contents of edit_rot1 as a double
+
+global MISHAP
+
+% Get the input
+input = get(MISHAP.handles.pro.edit_rot1,'String');
+
+% Try to convert it to a number
+try
+    rot = str2double(input);
+catch
+    set(MISHAP.handles.pro.edit_rot1,'String','1');
+end
+
+% Check that the number is an allowed rotamer
+if rot > MISHAP.MMM.p1.TotRot
+    set(MISHAP.handles.pro.edit_rot1,'String',char(MISHAP.MMM.p1.TotRot));
+    
+elseif rot < MISHAP.MMM.p1.TotRot
+    set(MISHAP.handles.pro.edit_rot1,'String','1');
+
+end
+
+
+
+
 
 % --- Executes during object creation, after setting all properties.
-function popupmenu_rot1_CreateFcn(hObject, eventdata, handles)
+function edit_rot1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_rot1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
 
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
 
 
 function edit_save1_Callback(hObject, eventdata, handles)
@@ -345,7 +382,7 @@ end
 % --- Executes on button press in pushbutton_loadmmm_file2.
 function pushbutton_loadmmm_file2_Callback(hObject, eventdata, handles)
 
-get_MMM_rotamers('2');
+get_MMM_rotamers('file','2');
 
 
 % --- Executes on button press in pushbutton_loadmmm_mmm2.
@@ -388,12 +425,38 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
+
+
+function edit_rot2_Callback(hObject, eventdata, handles)
+
+global MISHAP
+
+% Get the input
+input = get(MISHAP.handles.pro.edit_rot2,'String');
+
+% Try to convert it to a number
+try
+    rot = str2double(input);
+catch
+    set(MISHAP.handles.pro.edit_rot2,'String','1');
+end
+
+% Check that the number is an allowed rotamer
+if rot > MISHAP.MMM.p2.TotRot
+    set(MISHAP.handles.pro.edit_rot2,'String',char(MISHAP.MMM.p2.TotRot));
+    
+elseif rot < MISHAP.MMM.p2.TotRot
+    set(MISHAP.handles.pro.edit_rot2,'String','1');
+
+end
+
 % --- Executes during object creation, after setting all properties.
-function popupmenu_rot2_CreateFcn(hObject, eventdata, handles)
+function edit_rot2_CreateFcn(hObject, eventdata, handles)
 
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
 
 
 
@@ -417,22 +480,6 @@ end
 %  |____/ \___/ \__|\__\___/|_| |_| |_|
                                      
 
-% 
-% % --- Executes on button press in button_save_both.
-% function button_save_both_Callback(hObject, eventdata, handles)
-% 
-% global MISHAP
-% 
-% s1 = get(MISHAP.handles.pro.popupmenu_structure1,'Value');
-% s2 = get(MISHAP.handles.pro.popupmenu_structure2,'Value');
-% 
-% c1 = get(MISHAP.handles.pro.popupmenu_chain1,'Value');
-% c2 = get(MISHAP.handles.pro.popupmenu_chain2,'Value');
-% 
-% MISHAP_pro_wr_PDB(s1,c1);
-% MISHAP_pro_wr_PDB(s2,c2);
-
-
 function edit_output_Callback(hObject, eventdata, handles)
 
 
@@ -444,19 +491,26 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in pushbutton_RUN.
-function pushbutton_RUN_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton_RUN (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-
 % --- Executes on button press in pushbutton_output.
 function pushbutton_output_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton_output (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+
+global MISHAP
+
+current = get(MISHAP.handles.pro.edit_output,'String');
+
+new = uigetdir(current,'Select output location');
+
+set(MISHAP.handles.pro.edit_output,'String',new);
+
+
+
+% --- Executes on button press in pushbutton_RUN.
+function pushbutton_RUN_Callback(hObject, eventdata, handles)
+
+MISHAP_pro_RUN;
+
+
+
 
 
 
@@ -494,11 +548,6 @@ delete(hObject);
 %                                               
 %                                               
 
-
-
-
-
-
 function get_PDB(source,partner)
 
 global MISHAP
@@ -513,28 +562,28 @@ switch source
             return
         end
         
-        MISHAP.PDB.(['p' partner 'address']) = fullfile(directory, file);
-        MISHAP.PDB.(['p' partner 'source'])  = 'file';
+        MISHAP.PDB.(['p' partner]).address = fullfile(directory, file);
+        MISHAP.PDB.(['p' partner]).source  = 'file';
         
     case 'web'
         
-        MISHAP.PDB.(['p' partner 'address'])    = questdlg(...
+        MISHAP.PDB.(['p' partner]).address    = questdlg(...
             'Enter PDB code (4 letter code) or full web address:',...
             'Get PDB from online source');
-        MISHAP.PDB.(['p' partner 'source']) = 'web';
+        MISHAP.PDB.(['p' partner]).source = 'web';
         
 end
 
 % Load PDB
-MISHAP.PDB.(['p' partner 'PDB']) = ...
-    MISHAP_pdbimport((MISHAP.PDB.(['p' partner 'address'])));
+MISHAP.PDB.(['p' partner]).PDB = ...
+    MISHAP_pdbimport((MISHAP.PDB.(['p' partner]).address));
 
 
-
-% Update structure - TO DO LATER
-if isfield(MISHAP.PDB.(['p' partner 'PDB']),'Header')
+% Update structure
+if isfield(MISHAP.PDB.(['p' partner]).PDB,'Header')
+    
     % FUTURE PROOFING - if only one structure
-    pdb_code = MISHAP.PDB.(['p' partner 'PDB']).Header{1}(63:68);
+    pdb_code = MISHAP.PDB.(['p' partner]).PDB.Header{1}(63:67);
         
     set(MISHAP.handles.pro.(['popupmenu_structure' partner]),'String',pdb_code);
     set(MISHAP.handles.pro.(['popupmenu_structure' partner]),'Value',1);
@@ -545,9 +594,9 @@ else
 end
 
 % Update chain
-if isfield(MISHAP.PDB.(['p' partner 'PDB']),'Terminal')
-    for k = 1:size(MISHAP.PDB.(['p' partner 'PDB']).Terminal,1)
-        scanned = textscan(MISHAP.PDB.(['p' partner 'PDB']).Terminal(k,1:end),'%s');
+if isfield(MISHAP.PDB.(['p' partner]).PDB,'Terminal')
+    for k = 1:size(MISHAP.PDB.(['p' partner]).PDB.Terminal,1)
+        scanned = textscan(MISHAP.PDB.(['p' partner]).PDB.Terminal(k,1:end),'%s');
         chain(k)   = scanned{1}(4);
     end
     
@@ -556,15 +605,14 @@ if isfield(MISHAP.PDB.(['p' partner 'PDB']),'Terminal')
     
 end
 
-% % Update sequence box
-% if isfield(MISHAP.PDB.(['p' partner 'PDB']),'Sequence')
-%     
-%     
-%     MISHAP.PDB.(['p' partner 'PDB']).Sequence =  ;
-% else
-%     % Find sequence from PDB atoms
-%     
-% end
+% Update sequence box
+if isfield(MISHAP.PDB.(['p' partner]).PDB,'Sequence')
+    
+    MISHAP.PDB.(['p' partner]).PDB.Sequence =  ;
+else
+    % Find sequence from PDB atoms
+    
+end
 
 % update_sequence;
 
@@ -624,16 +672,34 @@ MISHAP_pro_sequence(1,s1,c1);
 MISHAP_pro_sequence(2,s2,c2);
 
 
-function get_MMM_rotamers(partner)
+function get_MMM_rotamers(source,partner)
 
 global MISHAP
 
-MISHAP.MMM.(['p' partner]) = m;
+switch source
+    case 'file'
+               
+        [MISHAP.MMM.(['p' partner]).address,...
+            MISHAP.MMM.(['p' partner]).structure,...
+            MISHAP.MMM.(['p' partner]).ID,...
+            MISHAP.MMM.(['p' partner]).Chain,...
+            MISHAP.MMM.(['p' partner]).Model,...
+            MISHAP.MMM.(['p' partner]).Residue,...
+            MISHAP.MMM.(['p' partner]).Label,...
+            MISHAP.MMM.(['p' partner]).Temp,...
+            MISHAP.MMM.(['p' partner]).TotRot] ...
+            = MISHAP_pdbimportMMM;
+        
+        set(MISHAP.handles.pro.(['edit_label' partner]),...
+            'String',MISHAP.MMM.(['p' partner]).Label);
+        set(MISHAP.handles.pro.(['edit_resid' partner]),...
+            'String',MISHAP.MMM.(['p' partner]).Residue);
+        set(MISHAP.handles.pro.(['edit_temp' partner]),...
+            'String',MISHAP.MMM.(['p' partner]).Temp);
+        set(MISHAP.handles.pro.(['edit_rot' partner]),...
+            'String','1');
 
-[m.structure,m.ID,m.Chain,m.Model,m.Residue,m.Label,m.Temp] = MISHAP_pdbimportMMM;
 
-set(MISHAP.handles.pro.(['edit_label' partner]),'String',m.Label);
-set(MISHAP.handles.pro.(['edit_resid' partner]),'String',m.Residue);
-set(MISHAP.handles.pro.(['edit_temp' partner]),'String',m.Temp);
-
-
+    case 'MMM'
+        
+end

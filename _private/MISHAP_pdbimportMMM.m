@@ -1,4 +1,4 @@
-function [structure,ID,Chain,Model,Residue,Label,Temp] = MISHAP_pdbimportMMM(varargin)
+function [path,structure,ID,Chain,Model,Residue,Label,Temp,TotRot] = MISHAP_pdbimportMMM(varargin)
 
 % PDBIMPORT loads a MMM rotamers PDB file into MATLAB
 %
@@ -25,6 +25,8 @@ function [structure,ID,Chain,Model,Residue,Label,Temp] = MISHAP_pdbimportMMM(var
 %    input1     - a local path to a file
 %
 % Outputs:
+%    output1    - path
+%                   the file location
 %    output1    - a structure containing all the PDB information
 %
 %    output2    - ID
@@ -39,6 +41,8 @@ function [structure,ID,Chain,Model,Residue,Label,Temp] = MISHAP_pdbimportMMM(var
 %                   the type of label added - R1A/IA1
 %    output7    - Temp
 %                   the labelling temperature - 175/298 K
+%    output8    - Total Rotamers
+%                   the total number of residues
 %
 % Example:
 %    proteinA = pdbimport
@@ -157,7 +161,7 @@ ID =        rotamerInfo(1);
 Chain =     rotamerInfo(2);
 Model =     rotamerInfo{3};
 Residue =   rotamerInfo{4};
-Label =     rotamerInfo(5);
+Label =     rotamerInfo{5};
 Temp =      rotamerInfo{6};
 
 
@@ -197,6 +201,8 @@ for k = 1:numel(Atoms.Preformated)
     structure.Model.Atom(k).element   = cell2mat(Atoms.Preformated{k}(12));
 end
 
+% Output, last atom's residue number
+TotRot = structure.Model.Atom(k).resSeq;
 
 % CONNECTIVITY
 % ===================================================
@@ -205,7 +211,7 @@ end
 structure.Connectivity = char(structure.Connectivity(~cellfun(@isempty,structure.Connectivity)));
 
 
-switch Label{1}
+switch Label
     case 'R1A'
         % MMM rotamer file ~ 100 rotamers each with 36 atoms
         for k = 1:size(structure.Connectivity,1)/36
