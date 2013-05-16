@@ -386,9 +386,13 @@ for k = 1:numel(Atoms.Preformated)
     structure.Model.Atom(k).X         = str2num(Atoms.Preformated{k}{1}{7});
     structure.Model.Atom(k).Y         = str2num(Atoms.Preformated{k}{1}{8});
     structure.Model.Atom(k).Z         = str2num(Atoms.Preformated{k}{1}{9});
-    structure.Model.Atom(k).occupancy = str2num(Atoms.Preformated{k}{1}{10});
-    structure.Model.Atom(k).tempFactor= str2num(Atoms.Preformated{k}{1}{11});
-    structure.Model.Atom(k).element   = Atoms.Preformated{k}{1}{12};
+    
+    % We need to remove the last 3 otherwise we cant reopen PDBs created by
+    % MISHAP. Which would prohibit putting 2 labels on one protein
+    
+%    structure.Model.Atom(k).occupancy = str2num(Atoms.Preformated{k}{1}{10});
+%    structure.Model.Atom(k).tempFactor= str2num(Atoms.Preformated{k}{1}{11});
+%    structure.Model.Atom(k).element   = Atoms.Preformated{k}{1}{12};
 end
 
 clear structure.Atom

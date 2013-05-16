@@ -531,6 +531,8 @@ function figure1_CloseRequestFcn(hObject, eventdata, handles)
 % Update variables
 global MISHAP
 MISHAP.pro = 0;
+rmfield(MISHAP,'PDB');
+rmfield(MISHAP,'MMM');
 
 % Close figure
 delete(hObject);
@@ -610,6 +612,19 @@ if isfield(MISHAP.PDB.(['p' partner]).PDB,'Sequence')
     
 else
     % Find sequence from PDB atoms
+    for k = 1:numel(MISHAP.PDB.(['p' partner]).PDB.Model.Atom)
+        a(k) = MISHAP.PDB.(['p' partner]).PDB.Model.Atom(k).resSeq;
+    end
+    
+    for k = 1:a(end)
+        [~,m,~] = unique(a,'first');
+    end
+    
+    for k = 1:numel(m)
+        seq{k} = MISHAP.PDB.(['p' partner]).PDB.Model.Atom(m(k)).resName;
+    end
+    
+    MISHAP.PDB.(['p' partner]).PDB.Sequence.ChainA = seq';
     
 end
 
@@ -654,21 +669,6 @@ if isfield(model,'structure_ids')
     update_sequence;
     
 end
-
-function update_sequence
-
-% Update the sequence edit boxes
-
-global MISHAP
-
-s1 = get(MISHAP.handles.pro.popupmenu_structure1,'Value');
-s2 = get(MISHAP.handles.pro.popupmenu_structure2,'Value');
-
-c1 = get(MISHAP.handles.pro.popupmenu_chain1,'Value');
-c2 = get(MISHAP.handles.pro.popupmenu_chain2,'Value');
-
-MISHAP_pro_sequence(1,s1,c1);
-MISHAP_pro_sequence(2,s2,c2);
 
 
 function get_MMM_rotamers(source,partner)
