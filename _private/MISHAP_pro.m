@@ -1,19 +1,12 @@
 function varargout = MISHAP_pro(varargin)
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_pro - Main MISHAP protein generator window
 %
-%   MISHAP
-%
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
+%   MISHAP_pro
 %
 % Inputs:       n/a
 %
-% Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+% Outputs:      n/a
 %
 % Example:
 %    see http://morganbye.net/mishap
@@ -54,7 +47,7 @@ function varargout = MISHAP_pro(varargin)
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
 % Website:      http://www.morganbye.net/mishap/
-% May 2013;     Last revision: 05-May-2013
+% May 2013;     Last revision: 16-May-2013
 %
 % Version history:
 % May 13        Major write
@@ -97,7 +90,7 @@ function MISHAP_pro_OpeningFcn(hObject, eventdata, handles, varargin)
 handles.output = hObject;
 
 % Name the figure
-set(gcf,'Name','MISHAP - v13.06 - ALPHA - PDB creator')
+set(gcf,'Name','MISHAP - v13.06 - BETA - PDB creator')
 
 global MISHAP
 MISHAP.handles.pro = handles;
@@ -168,6 +161,7 @@ get_PDB('web','1');
 % --- Executes on selection change in popupmenu_structure1.
 function popupmenu_structure1_Callback(hObject, eventdata, handles)
 
+MISHAP_pro_sequence('1')
 
 % --- Executes during object creation, after setting all properties.
 function popupmenu_structure1_CreateFcn(hObject, eventdata, handles)
@@ -179,8 +173,7 @@ end
 % --- Executes on selection change in popupmenu_chain1.
 function popupmenu_chain1_Callback(hObject, eventdata, handles)
 
-update_sequence;
-
+MISHAP_pro_sequence('1')
 
 % --- Executes during object creation, after setting all properties.
 function popupmenu_chain1_CreateFcn(hObject, eventdata, handles)
@@ -345,6 +338,8 @@ function pushbutton_loadpdb_mmm2_Callback(hObject, eventdata, handles)
 % --- Executes on selection change in popupmenu_structure2.
 function popupmenu_structure2_Callback(hObject, eventdata, handles)
 
+MISHAP_pro_sequence('2')
+
 
 % --- Executes during object creation, after setting all properties.
 function popupmenu_structure2_CreateFcn(hObject, eventdata, handles)
@@ -356,6 +351,9 @@ end
 
 % --- Executes on selection change in popupmenu_chain2.
 function popupmenu_chain2_Callback(hObject, eventdata, handles)
+
+MISHAP_pro_sequence('2')
+
 
 % --- Executes during object creation, after setting all properties.
 function popupmenu_chain2_CreateFcn(hObject, eventdata, handles)
@@ -567,9 +565,11 @@ switch source
         
     case 'web'
         
-        MISHAP.PDB.(['p' partner]).address    = questdlg(...
+        MISHAP.PDB.(['p' partner]).address    = inputdlg(...
             'Enter PDB code (4 letter code) or full web address:',...
             'Get PDB from online source');
+        MISHAP.PDB.(['p' partner]).address = ...
+            MISHAP.PDB.(['p' partner]).address{1};
         MISHAP.PDB.(['p' partner]).source = 'web';
         
 end
@@ -613,9 +613,7 @@ else
     
 end
 
-MISHAP_pro_sequence;
-
-% update_sequence;
+MISHAP_pro_sequence(partner);
 
 
 function get_PDB_from_MMM

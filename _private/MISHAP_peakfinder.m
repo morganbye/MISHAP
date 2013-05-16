@@ -1,13 +1,8 @@
 function MISHAP_peakfinder
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_peakfinder - find peaks within the distance distribution
 %
-%   MISHAP
-%
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
+%   MISHAP_peakfinder
 %
 % This script is a heavily modified version of fpeak available from the
 % MatLab file exchange:
@@ -52,7 +47,7 @@ function MISHAP_peakfinder
 %                      |___/                   |___/                       
 %
 %
-% M. Bye v13.05
+% M. Bye v13.06
 %
 % Author:       Morgan Bye
 % Work address: Henry Wellcome Unit for Biological EPR
@@ -60,9 +55,11 @@ function MISHAP_peakfinder
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
 % Website:      http://www.morganbye.net/mishap/
-% Apr 2013;     Last revision: 15-April-2013
+% May 2013;     Last revision: 16-May-2013
 %
 % Version history:
+% May 13        Help added
+%
 % Mar 13        Initial release
 
 global MISHAP

@@ -1,0 +1,25 @@
+>>> DEER analysis of data set: 1304-X-4PEL-050-E9-S30S80 <<<
+- Tikhonov regularization with L curve computation -
+
+### Description of data set ###
+Source file:
+/media/raid/Spectra/13-PELDOR/1304-X-4PEL-050-E9-S30S80.DTA
+Constant-time DEER. 490 complex data points
+
+### Pre-processing ###
+Time shift: 100 ns
+Cutoff at : 3250 ns
+Phase correction:   6.0�
+Homogeneous 3 dimensional background correction
+Starting at : 948 ns
+r.m.s. error of baseline fit:  0.008082
+Background density:  0.159
+
+### Distance distribution ###
+Number of spins: 1.35
+r.m.s. error of fit:  0.006982
+Range of interest from  1.50 to  8.00 nm
+Mean distance  <r>  3.90 nm
+Std. dev. sigma(r)  0.73 nm
+3rd moment          0.13 nm
+Regularization parameter: 100

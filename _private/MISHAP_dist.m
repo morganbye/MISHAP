@@ -1,19 +1,12 @@
 function varargout = MISHAP_dist(varargin)
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_dist - Main MISHAP distance distribution window
 %
-%   MISHAP
-%
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
+%   MISHAP_dist
 %
 % Inputs:       n/a
 %
-% Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+% Outputs:      n/a
 %
 % Example:
 %    see http://morganbye.net/mishap
@@ -46,7 +39,7 @@ function varargout = MISHAP_dist(varargin)
 %                      |___/                   |___/                       
 %
 %
-% M. Bye v13.05
+% M. Bye v13.06
 %
 % Author:       Morgan Bye
 % Work address: Henry Wellcome Unit for Biological EPR
@@ -54,9 +47,11 @@ function varargout = MISHAP_dist(varargin)
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
 % Website:      http://www.morganbye.net/mishap/
-% Apr 2013;     Last revision: 15-April-2013
+% May 2013;     Last revision: 16-May-2013
 %
 % Version history:
+% May 13        Minor updates for beta release
+%
 % Mar 13        Initial release
 
 % Edit the above text to modify the response to help MISHAP_dist
@@ -95,7 +90,7 @@ function MISHAP_dist_OpeningFcn(hObject, eventdata, handles, varargin)
 handles.output = hObject;
 
 % Name the figure
-set(gcf,'Name','MISHAP - v13.06 - ALPHA - Distance distributions')
+set(gcf,'Name','MISHAP - v13.06 - BETA - Distance distributions')
 movegui('east');
 
 % Create MISHAP global variables
@@ -162,7 +157,7 @@ set(handles.text_edit_dd,'String','--- No distance loaded ---');
 set(handles.uitable,'Data', {'A' '-' '-' 'IA1' 'B' '-' '-' 'IA1' 'x.xx' 'x.xx'})
 
 % Set output text field
-out = [pwd '/ambig.tbl'];
+out = [pwd '/unambig.tbl'];
 set(handles.text_output_path,'String',out);
 MISHAP.outpath = out;
 
@@ -285,7 +280,7 @@ MISHAP.pro = 1;
 MISHAP_pro;
 
 % If PDB has not been used before launch help
-if MISHAP.pref.PDB_creator == 0
+if ~isfield(MISHAP.pref,'PDB_creator')
     web([MISHAP.pref.inst_dir '/_private/html/PDB_creator.html'],'-helpbrowser')
     
     % Update preferences file so help is not shown again
@@ -406,7 +401,7 @@ global MISHAP
 {'*.tbl',...
  'HADDOCK parameter file (*.tbl)';
  '*.*',  'All Files (*.*)'},...
- 'Save as',['ambig_' datestr(now,'yyyymmdd-HH:MM')]);
+ 'Save as',['unambig_' datestr(now,'yyyymmdd-HH:MM')]);
 
 if isequal(fname,0)
     set(MISHAP.handles.dist.text_output_path , 'String', MISHAP.outpath);

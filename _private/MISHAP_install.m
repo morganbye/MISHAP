@@ -7,13 +7,9 @@ function MISHAP_install
 % An open source program, for the conversion of MMM models to a format
 % suitable for submission to HADDOCK.
 %
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
-%
 % Inputs:       n/a
 %
-% Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+% Outputs:      n/a
 %
 % Example:
 %    see http://morganbye.net/mishap

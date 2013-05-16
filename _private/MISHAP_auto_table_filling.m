@@ -1,19 +1,13 @@
 function MISHAP_auto_table_filling
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_AUTO_TABLE_FILLING - automatically fills the data table in the
+% MISHAP distance distribution window
 %
-%   MISHAP
-%
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
+%   MISHAP_AUTO_TABLE_FILLING
 %
 % Inputs:       n/a
 %
-% Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+% Outputs:      handles.uitable
 %
 % Example:
 %    see http://morganbye.net/mishap

@@ -1,19 +1,13 @@
 function MISHAP_dist_plot
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_DIST_PLOT - plots the distance distribution
 %
-%   MISHAP
-%
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
+%   MISHAP_DIST_PLOT
 %
 % Inputs:       n/a
 %
 % Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+%    output1    - MISHAP.handles.dd.axes_dd
 %
 % Example:
 %    see http://morganbye.net/mishap
@@ -118,8 +112,10 @@ switch get(MISHAP.handles.dist.menu_dd,'Value')
         % X axis is 1.5 (lowest from DA/MMM) to highest peak + 5nm
         % Y axis is 0 to max data point + 0.001
         
+        bigPeak =  max(MISHAP.data.dd.peaks(:,2));
+                
         axis(MISHAP.handles.dist.axes_dd,...
-            [1.5 MISHAP.data.dd.peaks(end,1)+5 ...
+            [1.5 MISHAP.data.dd.peaks(bigPeak,1)+5 ...
             0 1.05])
         
     case 2

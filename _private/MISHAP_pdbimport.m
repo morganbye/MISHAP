@@ -1,6 +1,6 @@
 function structure = MISHAP_pdbimport(varargin)
 
-% PDBIMPORT loads a PDB file into MATLAB
+% MISHAP_PDBIMPORT loads a PDB file into MATLAB
 %
 %   PDBIMPORT ()
 %   PDBIMPORT('/path/to/file.pdb')
@@ -16,11 +16,6 @@ function structure = MISHAP_pdbimport(varargin)
 % PDBIMPORT also can fetch files directly from rcsb.org/pdb (pdb.org) if
 % the PDB accession number is known, it should be a 4 digit aplha-numeric
 % code.
-%
-% To save the fetched PDB as a structure PDBIMPORT should always be run
-% with an output.
-%
-% PDBIMPORT supports the loading of files with more than one chain.
 %
 % Inputs:
 %    input0     - a GUI file selector
@@ -42,7 +37,7 @@ function structure = MISHAP_pdbimport(varargin)
 %    proteinB = pdbimport('1QTJ')
 %                   load PDB: 1QTJ directly from pdb.org
 %
-% Other m-files required:   BrukerRead
+% Other m-files required:   n/a
 %
 % Subfunctions:             none
 %
@@ -51,6 +46,14 @@ function structure = MISHAP_pdbimport(varargin)
 %
 % See also: EPRTOOLBOX PDBSPLITTER
 
+%              __  __ _____  _____ _    _          _____  
+%             |  \/  |_   _|/ ____| |  | |   /\   |  __ \ 
+%             | \  / | | | | (___ | |__| |  /  \  | |__) |
+%             | |\/| | | |  \___ \|  __  | / /\ \ |  ___/ 
+%             | |  | |_| |_ ____) | |  | |/ ____ \| |     
+%             |_|  |_|_____|_____/|_|  |_/_/    \_\_|     
+%                                             
+%                                by                
 %                                        _                             _   
 %                                       | |                           | |  
 %  _ __ ___   ___  _ __ __ _  __ _ _ __ | |__  _   _  ___   _ __   ___| |_ 
@@ -68,14 +71,15 @@ function structure = MISHAP_pdbimport(varargin)
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
 % Website:      http://www.morganbye.net/mishap/
-% May 2013;     Last revision: 06-May-2013
+% May 2013;     Last revision: 16-May-2013
 %
 % Approximate coding time of file:
 %               12 hours
 %
 %
 % Version history:
-% May 13        > Removed messaging to command window
+% May 13        > Branched file to MISHAP
+%               > Removed messaging to command window
 %               > Handles PDBs without a sequence
 %
 % Aug 12        > After initial load, text is split using the \t delimiter
@@ -183,9 +187,7 @@ switch nargin
             
             % Put together address to download
             pdbaddress = ['http://www.rcsb.org/pdb/downloadFile.do?fileFormat=pdb&compression=NO&structureId=' varargin{1}];
-            
-            disp('Fetching PDB...')
-            
+                        
             file = urlread(pdbaddress);              % Get file
             
             file = strrep(file,'&amp;','&');         % Replace HTML "&" into MATLAB format
@@ -193,12 +195,8 @@ switch nargin
             if isempty(strfind(file,'HEADER'))       % Test that something has been returned
                 error('No PDB matching your input could be imported.')
             end
-            
-            disp('PDB found! Loading...')
-            
+                        
             fullPDB = textscan(file,'%s','Delimiter','\t');
-            
-            fclose(fid);
         
         else
             error('\nFile does not exist or the URL was not recognised')

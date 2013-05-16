@@ -2,10 +2,10 @@ function MISHAP_pdbexport(varargin)
 
 % MISHAP_PDBEXPORT exports a PDB-like structure in MATLAB to a .pdb file
 %
-%   PDBEXPORT (myProtein)
-%   PDBEXPORT (myProtein,'/path/to/file/myProtein.pdb')
+%   MISHAP_PDBEXPORT (myProtein)
+%   MISHAP_PDBEXPORT (myProtein,'/path/to/file/myProtein.pdb')
 %
-% PDBEXPORT allows a MatLab PDB structure created with MISHAP's PDB
+% MISHAP_PDBEXPORT allows a MatLab PDB structure created with MISHAP's PDB
 % functions to be saved out from MATLAB to a .pdb file. By default the save
 % location is selected using a graphical user interface, but can also be
 % done using a command line method.
@@ -22,7 +22,7 @@ function MISHAP_pdbexport(varargin)
 %                   not want to use the GUI to select a location
 %
 % Outputs:
-%    output1    - a file
+%    output1    - a PDB file
 %                   
 % Example: 
 %    PDBEXPORT(myProtein)
@@ -37,7 +37,14 @@ function MISHAP_pdbexport(varargin)
 %
 % See also: EPRTOOLBOX MISHAP MISHAP_PDBIMPORT
 
-
+%              __  __ _____  _____ _    _          _____  
+%             |  \/  |_   _|/ ____| |  | |   /\   |  __ \ 
+%             | \  / | | | | (___ | |__| |  /  \  | |__) |
+%             | |\/| | | |  \___ \|  __  | / /\ \ |  ___/ 
+%             | |  | |_| |_ ____) | |  | |/ ____ \| |     
+%             |_|  |_|_____|_____/|_|  |_/_/    \_\_|     
+%                                             
+%                                by                
 %                                        _                             _   
 %                                       | |                           | |  
 %  _ __ ___   ___  _ __ __ _  __ _ _ __ | |__  _   _  ___   _ __   ___| |_ 

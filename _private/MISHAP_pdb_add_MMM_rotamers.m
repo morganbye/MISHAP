@@ -1,13 +1,16 @@
 function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
 
-% MISHAP_PDB_ADD_MMM_ROTAMERS This script takes a PDB structure in memory and adds a
-%       MMM rotamer structure to it
+% MISHAP_PDB_ADD_MMM_ROTAMERS This script takes a PDB structure in memory 
+%           and adds a MMM rotamer structure to it
 % 
 %
 % Syntax:   PDB out = MISHAP_PDB_ADD_MMM_ROTAMERS(...
 %               PDB structure, ...
 %               MMM structure, ...
-%               MMM rotamer number)
+%               MMM label,...
+%               PDB residue,...
+%               MMM rotamer number,...
+%               PDB chain)
 %
 % Inputs:
 %    input1 - PDB structure
@@ -40,6 +43,14 @@ function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
 %
 % See also: PDBIMPORT PDBEXPORT MMM
 
+%              __  __ _____  _____ _    _          _____  
+%             |  \/  |_   _|/ ____| |  | |   /\   |  __ \ 
+%             | \  / | | | | (___ | |__| |  /  \  | |__) |
+%             | |\/| | | |  \___ \|  __  | / /\ \ |  ___/ 
+%             | |  | |_| |_ ____) | |  | |/ ____ \| |     
+%             |_|  |_|_____|_____/|_|  |_/_/    \_\_|     
+%                                             
+%                                by                
 %                                        _                             _   
 %                                       | |                           | |  
 %  _ __ ___   ___  _ __ __ _  __ _ _ __ | |__  _   _  ___   _ __   ___| |_ 

@@ -1,19 +1,15 @@
 function MISHAP_RUN
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_RUN - Creates the distance distribution parameters file
 %
-%   MISHAP
+%   MISHAP_RUN
 %
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
 %
 % Inputs:       n/a
 %
 % Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+%    output1    - A distance restraints file
+%                   default - unambig.tbl
 %
 % Example:
 %    see http://morganbye.net/mishap
@@ -46,7 +42,7 @@ function MISHAP_RUN
 %                      |___/                   |___/                       
 %
 %
-% M. Bye v13.05
+% M. Bye v13.06
 %
 % Author:       Morgan Bye
 % Work address: Henry Wellcome Unit for Biological EPR
@@ -54,10 +50,10 @@ function MISHAP_RUN
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
 % Website:      http://www.morganbye.net/mishap/
-% Apr 2013;     Last revision: 15-April-2013
+% May 2013;     Last revision: 16-May-2013
 %
 % Version history:
-% Mar 13        Initial release
+% May 13        Initial release
 
 % Variables
 global MISHAP
@@ -93,7 +89,7 @@ fprintf('============================================\n');
 fprintf('STARTING Distance Constraint Creation\n');
 fprintf('============================================\n\n');
 fprintf('MISHAP version    - 13.06\n');
-fprintf('Release date      - 15th May 2013\n\n');
+fprintf('Release date      - 16th May 2013\n\n');
 
 switch computer
     case 'PCWIN'
@@ -153,8 +149,8 @@ if strcmp(table{1,9},'x.xx') || strcmp(table{1,10},'x.xx')
    return
 end
 
-fprintf('Checking completed successfully\n\n');
-fprintf('Setting label variables...\n');
+fprintf('Checking complete\n\n');
+fprintf('Setting label variables...\n\n');
 fprintf('Saving file...\n');
 
 for k = 1:NoDistances
@@ -217,10 +213,10 @@ for k = 1:NoDistances
     
 end
 
-fprintf('File saved as\n%s\n',output);
-
 % Close file from memory
 fclose(file);
+
+fprintf('File saved as\n%s\n',MISHAP.outpath);
 
 fprintf('\n============================================\n\n');
 

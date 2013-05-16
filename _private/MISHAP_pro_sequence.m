@@ -1,19 +1,20 @@
-function seq = MISHAP_pro_sequence(partner,structure,chain)
+function MISHAP_pro_sequence(partner)
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_pro_sequence - Generate amino acid sequence in PDB window
 %
-%   MISHAP
+%   MISHAP_pro_sequence(partner)
 %
 % An open source program, for the conversion of MMM models to a format
 % suitable for submission to HADDOCK.
 %
 % This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
 %
-% Inputs:       n/a
+% Inputs:       
+%    input1     - partner
+%                   '1' or '2' for the binding partners
 %
 % Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+%    output1    - updated amino acid sequence 
 %
 % Example:
 %    see http://morganbye.net/mishap
@@ -46,7 +47,7 @@ function seq = MISHAP_pro_sequence(partner,structure,chain)
 %                      |___/                   |___/                       
 %
 %
-% M. Bye v13.04
+% M. Bye v13.06
 %
 % Author:       Morgan Bye
 % Work address: Henry Wellcome Unit for Biological EPR
@@ -54,56 +55,67 @@ function seq = MISHAP_pro_sequence(partner,structure,chain)
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
 % Website:      http://www.morganbye.net/mishap/
-% Mar 2013;     Last revision: 22-March-2013
+% May 2013;     Last revision: 16-May-2013
 %
 % Version history:
+% May 13        Fix for non file loads
+%
 % Mar 13        Initial release
 
 % Load variables
-% global model
 global MISHAP
 
-editbox = MISHAP.handles.pro.(['edit_seq' num2str(partner)]);
+p = num2str(partner);
+editbox = MISHAP.handles.pro.(['edit_seq' p]);
 
-% With chains and structures found show sequence preview
-%
-% From MMM
-% global model
-% seq = sprintf('%c%c%c%c%c ',model.structures{structure}(chain).sequence);
 
-% seq = sprintf('%c%c%c%c%c ' ,...
-%    MISHAP.PDB.model.structures{structure}(chain).sequence);
 
-p1StructNum = get(MISHAP.handles.pro.popupmenu_structure1,'Value');
-p1StructOpt = get(MISHAP.handles.pro.popupmenu_structure1,'String');
-if size(p1StructOpt,1) == 1
-    p1StructStr = p1StructOpt;
-else
-    p1StructStr = p1StructOpt{p1StructNum};
+switch MISHAP.PDB.(['p' p]).source
+    case 'MMM'
+        % FUTURE PROOFING
+        
+        % global model
+        % seq = sprintf('%c%c%c%c%c ',model.structures{structure}(chain).sequence);
+    
+    % Cannot use:
+    % case 'file' || 'web'
+    otherwise
+        
+        StructNum = get(MISHAP.handles.pro.(['popupmenu_structure' p]),'Value');
+        StructOpt = get(MISHAP.handles.pro.(['popupmenu_structure' p]),'String');
+        
+        if size(StructOpt,1) == 1
+            StructStr = StructOpt;
+        else
+            StructStr = StructOpt{StructNum};
+        end
+        
+        ChainNum = get(MISHAP.handles.pro.(['popupmenu_chain' p]),'Value');
+        ChainOpt = get(MISHAP.handles.pro.(['popupmenu_chain' p]),'String');
+        
+        if size(ChainOpt,1) == 1
+            ChainStr = ChainOpt;
+        else
+            ChainStr = ChainOpt{ChainNum};
+        end
+        
+        a = MISHAP.PDB.(['p' p]).PDB.Sequence.(['Chain' ChainStr]);
+        
+        % Remove all white space
+        for k =1:size(a,1)
+            a(k) = regexprep(a(k),' ','');
+        end
+        
+        % Invert
+        a = a';
+        
+        b = cell2mat(a);
+        
+        seq = sprintf('%c%c%c %c%c%c %c%c%c    ', b);
+        
+        
+    
 end
-
-p1ChainNum = get(MISHAP.handles.pro.popupmenu_chain1,'Value');
-p1ChainOpt = get(MISHAP.handles.pro.popupmenu_chain1,'String');
-if size(p1ChainOpt,1) == 1
-    p1ChainStr = p1ChainOpt;
-else
-    p1ChainStr = p1ChainOpt{p1ChainNum};
-end
-
-a = MISHAP.PDB.p1.PDB.Sequence.(['Chain' p1ChainStr]);
-
-% Remove all white space
-for k =1:size(a,1)
-   a(k) = regexprep(a(k),' ',''); 
-end
-
-% Invert
-a = a';
-
-b = cell2mat(a);
-
-seq = sprintf('%c%c%c %c%c%c %c%c%c    ', b);
-
 
 
 seq = linewrap(seq,30);

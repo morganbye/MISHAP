@@ -1,26 +1,22 @@
 function MISHAP_pro_RUN
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP - PDB window RUN function. Generates PDBs with MMM rotamer
+% attached.
 %
-%   MISHAP
-%
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
+%   MISHAP_pro_RUN
 %
 % Inputs:       n/a
 %
 % Outputs:
 %    output1    - PDB(/s)
-%    output2    - 
 %
 % Example:
 %    see http://morganbye.net/mishap
 %
 % Other m-files required:   /MISHAP folder
 %
-% Subfunctions:             none
+% Subfunctions:             MISHAP_pdb_add_MMM_rotamer
+%                           MISHAP_pdbexport
 %
 % MAT-files required:       none
 %
@@ -114,22 +110,22 @@ outpath = get(MISHAP.handles.pro.edit_output ,'String');
 
 % Check for both the PDB and MMM file have been loaded
 
-if isfield(MISHAP.PDB,'p1PDB') && isfield(MISHAP.MMM,'p1')
+if isfield(MISHAP.PDB,'p1') && isfield(MISHAP.MMM,'p1')
     fprintf('============================================\n');
     fprintf('Binding partner 1\n');
     fprintf('============================================\n\n');
     
-    if isfield(MISHAP.PDB,'p1PDB')
+    if isfield(MISHAP.PDB,'p1')
         
         fprintf('Finding the selected PDB...\n');
         
-        switch MISHAP.PDB.p1source
+        switch MISHAP.PDB.p1.source
             case 'file'
-                fprintf('Loading file %s...\n',MISHAP.PDB.p1address);
+                fprintf('Loading file...\n%s...\n',MISHAP.PDB.p1.address);
             case 'web'
-                fprintf('Loading file from %s\n',MISHAP.PDB.p1address)
+                fprintf('Loading file from\n%s\n',MISHAP.PDB.p1.address)
             case 'MMM'
-                fprintf('Fetching data from MMM\n')
+                fprintf('Fetching data from MMM...\n')
         end
         
         p1StructNum = get(MISHAP.handles.pro.popupmenu_structure1,'Value');
@@ -160,10 +156,12 @@ if isfield(MISHAP.PDB,'p1PDB') && isfield(MISHAP.MMM,'p1')
         
         % switch MISHAP.MMM.p1.source
         %    case 'file'
-                fprintf('Loading file %s...\n',MISHAP.MMM.p1.address);
+                fprintf('Loading file...\n%s\n\n',MISHAP.MMM.p1.address);
         %    case 'MMM'
         %        fprintf('Fetching data from MMM');
         %end
+        
+        fprintf('Rotamers loaded!\n\n');
         
         p1Label = get(MISHAP.handles.pro.edit_label1,'String');
         p1Temp  = get(MISHAP.handles.pro.edit_temp1 ,'String');
@@ -171,6 +169,7 @@ if isfield(MISHAP.PDB,'p1PDB') && isfield(MISHAP.MMM,'p1')
         p1Rot   = get(MISHAP.handles.pro.edit_rot1  ,'String');
         p1Name  = get(MISHAP.handles.pro.edit_save1 ,'String');
         
+        fprintf('Setting labelling conditions:\n');
         fprintf('Label                  - %s\n'  ,p1Label);
         fprintf('Temperature            - %s K\n',p1Temp);
         fprintf('Attaching to residue   - %s\n'  ,p1Resi);
@@ -185,7 +184,7 @@ if isfield(MISHAP.PDB,'p1PDB') && isfield(MISHAP.MMM,'p1')
     fprintf('Adding rotamer to PDB...\n');
     
     MISHAP.PDB.pdb_out1 = MISHAP_pdb_add_MMM_rotamers(...
-        MISHAP.PDB.p1PDB,...
+        MISHAP.PDB.p1.PDB,...
         MISHAP.MMM.p1.structure ,...
         p1Label,...
         str2double(p1Resi),...
@@ -202,32 +201,58 @@ if isfield(MISHAP.PDB,'p1PDB') && isfield(MISHAP.MMM,'p1')
     
     MISHAP_pdbexport(MISHAP.PDB.pdb_out1,outaddress);
     
-    fprintf('File saved as\n%s\n',outaddress);
+    fprintf('File saved as\n%s\n\n',outaddress);
     
+    % Push to distance window
+    if isfield(MISHAP.handles,'dist')
+        table = get(MISHAP.handles.dist.uitable,'Data');
+        
+        table{1,2} = p1ChainStr;
+        table{1,3} = p1Resi;
+        table{1,4} = p1Label;
+        
+        set(MISHAP.handles.dist.uitable,'Data', table);
+        
+        set(MISHAP.handles.dist.text_pdb_A,'String',p1Name);
+        
+    end
 end
 
-if isfield(MISHAP.PDB,'p2PDB') && isfield(MISHAP.MMM,'p2')
+if isfield(MISHAP.PDB,'p2') && isfield(MISHAP.MMM,'p2')
     fprintf('============================================\n');
     fprintf('Binding partner 2\n');
     fprintf('============================================\n\n');
     
-    if isfield(MISHAP.PDB,'p2PDB')
+    if isfield(MISHAP.PDB,'p2')
         
         fprintf('Finding the selected PDB!\n');
         
-        switch MISHAP.PDB.p1source
+        switch MISHAP.PDB.p2.source
             case 'file'
-                fprintf('Loading file \n%s...',MISHAP.PDB.p2address);
+                fprintf('Loading file...\n%s\n',MISHAP.PDB.p2.address);
             case 'web'
-                fprintf('Loading file from %s',MISHAP.PDB.p2address)
+                fprintf('Loading file from\n%s\n',MISHAP.PDB.p2.address)
             case 'MMM'
-                fprintf('Fetching data from MMM')
+                fprintf('Fetching data from MMM...\n')
         end
         
-        p2Struct = get(MISHAP.handles.pro.popupmenu_structure1,'Value');
-        p2Chain  = get(MISHAP.handles.pro.popupmenu_chain1,'Value');
+        p2StructNum = get(MISHAP.handles.pro.popupmenu_structure2,'Value');
+        p2StructOpt = get(MISHAP.handles.pro.popupmenu_structure2,'String');
+        if size(p2StructOpt,1) == 1
+            p2StructStr = p2StructOpt;
+        else
+            p2StructStr = p2StructOpt{p2StructNum};
+        end
         
-        fprintf('Using structure %s and chain %s',p2Struct,p2Chain);
+        p2ChainNum = get(MISHAP.handles.pro.popupmenu_chain2,'Value');
+        p2ChainOpt = get(MISHAP.handles.pro.popupmenu_chain2,'String');
+        if size(p2ChainOpt,1) == 1
+            p2ChainStr = p2ChainOpt;
+        else
+            p2ChainStr = p2ChainOpt{p2ChainNum};
+        end        
+        
+        fprintf('Using structure %s and chain %s',p2StructStr,p2ChainStr);
         fprintf('\nPDB loaded!\n\n');
         
     else
@@ -237,17 +262,14 @@ if isfield(MISHAP.PDB,'p2PDB') && isfield(MISHAP.MMM,'p2')
     if isfield(MISHAP.MMM,'p2')
         fprintf('Finding the selected MMM rotamer\n');
         
-        switch MISHAP.MMM.p2source
-            case 'file'
-                fprintf('Loading file \n%s...',MISHAP.MMM.p2address);
-            case 'MMM'
-                fprintf('Fetching data from MMM');
-        end
+%         switch MISHAP.MMM.p2.source
+%             case 'file'
+                fprintf('Loading file...\n%s\n',MISHAP.MMM.p2.address);
+%             case 'MMM'
+%                 fprintf('Fetching data from MMM');
+%         end
         
         fprintf('Rotamers loaded!\n\n');
-        
-        
-
         
         p2Label = get(MISHAP.handles.pro.edit_label2,'String');
         p2Temp  = get(MISHAP.handles.pro.edit_temp2 ,'String');
@@ -269,22 +291,35 @@ if isfield(MISHAP.PDB,'p2PDB') && isfield(MISHAP.MMM,'p2')
     
     fprintf('Attaching rotamer to PDB...\n');
     
-    MISHAP.PDB.pdb_out1 = MISHAP_pdb_add_MMM_rotamers(...
-        MISHAP.PDB.p2PDB,...
+    MISHAP.PDB.pdb_out2 = MISHAP_pdb_add_MMM_rotamers(...
+        MISHAP.PDB.p2.PDB,...
         MISHAP.MMM.p2.structure ,...
         p2Label,...
-        p2Resi,...
-        p2Rot,...
-        p2Chain);
+        str2double(p2Resi),...
+        str2double(p2Rot),...
+        p2ChainStr);
     
     fprintf('Rotamer successfully added!\n\n');
     fprintf('Saving file...\n');
     
     % Save file
     outaddress = fullfile(outpath,p2Name);
-    MISHAP_pdbexport(outaddress);
+    MISHAP_pdbexport(MISHAP.PDB.pdb_out2,outaddress);
     
-    fprintf('Successfully saved \n%s\n',outaddress);
+    fprintf('File saved as\n%s\n',outaddress);
+    
+    % Push to distance window
+    if isfield(MISHAP.handles,'dist')
+        table = get(MISHAP.handles.dist.uitable,'Data');
+        
+        table{1,6} = p2ChainStr;
+        table{1,7} = p2Resi;
+        table{1,4} = p2Label;
+        
+        set(MISHAP.handles.dist.uitable,'Data', table);
+        
+        set(MISHAP.handles.dist.text_pdb_B,'String',p2Name);
+    end
 end
 
 fprintf('\n============================================\n\n');

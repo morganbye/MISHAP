@@ -1,24 +1,19 @@
 function [path,structure,ID,Chain,Model,Residue,Label,Temp,TotRot] = MISHAP_pdbimportMMM(varargin)
 
-% PDBIMPORT loads a MMM rotamers PDB file into MATLAB
+% MISHAP_PDBIMPORTMMM loads a MMM rotamers PDB file into MATLAB
 %
 %   PDBIMPORTMMM ()
 %   PDBIMPORTMMM('/path/to/file.pdb')
 %   STRUCTURE = PDBIMPORT(...)
 %
-% PDBIMPORT when run with no inputs launches a graphic user interface that
-% allows the user to navigate their system and select a file to load.
-% Alternitively, the user can manually type the address to a local file or
-% a web address.
+% MISHAP_PDBIMPORTMMM when run with no inputs launches a graphic user
+% interface that allows the user to navigate their system and select a file
+% to load. Alternitively, the user can manually type the address to a local
+% file or a web address.
 %
-% PDBIMPORT also can fetch files directly from rcsb.org/pdb (pdb.org) if
-% the PDB accession number is known, it should be a 4 digit aplha-numeric
-% code.
-%
-% To save the fetched PDB as a structure PDBIMPORT should always be run
-% with an output.
-%
-% PDBIMPORT supports the loading of files with more than one chain.
+% MISHAP_PDBIMPORTMMM also can fetch files directly from rcsb.org/pdb
+% (pdb.org) if the PDB accession number is known, it should be a 4 digit
+% aplha-numeric code.
 %
 % Inputs:
 %    input0     - a GUI file selector
@@ -44,14 +39,8 @@ function [path,structure,ID,Chain,Model,Residue,Label,Temp,TotRot] = MISHAP_pdbi
 %    output8    - Total Rotamers
 %                   the total number of residues
 %
-% Example:
-%    proteinA = pdbimport
-%                   GUI import of file
 %
-%    proteinB = pdbimport('1QTJ')
-%                   load PDB: 1QTJ directly from pdb.org
-%
-% Other m-files required:   BrukerRead
+% Other m-files required:   n/a
 %
 % Subfunctions:             none
 %

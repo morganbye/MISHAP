@@ -1,24 +1,21 @@
 function MISHAP_dist_load_dd
 
-% MISHAP - MMM Interfacing of Spin labels to HADDOCK progam
+% MISHAP_DIST_LOAD_DD - load a distance distribution from DeerAnalysis or
+% MMM.
 %
-%   MISHAP
-%
-% An open source program, for the conversion of MMM models to a format
-% suitable for submission to HADDOCK.
-%
-% This program needs to be called from MMM (Predict > Quaternary > HADDOCK)
+%   MISHAP_DIST_LOAD_DD
 %
 % Inputs:       n/a
 %
 % Outputs:
-%    output1    - PDB(/s)
-%    output2    - 
+%    output1    - MISHAP.data.dd
 %
 % Example:
 %    see http://morganbye.net/mishap
 %
-% Other m-files required:   /MISHAP folder
+% Other m-files required:   MISHAP_peakfinder;
+%                           MISHAP_auto_table_filling;
+%                           MISHAP_dist_plot;
 %
 % Subfunctions:             none
 %
