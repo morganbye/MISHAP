@@ -185,9 +185,9 @@ for k = 1:numel(Atoms.Preformated)
     structure.Model.Atom(k).X         = str2num(cell2mat(Atoms.Preformated{k}(7)));
     structure.Model.Atom(k).Y         = str2num(cell2mat(Atoms.Preformated{k}(8)));
     structure.Model.Atom(k).Z         = str2num(cell2mat(Atoms.Preformated{k}(9)));
-    structure.Model.Atom(k).occupancy = str2num(cell2mat(Atoms.Preformated{k}(10)));
-    structure.Model.Atom(k).tempFactor= str2num(cell2mat(Atoms.Preformated{k}(11)));
-    structure.Model.Atom(k).element   = cell2mat(Atoms.Preformated{k}(12));
+%    structure.Model.Atom(k).occupancy = str2num(cell2mat(Atoms.Preformated{k}(10)));
+%    structure.Model.Atom(k).tempFactor= str2num(cell2mat(Atoms.Preformated{k}(11)));
+%    structure.Model.Atom(k).element   = cell2mat(Atoms.Preformated{k}(12));
 end
 
 % Output, last atom's residue number

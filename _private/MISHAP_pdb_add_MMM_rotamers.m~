@@ -207,18 +207,14 @@ end
 
 % Remove hydrogens
 for k = 1:numel(outmodel)
-    if ~strcmp(outmodel(k).AtomName(1) , 'H')
-        
-        outmodel2(k) = outmodel(k);
+    if strcmp(outmodel(k).AtomName , 'H')
+        outmodel(k).AtomName = 'HA';
     end
 end
 
-empty_elems = arrayfun(@(outmodel2) all(structfun(@isempty,outmodel2)), outmodel2);
-outmodel3 = outmodel2(~empty_elems);
-
 % Renumber atoms
-for k = 1:numel(outmodel3)
-    outmodel3(k).AtomSerNo = k;
+for k = 1:numel(outmodel)
+    outmodel(k).AtomSerNo = k;
 end
 
 % CNS will not accept 'H' as an atom (confusion between CA-H or N-H).
@@ -232,4 +228,4 @@ end
 
 
 pdb_out = pdb_in;
-pdb_out.Model.Atom = outmodel3;
+pdb_out.Model.Atom = outmodel;

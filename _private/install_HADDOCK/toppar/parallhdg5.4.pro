@@ -72,6 +72,238 @@ set echo on message on end
 ! additional impropers at planar centers (MN)
 !***********************************************************************!
 
+
+!***********************************************************************!
+!                             IA - PROXYL                               !
+!***********************************************************************!
+
+evaluate ($pd_x = 1.0)
+
+eval ($pd_v=$pd_x* 24009.7) BOND CP_Y OP_Y $pd_v   1.230
+eval ($pd_v=$pd_x* 13971.0) BOND CP_Y HP_Y $pd_v   1.090
+eval ($pd_v=$pd_x* 16001.4) BOND CPA  CP_Y $pd_v   1.530
+eval ($pd_v=$pd_x* 13971.0) BOND CPA  HPA  $pd_v   1.090
+eval ($pd_v=$pd_x* 17993.7) BOND CPA  NP_Y $pd_v   1.470
+eval ($pd_v=$pd_x* 16001.4) BOND CPA  CPB  $pd_v   1.530
+eval ($pd_v=$pd_x* 17877.6) BOND NP_Y HP4  $pd_v   1.000
+eval ($pd_v=$pd_x* 17877.6) BOND NP_Y HP5  $pd_v   1.000
+eval ($pd_v=$pd_x* 17877.6) BOND NP_Y HP2  $pd_v   1.000
+eval ($pd_v=$pd_x* 13971.0) BOND CPB  HPB1 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CPB  HPB2 $pd_v   1.090
+eval ($pd_v=$pd_x* 17993.1) BOND CPB  SPG  $pd_v   1.830
+eval ($pd_v=$pd_x* 17993.1) BOND CPD  SPG  $pd_v   1.830
+eval ($pd_v=$pd_x* 13971.0) BOND CPD  HPD1 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CPD  HPD2 $pd_v   1.090
+eval ($pd_v=$pd_x* 16001.4) BOND CPE  CPD  $pd_v   1.530
+eval ($pd_v=$pd_x* 24009.7) BOND CPE  OPE  $pd_v   1.230
+eval ($pd_v=$pd_x* 18024.7) BOND CPE  NPZ  $pd_v   1.340
+eval ($pd_v=$pd_x* 17877.6) BOND NPZ  HPZ  $pd_v   1.000
+eval ($pd_v=$pd_x* 17993.7) BOND CP3  NPZ  $pd_v   1.470
+eval ($pd_v=$pd_x* 13971.0) BOND CP3  HP3  $pd_v   1.090
+eval ($pd_v=$pd_x* 11993.8) BOND CP3  CP4  $pd_v   1.520
+eval ($pd_v=$pd_x* 11993.8) BOND CP2  CP3  $pd_v   1.520
+eval ($pd_v=$pd_x* 13971.0) BOND CP4  HP41 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP4  HP42 $pd_v   1.090
+eval ($pd_v=$pd_x* 11993.8) BOND CP5  CP4  $pd_v   1.520
+eval ($pd_v=$pd_x* 16001.4) BOND CP5  CP7  $pd_v   1.530
+eval ($pd_v=$pd_x* 16001.4) BOND CP5  CP6  $pd_v   1.530
+eval ($pd_v=$pd_x* 17993.7) BOND CP5  NP1  $pd_v   1.470
+eval ($pd_v=$pd_x* 13971.0) BOND CP7  HP72 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP7  HP73 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP7  HP71 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP6  HP62 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP6  HP63 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP6  HP61 $pd_v   1.090
+eval ($pd_v=$pd_x*  5115.8) BOND NP1  OP1  $pd_v   1.460
+eval ($pd_v=$pd_x* 17993.7) BOND CP2  NP1  $pd_v   1.470
+eval ($pd_v=$pd_x* 15009.6) BOND OP1  HP1  $pd_v   1.000
+eval ($pd_v=$pd_x* 16001.4) BOND CP2  CP8  $pd_v   1.530
+eval ($pd_v=$pd_x* 16001.4) BOND CP2  CP9  $pd_v   1.530
+eval ($pd_v=$pd_x* 13971.0) BOND CP8  HP82 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP8  HP83 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP8  HP81 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP9  HP92 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP9  HP93 $pd_v   1.090
+eval ($pd_v=$pd_x* 13971.0) BOND CP9  HP91 $pd_v   1.090
+
+eval ($pd_v=$pd_x*   959.3) ANGLE OP_Y CP_Y HP_Y $pd_v 124.000
+eval ($pd_v=$pd_x*   962.3) ANGLE OP_Y CP_Y CPA  $pd_v 121.000
+eval ($pd_v=$pd_x*   958.0) ANGLE HP_Y CP_Y CPA  $pd_v 115.000
+eval ($pd_v=$pd_x*   720.0) ANGLE CP_Y CPA  HPA  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE CP_Y CPA  NP_Y $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE CP_Y CPA  CPB  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HPA  CPA  NP_Y $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HPA  CPA  CPB  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.2) ANGLE NP_Y CPA  CPB  $pd_v 111.000
+eval ($pd_v=$pd_x*   722.1) ANGLE CPA  NP_Y HP4  $pd_v 109.500
+eval ($pd_v=$pd_x*   722.1) ANGLE CPA  NP_Y HP5  $pd_v 109.500
+eval ($pd_v=$pd_x*   722.1) ANGLE CPA  NP_Y HP2  $pd_v 109.500
+eval ($pd_v=$pd_x*   645.6) ANGLE HP4  NP_Y HP5  $pd_v 109.500
+eval ($pd_v=$pd_x*   645.6) ANGLE HP4  NP_Y HP2  $pd_v 109.500
+eval ($pd_v=$pd_x*   645.6) ANGLE HP5  NP_Y HP2  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CPA  CPB  HPB1 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CPA  CPB  HPB2 $pd_v 109.500
+eval ($pd_v=$pd_x*   883.0) ANGLE CPA  CPB  SPG  $pd_v 113.000
+eval ($pd_v=$pd_x*   720.0) ANGLE HPB1 CPB  HPB2 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HPB1 CPB  SPG  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HPB2 CPB  SPG  $pd_v 109.500
+eval ($pd_v=$pd_x*   880.8) ANGLE CPB  SPG  CPD  $pd_v 100.000
+eval ($pd_v=$pd_x*   720.0) ANGLE SPG  CPD  HPD1 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE SPG  CPD  HPD2 $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE SPG  CPD  CPE  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HPD1 CPD  HPD2 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HPD1 CPD  CPE  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HPD2 CPD  CPE  $pd_v 109.500
+eval ($pd_v=$pd_x*   962.3) ANGLE CPD  CPE  OPE  $pd_v 121.000
+eval ($pd_v=$pd_x*   958.0) ANGLE CPD  CPE  NPZ  $pd_v 115.000
+eval ($pd_v=$pd_x*   959.3) ANGLE OPE  CPE  NPZ  $pd_v 124.000
+eval ($pd_v=$pd_x*   558.1) ANGLE CPE  NPZ  HPZ  $pd_v 123.000
+eval ($pd_v=$pd_x*   962.6) ANGLE CPE  NPZ  CP3  $pd_v 122.000
+eval ($pd_v=$pd_x*   724.2) ANGLE HPZ  NPZ  CP3  $pd_v 120.000
+eval ($pd_v=$pd_x*   484.2) ANGLE NPZ  CP3  HP3  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE NPZ  CP3  CP4  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE NPZ  CP3  CP2  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP3  CP3  CP4  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP3  CP3  CP2  $pd_v 109.500
+eval ($pd_v=$pd_x*   800.0) ANGLE CP4  CP3  CP2  $pd_v 104.000
+eval ($pd_v=$pd_x*   720.0) ANGLE CP3  CP4  HP41 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP3  CP4  HP42 $pd_v 109.500
+eval ($pd_v=$pd_x*   800.0) ANGLE CP3  CP4  CP5  $pd_v 104.000
+eval ($pd_v=$pd_x*   760.0) ANGLE HP41 CP4  HP42 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP41 CP4  CP5  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP42 CP4  CP5  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE CP4  CP5  CP7  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE CP4  CP5  CP6  $pd_v 109.500
+eval ($pd_v=$pd_x*   800.0) ANGLE CP4  CP5  NP1  $pd_v 104.000
+eval ($pd_v=$pd_x*   883.5) ANGLE CP7  CP5  CP6  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.2) ANGLE CP7  CP5  NP1  $pd_v 111.000
+eval ($pd_v=$pd_x*   883.2) ANGLE CP6  CP5  NP1  $pd_v 111.000
+eval ($pd_v=$pd_x*   720.0) ANGLE CP5  CP7  HP72 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP5  CP7  HP73 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP5  CP7  HP71 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP72 CP7  HP73 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP72 CP7  HP71 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP73 CP7  HP71 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP5  CP6  HP62 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP5  CP6  HP63 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP5  CP6  HP61 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP62 CP6  HP63 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP62 CP6  HP61 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP63 CP6  HP61 $pd_v 109.500
+eval ($pd_v=$pd_x*   722.1) ANGLE CP5  NP1  OP1  $pd_v 109.500
+eval ($pd_v=$pd_x*   800.0) ANGLE CP5  NP1  CP2  $pd_v 104.000
+eval ($pd_v=$pd_x*   722.1) ANGLE OP1  NP1  CP2  $pd_v 109.500
+eval ($pd_v=$pd_x*   764.5) ANGLE NP1  OP1  HP1  $pd_v 109.500
+eval ($pd_v=$pd_x*   800.0) ANGLE CP3  CP2  NP1  $pd_v 104.000
+eval ($pd_v=$pd_x*   883.5) ANGLE CP3  CP2  CP8  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.5) ANGLE CP3  CP2  CP9  $pd_v 109.500
+eval ($pd_v=$pd_x*   883.2) ANGLE NP1  CP2  CP8  $pd_v 111.000
+eval ($pd_v=$pd_x*   883.2) ANGLE NP1  CP2  CP9  $pd_v 111.000
+eval ($pd_v=$pd_x*   883.5) ANGLE CP8  CP2  CP9  $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP2  CP8  HP82 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP2  CP8  HP83 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP2  CP8  HP81 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP82 CP8  HP83 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP82 CP8  HP81 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP83 CP8  HP81 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP2  CP9  HP92 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP2  CP9  HP93 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE CP2  CP9  HP91 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP92 CP9  HP93 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP92 CP9  HP91 $pd_v 109.500
+eval ($pd_v=$pd_x*   720.0) ANGLE HP93 CP9  HP91 $pd_v 109.500
+
+eval ($pd_v=$pd_x*    80.0) IMPR CP_Y OP_Y HP_Y CPA  $pd_v 0   0.000
+eval ($pd_v=$pd_x*   160.1) IMPR CPA  CP_Y CPB  NP_Y $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR NP_Y CPA  HP4  HP5  $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CPB  CPA  HPB1 HPB2 $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CPD  SPG  HPD1 HPD2 $pd_v 0  35.264
+eval ($pd_v=$pd_x*    80.0) IMPR CPE  CPD  OPE  NPZ  $pd_v 0   0.000
+eval ($pd_v=$pd_x*    80.0) IMPR NPZ  CPE  HPZ  CP3  $pd_v 0   0.000
+eval ($pd_v=$pd_x*   160.1) IMPR CP3  NPZ  CP2  CP4  $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CP4  CP3  HP41 HP42 $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CP5  CP4  CP7  CP6  $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CP7  CP5  HP72 HP73 $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CP6  CP5  HP62 HP63 $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR NP1  CP5  CP2  OP1  $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CP2  CP3  CP8  NP1  $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CP8  CP2  HP82 HP83 $pd_v 0  35.264
+eval ($pd_v=$pd_x*   160.1) IMPR CP9  CP2  HP92 HP93 $pd_v 0  35.264
+
+eval ($pd_v=$pd_x*     0.6) DIHE CPB  CPA  CP_Y OP_Y $pd_v 6   0.000
+eval ($pd_v=$pd_x*     8.1) DIHE CP_Y CPA  NP_Y HP2  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE SPG  CPB  CPA  CP_Y $pd_v 3   0.000
+eval ($pd_v=$pd_x*     4.9) DIHE CPA  CPB  SPG  CPD  $pd_v 3   0.000
+eval ($pd_v=$pd_x*     4.9) DIHE CPE  CPD  SPG  CPB  $pd_v 3   0.000
+eval ($pd_v=$pd_x*     0.6) DIHE SPG  CPD  CPE  NPZ  $pd_v 6   0.000
+eval ($pd_v=$pd_x*   641.1) DIHE CPD  CPE  NPZ  CP3  $pd_v 2 180.000
+eval ($pd_v=$pd_x*     8.1) DIHE CP2  CP3  NPZ  CPE  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE CP5  CP4  CP3  NPZ  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE CP9  CP2  CP3  NPZ  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE NP1  CP5  CP4  CP3  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE HP71 CP7  CP5  CP4  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE HP61 CP6  CP5  CP4  $pd_v 3   0.000
+eval ($pd_v=$pd_x*     8.1) DIHE CP4  CP5  NP1  CP2  $pd_v 3   0.000
+eval ($pd_v=$pd_x*     0.9) DIHE CP5  NP1  OP1  HP1  $pd_v 3   0.000
+eval ($pd_v=$pd_x*     8.1) DIHE CP9  CP2  NP1  CP5  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE HP81 CP8  CP2  CP3  $pd_v 3   0.000
+eval ($pd_v=$pd_x*    19.6) DIHE HP91 CP9  CP2  CP3  $pd_v 3   0.000
+
+NBONds
+  TOLERANCE=0.5 NBXMOD=5 WMIN=1.5
+  REPEL=1.0 REXPONENT=4 IREXPONENT=1 RCONST=16.0
+  CTONNB=5.5 CTOFNB=6.0 CUTNB=7.0
+END
+
+NONBONDED OP_Y  0.10000 2.58361 0.10000 2.31634
+NONBONDED CP_Y  0.10000 3.29633 0.10000 3.02906
+NONBONDED HP_Y  0.10000 2.13816 0.10000 1.87089
+NONBONDED CPA   0.10000 3.29633 0.10000 3.02906
+NONBONDED HPA   0.10000 2.13816 0.10000 1.87089
+NONBONDED NP_Y  0.10000 2.67270 0.10000 2.40543
+NONBONDED HP4   0.10000 1.42544 0.10000 1.15817
+NONBONDED HP5   0.10000 1.42544 0.10000 1.15817
+NONBONDED HP2   0.10000 1.42544 0.10000 1.15817
+NONBONDED CPB   0.10000 3.29633 0.10000 3.02906
+NONBONDED HPB1  0.10000 2.13816 0.10000 1.87089
+NONBONDED HPB2  0.10000 2.13816 0.10000 1.87089
+NONBONDED SPG   0.10000 3.20724 0.10000 2.93997
+NONBONDED CPD   0.10000 3.29633 0.10000 3.02906
+NONBONDED HPD1  0.10000 2.13816 0.10000 1.87089
+NONBONDED HPD2  0.10000 2.13816 0.10000 1.87089
+NONBONDED CPE   0.10000 3.29633 0.10000 3.02906
+NONBONDED OPE   0.10000 2.58361 0.10000 2.31634
+NONBONDED NPZ   0.10000 2.67270 0.10000 2.40543
+NONBONDED HPZ   0.10000 1.42544 0.10000 1.15817
+NONBONDED CP3   0.10000 3.29633 0.10000 3.02906
+NONBONDED HP3   0.10000 2.13816 0.10000 1.87089
+NONBONDED CP4   0.10000 3.29633 0.10000 3.02906
+NONBONDED HP41  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP42  0.10000 2.13816 0.10000 1.87089
+NONBONDED CP5   0.10000 3.29633 0.10000 3.02906
+NONBONDED CP7   0.10000 3.29633 0.10000 3.02906
+NONBONDED HP72  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP73  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP71  0.10000 2.13816 0.10000 1.87089
+NONBONDED CP6   0.10000 3.29633 0.10000 3.02906
+NONBONDED HP62  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP63  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP61  0.10000 2.13816 0.10000 1.87089
+NONBONDED NP1   0.10000 2.67270 0.10000 2.40543
+NONBONDED OP1   0.10000 2.58361 0.10000 2.31634
+NONBONDED HP1   0.10000 1.42544 0.10000 1.15817
+NONBONDED CP2   0.10000 3.29633 0.10000 3.02906
+NONBONDED CP8   0.10000 3.29633 0.10000 3.02906
+NONBONDED HP82  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP83  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP81  0.10000 2.13816 0.10000 1.87089
+NONBONDED CP9   0.10000 3.29633 0.10000 3.02906
+NONBONDED HP92  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP93  0.10000 2.13816 0.10000 1.87089
+NONBONDED HP91  0.10000 2.13816 0.10000 1.87089
+
+
+
 !added by nocky
  BOND  S     C      1000.000 {sd=     0.001}      1.822
  ANGLe  CH2E S     C        500.00 {sd=     0.031}    100.00   
