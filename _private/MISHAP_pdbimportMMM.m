@@ -1,4 +1,4 @@
-function [path,structure,ID,Chain,Model,Residue,Label,Temp,TotRot] = MISHAP_pdbimportMMM(varargin)
+function [path,structure,ID,Chain,Model,Residue,Label,Temp,TotRot,TotRotFile] = MISHAP_pdbimportMMM(varargin)
 
 % MISHAP_PDBIMPORTMMM loads a MMM rotamers PDB file into MATLAB
 %
@@ -37,7 +37,9 @@ function [path,structure,ID,Chain,Model,Residue,Label,Temp,TotRot] = MISHAP_pdbi
 %    output7    - Temp
 %                   the labelling temperature - 175/298 K
 %    output8    - Total Rotamers
-%                   the total number of residues
+%                   the total number of rotamers with non-zero occupancy
+%    output9    - TotRotFile
+%                   the total number of rotamers in MMM file
 %
 %
 % Other m-files required:   n/a
@@ -45,7 +47,7 @@ function [path,structure,ID,Chain,Model,Residue,Label,Temp,TotRot] = MISHAP_pdbi
 % Subfunctions:             none
 %
 % MAT-files required:       none
-%
+%MISHAP_pdbexport(MISHAP.PDB.pdb_out1,outaddress);
 %
 % See also: EPRTOOLBOX PDBSPLITTER
 
@@ -177,21 +179,30 @@ end
 
 % Convert the unformatted strings into actual fields
 for k = 1:numel(Atoms.Preformated)
-    structure.Model.Atom(k).AtomSerNo = str2num(cell2mat(Atoms.Preformated{k}(2)));
-    structure.Model.Atom(k).AtomName  = cell2mat(Atoms.Preformated{k}(3));
-    structure.Model.Atom(k).resName   = cell2mat(Atoms.Preformated{k}(4));
-    structure.Model.Atom(k).chainID   = cell2mat(Atoms.Preformated{k}(5));
-    structure.Model.Atom(k).resSeq    = str2num(cell2mat(Atoms.Preformated{k}(6)));
-    structure.Model.Atom(k).X         = str2num(cell2mat(Atoms.Preformated{k}(7)));
-    structure.Model.Atom(k).Y         = str2num(cell2mat(Atoms.Preformated{k}(8)));
-    structure.Model.Atom(k).Z         = str2num(cell2mat(Atoms.Preformated{k}(9)));
+    structure.Model.AtomAll(k).AtomSerNo = str2num(cell2mat(Atoms.Preformated{k}(2)));
+    structure.Model.AtomAll(k).AtomName  = cell2mat(Atoms.Preformated{k}(3));
+    structure.Model.AtomAll(k).resName   = cell2mat(Atoms.Preformated{k}(4));
+    structure.Model.AtomAll(k).chainID   = cell2mat(Atoms.Preformated{k}(5));
+    structure.Model.AtomAll(k).resSeq    = str2num(cell2mat(Atoms.Preformated{k}(6)));
+    structure.Model.AtomAll(k).X         = str2num(cell2mat(Atoms.Preformated{k}(7)));
+    structure.Model.AtomAll(k).Y         = str2num(cell2mat(Atoms.Preformated{k}(8)));
+    structure.Model.AtomAll(k).Z         = str2num(cell2mat(Atoms.Preformated{k}(9)));
 %    structure.Model.Atom(k).occupancy = str2num(cell2mat(Atoms.Preformated{k}(10)));
 %    structure.Model.Atom(k).tempFactor= str2num(cell2mat(Atoms.Preformated{k}(11)));
 %    structure.Model.Atom(k).element   = cell2mat(Atoms.Preformated{k}(12));
 end
 
-% Output, last atom's residue number
-TotRot = structure.Model.Atom(k).resSeq;
+% Remove rotamers with occupancy of zero
+for k = 1:numel(Atoms.Preformated)
+   if  ~strcmp(cell2mat(Atoms.Preformated{k}(11)),'0.00')
+       model = structure.Model.AtomAll(k);
+   end
+end
+
+empty_elems = arrayfun(@(model) all(structfun(@isempty,model)), model);
+structure.Model.Atom = model(~empty_elems);
+
+
 
 % CONNECTIVITY
 % ===================================================
@@ -214,3 +225,6 @@ switch Label
         end
 end
 
+% Output, number of rotamers, in MMM file and ~= 0 occupancy
+TotRotFile = k;
+TotRot     = numel(structure.Model.Atom);

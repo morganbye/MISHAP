@@ -31,6 +31,9 @@ function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
 %    input6 - Chain
 %               the PDB structure chain to insert onto, by default 'A'
 %
+%    input7 - Protein binding partner
+%               which binding partner 'p1' or 'p2'
+%
 % Outputs:
 %    output1 - output PDB structure
 %
@@ -130,6 +133,18 @@ switch nargin
         errordlg('The number of inputs was not recognised');
 end
 
+% % Rotamer test - see if rotamer is a string
+% try
+%     r.residue = str2double(r.residue);
+%     r.rtoAdd  = 1;
+% catch
+%     if strcmp(r.residue,'all')
+%         r.rtoAdd = MISHAP.MMM.(BindPart).TotRot;
+%     end
+% end
+
+
+
 % find atom numbers of residue to replace in PDB
 % ===================================================
 
@@ -160,8 +175,8 @@ else
     r.Atoms_afterresidue  = pdb_in.Model.Atom((r.ToBeReplaced(end)+1):end);
 end
 
-
-% find MMM rotamer
+% ===================================================
+% MMM rotamers
 % ===================================================
 
 switch Label
@@ -207,8 +222,7 @@ end
 
 % Remove hydrogens
 for k = 1:numel(outmodel)
-    if ~strcmp(outmodel(k).AtomName(1) , 'H')
-        
+    if ~strcmp(outmodel(k).AtomName(1) , 'H')        
         outmodel2(k) = outmodel(k);
     end
 end
@@ -229,7 +243,7 @@ end
 %     end
 % end
 
-
-
 pdb_out = pdb_in;
 pdb_out.Model.Atom = outmodel3;
+
+end

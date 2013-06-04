@@ -53,6 +53,8 @@ function MISHAP_pro_RUN
 % May 2013;     Last revision: 15-May-2013
 %
 % Version history:
+% Jun 13        Update for multiple rotamer generation
+%
 % May 13        Initial release
 
 global MISHAP
@@ -144,8 +146,8 @@ if isfield(MISHAP.PDB,'p1') && isfield(MISHAP.MMM,'p1')
             p1ChainStr = p1ChainOpt{p1ChainNum};
         end        
         
-        fprintf('Using structure %s and chain %s',p1StructStr,p1ChainStr);
-        fprintf('\nPDB loaded!\n\n');
+        fprintf('Using structure %s and chain %s\n\n',p1StructStr,p1ChainStr);
+        fprintf('PDB loaded!\n\n');
         
     else
         fprintf('Selected PDB could not be loaded\n\n');
@@ -173,7 +175,7 @@ if isfield(MISHAP.PDB,'p1') && isfield(MISHAP.MMM,'p1')
         fprintf('Label                  - %s\n'  ,p1Label);
         fprintf('Temperature            - %s K\n',p1Temp);
         fprintf('Attaching to residue   - %s\n'  ,p1Resi);
-        fprintf('Using rotamer          - %s\n\n',p1Rot);
+        
         
     else
         fprintf('Selected MMM rotamer file could not be loaded\n\n');
@@ -181,28 +183,79 @@ if isfield(MISHAP.PDB,'p1') && isfield(MISHAP.MMM,'p1')
     
     % Merge
     
-    fprintf('Adding rotamer to PDB...\n');
-    
-    MISHAP.PDB.pdb_out1 = MISHAP_pdb_add_MMM_rotamers(...
-        MISHAP.PDB.p1.PDB,...
-        MISHAP.MMM.p1.structure ,...
-        p1Label,...
-        str2double(p1Resi),...
-        str2double(p1Rot),...
-        p1ChainStr);
-    
-    fprintf('Rotamer successfully added!\n\n');
-    fprintf('Saving file...\n');
+    switch strcmp(p1Rot,'all')
+        case 0
+            fprintf('Using rotamer          - %s\n\n',p1Rot);
+            fprintf('Adding rotamer to PDB...\n');
+            
+            MISHAP.PDB.pdb_out1 = MISHAP_pdb_add_MMM_rotamers(...
+                MISHAP.PDB.p1.PDB,...
+                MISHAP.MMM.p1.structure ,...
+                p1Label,...
+                str2double(p1Resi),...
+                p1Rot,...
+                p1ChainStr);
+            
+            fprintf('Rotamer successfully added!\n\n');
+            fprintf('Saving file...\n');
+            
+            % Save file
+            outaddress = fullfile(outpath,[p1Name '.pdb']);
+            MISHAP_pdbexport(MISHAP.PDB.pdb_out1,outaddress);
+            
+            fprintf('File saved as\n%s\n\n',outaddress);
+            
+        case 1
+            p1dir = fullfile(outpath,[p1Name '-files']);
+            fprintf('Creating directory     - %s\n', p1dir);
+            mkdir(p1dir);
+            
+            filelist = [];
 
+            for k = 1:MISHAP.MMM.p1.TotRot
+                fprintf('Generating rotamer     - %03.0f\n',num2str(k));
+                
+                MISHAP.PDB.pdb_out1 = MISHAP_pdb_add_MMM_rotamers(...
+                MISHAP.PDB.p1.PDB,...
+                MISHAP.MMM.p1.structure ,...
+                p1Label,...
+                str2double(p1Resi),...
+                k,...
+                p1ChainStr);
+            
+                outaddress = fullfile(p1dir,[p1Name '-'  fprintf('%03.0f',k) '.pdb']);
+                MISHAP_pdbexport(MISHAP.PDB.pdb_out1,outaddress);
+                filelist = [filelist;['"' outaddress '"']];
+            end
+            
+            fprintf('Rotamers successfully created!\n\n');
+            
+            % Write out file list 
+            fList = fullfile(outpath , [p1Name '.list']);
+            fid = fopen(fList,'w+');
+            
+            % Check file can be opened/written to
+            if fid == (-1)
+                error ('The file list for protein 1 could not be written')
+            end
+            
+            try
+                for k = 1 : length(filelist)
+                    fprintf(fid, [filelist(k,:) '\n']);
+                end
+                
+                fclose(fid);
+                
+            catch
+                % if there's an error close the file and delete it ready for another
+                % try
+                fclose(fid);
+                delete(fList);
+                error ('The file could not be written')
+            end
+    end
     
-    % Save file
-    
-    outaddress = fullfile(outpath,p1Name);
-    
-    MISHAP_pdbexport(MISHAP.PDB.pdb_out1,outaddress);
-    
-    fprintf('File saved as\n%s\n\n',outaddress);
-    
+
     % Push to distance window
     if isfield(MISHAP.handles,'dist')
         table = get(MISHAP.handles.dist.uitable,'Data');
@@ -296,8 +349,9 @@ if isfield(MISHAP.PDB,'p2') && isfield(MISHAP.MMM,'p2')
         MISHAP.MMM.p2.structure ,...
         p2Label,...
         str2double(p2Resi),...
-        str2double(p2Rot),...
-        p2ChainStr);
+        p2Rot,...
+        p2ChainStr,...
+        'p2');
     
     fprintf('Rotamer successfully added!\n\n');
     fprintf('Saving file...\n');
