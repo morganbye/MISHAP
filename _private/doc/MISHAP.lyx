@@ -1,0 +1,4321 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+\usepackage{multicol}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+% Do not centre one-line figure captions.
+\KOMAoptions{captions=nooneline}
+% Main section font set up
+\setkomafont{part}{\fontspec{Roboto-Light}\Huge}
+\setkomafont{chapter}{\fontspec{Roboto-Light}\huge}
+\setkomafont{section}{\fontspec{Roboto-Light}\LARGE}
+\setkomafont{subsection}{\fontspec{Roboto-Light}\Large}
+\setkomafont{subsubsection}{\fontspec{Roboto-Light}\large}
+\setkomafont{paragraph}{\fontspec{Roboto-Light}\small}
+\setkomafont{subparagraph}{\fontspec{Roboto-Light}\small}
+\setmainfont{Roboto-Light}
+% Floats
+\renewcommand*{\captionformat}{\ }
+\renewcommand*{\figureformat}{\fontspec{Roboto-CondensedItalic} Figure\ \thefigure}
+\setcapindent{24pt}
+\setkomafont{caption}{\fontspec{Roboto-LightItalic}\footnotesize}
+\setkomafont{captionlabel}{\fontspec{Roboto-LightItalic}\footnotesize}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_title "PhD thesis"
+\pdf_author "Morgan Bye"
+\pdf_subject "Biophysical Chemistry"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_numerical
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4.5cm
+\topmargin 1.5cm
+\rightmargin 1.27cm
+\bottommargin 1.5cm
+\headheight 1cm
+\headsep 0.5cm
+\footskip 0.5cm
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+\bullet 0 0 24 -1
+\bullet 1 0 9 -1
+\bullet 2 0 15 -1
+\bullet 3 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\noindent
+\align right
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\series bold
+\size huge
+MISHAP
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+v13.06
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/001-Cover.png
+	lyxscale 40
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+\size larger
+\emph on
+Morgan Haydn Bye
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+This document was created during study for the degree of Doctor of Philosophy
+ whilst at the University of East Anglia, UK.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+11th June 2013
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename _fig/002-cmsb.jpg
+	lyxscale 50
+	height 1.5cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename _fig/004-mb.png
+	lyxscale 50
+	height 1.5cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename _fig/003-uea.png
+	height 1.5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\noindent
+
+\size scriptsize
+This document has been supplied on condition that anyone whom consults it
+ is understood to recognise that its copyright rests with the author and
+ that no quotation from this work, nor any information therefrom, may be
+ published without the author's prior written consent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+"An expert is a man who has made all the mistakes which can be made, in
+ a narrow field."
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+- Niels Bohr
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{scriptsize}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{scriptsize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{scriptsize}
+\end_layout
+
+\end_inset
+
+
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{scriptsize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+General
+\end_layout
+
+\begin_layout Section
+Overview
+\end_layout
+
+\begin_layout Subsection
+What is MISHAP?
+\end_layout
+
+\begin_layout Standard
+MISHAP is the open-source MMM 
+\emph on
+in silico 
+\emph default
+simulated spin label to HADDOCK program.
+ It combines several MatLab scripts, functions, programs and user interfaces
+ as well as a set of additional parameter files for HADDOCK.
+\end_layout
+
+\begin_layout Standard
+MISHAP aims to take spin labelled proteins and the distance distributions
+ between labels from 
+\emph on
+in silico 
+\emph default
+(MMM) calculations or experimental data (from pulsed electron-electron double
+ resonance experiments which have been analysed with DeerAnalysis) and pass
+ them to the biomolecular docking program HADDOCK as docking restraints.
+\end_layout
+
+\begin_layout Subsection
+Functionality
+\end_layout
+
+\begin_layout Standard
+MISHAP provides the ability to generate HADDOCK compatible PDB files of
+ single chains of amino acids where one or more residues have been substiuted
+ for nitroxide spin label attached cysteine residues.
+\end_layout
+
+\begin_layout Standard
+MISHAP can generate distance based docking restraints from pulsed EPR experiment
+s (PELDOR/DEER) when they have been analysed with DeerAnalysis or MMM.
+\end_layout
+
+\begin_layout Standard
+The generated PDB files can be used in conjunction with or without the MISHAP
+ generated distance based docking restraints to help determine the docking
+ of protein complexes.
+\end_layout
+
+\begin_layout Standard
+Currently, MISHAP only supports the generation of models and restraints
+ in proteins.
+ Though the open-source nature will allow for the expansion of MISHAP to
+ accept non-nitroxide spin labels, DNA, RNA and other common ligands.
+\end_layout
+
+\begin_layout Subsection
+Interface
+\end_layout
+
+\begin_layout Standard
+The user interface of MISHAP initially consists of a simple installer that
+ installs MISHAP as well as modifying any existing installations of MMM
+ and HADDOCK.
+\end_layout
+
+\begin_layout Standard
+After installation the user interface largely consists of 2 windows.
+ The first handles the distance restraints whilst the second handles the
+ generation of HADDOCK compatible PDB files.
+\end_layout
+
+\begin_layout Standard
+The changes to HADDOCK allow for the user to continue using HADDOCK normally
+ via the command line with the addition of being able to use the residues
+ R1A (MTSL attached cysteine) and IA1 (IA-PROXYL attached cysteine).
+\end_layout
+
+\begin_layout Subsection
+Help
+\end_layout
+
+\begin_layout Standard
+MISHAP is designed to be as intuitive as possible whilst still maintaining
+ user control.
+ With this in mind, all options are clearly labelled as well as extensively
+ documented in this document as well as online at morganbye.net/mishap
+\end_layout
+
+\begin_layout Section
+Getting started
+\end_layout
+
+\begin_layout Subsection
+Getting MISHAP
+\end_layout
+
+\begin_layout Standard
+MISHAP is available online from 2 locations.
+\end_layout
+
+\begin_layout Standard
+MISHAP general releases (for most users) should be downloaded from:
+\end_layout
+
+\begin_layout Quote
+https://sourceforge.net/projects/mishap/
+\end_layout
+
+\begin_layout Standard
+MISHAP developer releases (constantly updated and should be considered unstable)
+ can be obtained from the git repositary
+\end_layout
+
+\begin_layout Quote
+https://github.com/morganbye/MISHAP
+\end_layout
+
+\begin_layout Standard
+Alternatively, you can create a new git folder and pull the repository directly
+ from the command line with:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+git pull https://github.com/morganbye/MISHAP.git
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Installing MISHAP
+\end_layout
+
+\begin_layout Standard
+If MISHAP was downloaded from sourceforge then it will come as a ZIP file
+ which includes everything required.
+ Simply unpack the ZIP file into a directory of your choosing.
+ The folder should contain several text files including; 
+\family typewriter
+LICENSE.txt
+\family default
+, 
+\family typewriter
+README.txt
+\family default
+ and 
+\family typewriter
+UPDATE.txt
+\family default
+.
+ There will also be 
+\family typewriter
+MISHAP.m
+\family default
+; the main MatLab file and 2 directories: 
+\family typewriter
+test_files
+\family default
+ containing some example files (referenced later) and _private which contains
+ all the files associated with MISHAP.
+\end_layout
+
+\begin_layout Standard
+The extracted folder needs to be added to the MatLab path with subfolders
+ to the; this can be done be navigating to the folder in the 
+\emph on
+Current folder
+\emph default
+ view, right clicking and selecting
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+Add to Path 
+\emph default
+
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\emph on
+ with Selected folders and Subfolders
+\end_layout
+
+\begin_layout Standard
+or by clicking from the main MatLab menu
+\end_layout
+
+\begin_layout Quote
+File 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Set Path
+\end_layout
+
+\begin_layout Standard
+in the main MatLab window, then click 
+\emph on
+Add folder with subfolders
+\emph default
+ then 
+\emph on
+Save
+\emph default
+ and 
+\emph on
+Close
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+The MISHAP installer then needs to be run.
+ This is detailed in §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Installer"
+
+\end_inset
+
+, but simply in the MatLab command window type
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},language=Matlab"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MISHAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This begins the installation of MISHAP.
+\end_layout
+
+\begin_layout Section
+Change history
+\end_layout
+
+\begin_layout Subsection
+Release v13.6 - BETA
+\end_layout
+
+\begin_layout Standard
+v13.6 is the first publicly available release of MISHAP and marks the first
+ build from alpha.
+ It shows far greater error handling, Windows compatibility and an improved
+ graphical user interface.
+ MMM and MatLab programming is complete but significant errors still occur
+ in HADDOCK/CNS.
+\end_layout
+
+\begin_layout Subsection
+Build v13.5 - ALPHA
+\end_layout
+
+\begin_layout Standard
+v13.5 is the first functional build of MISHAP that generates distance distributio
+n constraints and MMM rotamer merged PDBs.
+\end_layout
+
+\begin_layout Chapter
+User interface
+\end_layout
+
+\begin_layout Section
+MMM
+\end_layout
+
+\begin_layout Standard
+MMM is an open-source program for the visualisation, inspection and improvement
+ of models of proteins and protein assemblies based on restraints from multiple
+ experimental techniques, though primarily focussing on experimental techniques
+ from electron paramagnetic resonance.
+\end_layout
+
+\begin_layout Subsection
+Save rotamers from MMM
+\end_layout
+
+\begin_layout Standard
+Perhaps MMM's most useful feature is the ability to calculate the rotamer
+ populations of nitroxide spin labels attached to proteins.
+\end_layout
+
+\begin_layout Standard
+For MISHAP we require these spin label attached protein models.
+ To generate a rotamer model first start MMM from the MatLab command window
+ with the command
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},language=Matlab"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MMM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After the splash screen, load a PDB model using the 
+\emph on
+File
+\emph default
+ menu - more information available in the MMM manual §2.1.1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/201-MMM.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loaded protein model in MMM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The protein model should be visualised in the Model panel whilst the Message
+ board should update.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/202-Select.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Select a residue in the command line
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next select a residue.
+ To do this at the command line level type
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},language=Matlab"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select [structure](chain)residue
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+the strucutre option is not necessary depending upong the file (MMM §1.6).
+ Residue selection can also be done graphically using:
+\end_layout
+
+\begin_layout Quote
+Display 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Hierarchy (MMM §2.3 and 4.1.2)
+\end_layout
+
+\begin_layout Standard
+However, the command line is superior as it allows the selection of multiple
+ residues at once.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/203-CLselect.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Message board update showing the select residue(s)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once a residue is select the message board will update with the selection.
+ If a selection is made incorrectly use:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},language=Matlab"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+unselect [structure](chain)residue
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once happy with the selection we label the selected residues with:
+\end_layout
+
+\begin_layout Quote
+EPR 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Site scan/selected residues (MMM §2.1.7)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/204-SiteScanMenu.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MMM menu showing the site scan option
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This displays the Site scan setup window (MMM §4.1.2).
+ It is imperative that 
+\emph on
+Save statistics
+\emph default
+ and 
+\emph on
+Save PDB rotamers 
+\emph default
+are selected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/205-SiteScanWin.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MMM site scan setup window
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Selecting 
+\emph on
+Save PDB rotamers
+\emph default
+ will display a warning message.
+ Ensure that you click 
+\emph on
+Yes
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/206-SiteScanWarn.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MMM site scan warning dialogue
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Clicking 
+\emph on
+OK
+\emph default
+ will display the 
+\emph on
+Set labeling conditions for selected residues
+\emph default
+ window.
+ Here select the appropiate nitroxide spin label and temperature.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/207-SiteScanSet.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MMM site scan labelling conditions window
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally a prompt appears to set the save path of the rotamer analysis files
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/208-SiteScanSave.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MMM site scan save dialogue window
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The rotamer analysis can be tracked in the message board and once complete
+ a prompt appears to ask if the user wishes to view the results in a browser.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Installer
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Installer"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Installation of MISHAP is kept as much as possible within the MatLab environment
+ for simplicity.
+\end_layout
+
+\begin_layout Standard
+To install MISHAP, extract the MISHAP zip folder.
+ Add the folder with subfolders to the MatLab path; this can be done be
+ navigating to the folder in the 
+\emph on
+Current folder
+\emph default
+ view right clicking and selecting
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+Add to Path 
+\emph default
+
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\emph on
+ with Selected folders and Subfolders
+\end_layout
+
+\begin_layout Standard
+or by clicking from the main MatLab menu or by clicking
+\end_layout
+
+\begin_layout Quote
+File 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Set Path
+\end_layout
+
+\begin_layout Standard
+in the main MatLab window, then click 
+\emph on
+Add folder with subfolders
+\emph default
+ then 
+\emph on
+Save
+\emph default
+ and 
+\emph on
+Close
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+In the MatLab command window now type
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},language=Matlab"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MISHAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This begins the installation of MISHAP.
+ The installer addresses 3 different programs in turn.
+ First the installer looks to see if MISHAP has previously been installed,
+ if so then the installer aborts and simply loads MISHAP.
+\end_layout
+
+\begin_layout Standard
+If MISHAP has not previously been installed then the installation begins
+ looking first to see if the user has MMM installed (line 36).
+ For safety the installer backs up 
+\family typewriter
+MMM_prototype.m
+\family default
+ and 
+\family typewriter
+MMM_prototype.fig
+\family default
+ files to 
+\family typewriter
+/.../MMM_path/old_files
+\family default
+ before copying across new versions of 
+\family typewriter
+MMM_prototype
+\family default
+, these versions allow you to access MISHAP from MMM.
+\end_layout
+
+\begin_layout Quote
+At a later date this versions will be submitted to MMM and this part of
+ the installer will be removed.
+\end_layout
+
+\begin_layout Standard
+Next the installer asks the user if HADDOCK will be run locally, if so then
+ the local copy of HADDOCK requires some new parameter files.
+ Again exisiting files are backed up first to 
+\family typewriter
+/.../HADDOCK_path/old_files
+\family default
+ before the new ones are copied across.
+\end_layout
+
+\begin_layout Quote
+As HADDOCK is outside the MatLab environment a system search is required
+ and this may take some time.
+ As a safety feature, the search for HADDOCK will time out in 10 seconds
+ and ask the user for the location instead.
+\end_layout
+
+\begin_layout Standard
+The command window output from a typical installation should look something
+ like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,numbers=left,numberstyle={\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+             __  __ _____  _____ _    _          _____                 
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+            |  
+\backslash
+/  |_   _|/ ____| |  | |   /
+\backslash
+   |  __ 
+\backslash
+                   
+\end_layout
+
+\begin_layout Plain Layout
+
+            | 
+\backslash
+  / | | | | (___ | |__| |  /  
+\backslash
+  | |__) |                  
+\end_layout
+
+\begin_layout Plain Layout
+
+            | |
+\backslash
+/| | | |  
+\backslash
+___ 
+\backslash
+|  __  | / /
+\backslash
+ 
+\backslash
+ |  ___/                   
+\end_layout
+
+\begin_layout Plain Layout
+
+            | |  | |_| |_ ____) | |  | |/ ____ 
+\backslash
+| |                       
+\end_layout
+
+\begin_layout Plain Layout
+
+            |_|  |_|_____|_____/|_|  |_/_/    
+\backslash
+_
+\backslash
+_|                       
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                                       
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                               by                                      
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                                       _                             _ 
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      | |                           | |
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+ _ __ ___   ___  _ __ __ _  __ _ _ __ | |__  _   _  ___   _ __   ___| |_
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+| '_ ` _ 
+\backslash
+ / _ 
+\backslash
+| '__/ _` |/ _` | '_ 
+\backslash
+| '_ 
+\backslash
+| | | |/ _ 
+\backslash
+ | '_ 
+\backslash
+ / _ 
+\backslash
+ __| 
+\end_layout
+
+\begin_layout Plain Layout
+
+| | | | | | (_) | | | (_| | (_| | | | | |_) | |_| |  __/_| | | |  __/ |_
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+|_| |_| |_|
+\backslash
+___/|_|  
+\backslash
+__, |
+\backslash
+__,_|_| |_|_.__/ 
+\backslash
+__, |
+\backslash
+___(_)_| |_|
+\backslash
+___|
+\backslash
+__| 
+\end_layout
+
+\begin_layout Plain Layout
+
+                      __/ |                   __/ |                    
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                     |___/                   |___/                     
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+STARTING INSTALLATION
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Installer version - 13.06
+\end_layout
+
+\begin_layout Plain Layout
+
+Build date        - 04th May 2013
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+This installer will install
+\end_layout
+
+\begin_layout Plain Layout
+
+MISHAP version    - 13.06
+\end_layout
+
+\begin_layout Plain Layout
+
+Release date      - 04th May 2013
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+System            - Linux - 64 bit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MatLab version    - 7.12.0.635 (R2011a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Finding MMM installation...
+\end_layout
+
+\begin_layout Plain Layout
+
+MMM was located at:
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MMM_2013
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Backing up MMM files to:
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MMM_2013/old_files
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Files backed up!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Copying across new files...
+\end_layout
+
+\begin_layout Plain Layout
+
+Files successfully copied!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Installing...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Configuring...
+\end_layout
+
+\begin_layout Plain Layout
+
+MMM configured!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MISHAP parameters are not yet compatible with the HADDOCK webservers,
+\end_layout
+
+\begin_layout Plain Layout
+
+though this should change shortly, MISHAP must be run locally in the mean
+ time
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Are you going to be using HADDOCK locally? Y/N [Y]: y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Finding HADDOCK installation...
+\end_layout
+
+\begin_layout Plain Layout
+
+detection will abort if nothing is found in 10 seconds...
+\end_layout
+
+\begin_layout Plain Layout
+
+HADDOCK was located at:
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/haddock
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Backing up HADDOCK files to:
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/haddock/old_files
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Files backed up!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Copying across new files...
+\end_layout
+
+\begin_layout Plain Layout
+
+Files successfully copied!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Installing...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Configuring...
+\end_layout
+
+\begin_layout Plain Layout
+
+HADDOCK configured!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Writing changes to MatLab...
+\end_layout
+
+\begin_layout Plain Layout
+
+MatLab configured!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+I hope you find MISHAP useful.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Documentation can be found at:
+\end_layout
+
+\begin_layout Plain Layout
+
+morganbye.net/mishap
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Please address any feedback to:
+\end_layout
+
+\begin_layout Plain Layout
+
+morgan.bye@uea.ac.uk
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+INSTALLATION COMPLETE
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With MISHAP installed, MISHAP can now be called from MMM using
+\end_layout
+
+\begin_layout Quote
+Predict 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Quaternary 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ HADDOCK 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ MISHAP
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/231-MMMMenu.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MMM menu showing MISHAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or without MMM from the command window with the command:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},language=Matlab"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MISHAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This will launch the primary MISHAP window, the distance distribution window.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+MISHAP distance distribution window
+\end_layout
+
+\begin_layout Subsection
+Loading a distance distribution
+\end_layout
+
+\begin_layout Standard
+Calling MISHAP will launch the primary MISHAP window, the distance distribution
+ window.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/232-MS-dd.png
+	lyxscale 50
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution window
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the distance distribution panel select whether the distance distribtion
+ is from DeerAnalysis or MMM and click 
+\emph on
+Load
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+If a DeerAnalysis or MMM window is open then MISHAP will try to pull the
+ distance distribution information from the open window.
+ If more than one is open then it will load whichever was opened first.
+ If no window can be found then a user interface for the selection of a
+ previously saved file is opened.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/233-MM-dd-Load.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution load interface
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once a file is selected MISHAP will automatically plot the distance distribution
+ and search it for any peaks.
+ Peaks are marked with circles.
+ The largest peak is selected as the peak of interest and the peak location
+ is updated into the 
+\emph on
+r 
+\emph default
+column of the table.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/234-MS-dd-Plot.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution window showing a loaded distance distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A 
+\emph on
+s(r)
+\emph default
+ of 0.5 nm is automatically set and the boundaries are plotted as about the
+ distance as dotted lines in the same colour as the peak.
+ At a later date the 
+\emph on
+s(r)
+\emph default
+ will be detected and calculated from the plot using a half height analysis
+ of a Gaussian fit to the peak.
+\end_layout
+
+\begin_layout Subsection
+Multiple spin systems
+\end_layout
+
+\begin_layout Standard
+Currently MISHAP has support for systems with up to 4 nitroxide spin labels.
+ By default it is set for only 2 spins (1 distance), selecting 3 or 4 spin
+ labels adds more distances to the table (3 distances for 3 labels, 6 distances
+ for 4 labels).
+ The distance distribution plot displays each distance in a seperate coloured
+ dashed line with the peak's 
+\emph on
+s(r) 
+\emph default
+dotted in the same colour.
+\end_layout
+
+\begin_layout Subsection
+Protein information
+\end_layout
+
+\begin_layout Standard
+If the distance distribution tool is being used without the protein PDB
+ creator then the table information needs to be completed with the appropiate
+ information for the chain ID and residue number of the spin label in the
+ PDB.
+\end_layout
+
+\begin_layout Standard
+However, it is recommended to generate the PDBs for HADDOCK with MISHAP
+ before proceeding further.
+ To do so click 
+\emph on
+Generate
+\emph default
+ to launch the PDB Creator (see §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:MISHAP-protein-creator"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Output location
+\end_layout
+
+\begin_layout Standard
+Once happy with the information displayed in the table finally check the
+ output location box.
+ This is the location and file name that the distance restraints file will
+ be saved as.
+\end_layout
+
+\begin_layout Standard
+By default the file name 
+\family typewriter
+unambig.tbl
+\family default
+ will be used and the path will be that of the MatLab path when MISHAP was
+ first opened.
+\end_layout
+
+\begin_layout Standard
+If this is not suitable simply click 
+\emph on
+Change.
+\end_layout
+
+\begin_layout Subsection
+RUN!
+\end_layout
+
+\begin_layout Standard
+When the information in the table is correct and the output location is
+ set click 
+\emph on
+RUN!
+\end_layout
+
+\begin_layout Standard
+All information is passed out to the MatLab command window.
+ First the constraint generator checks that the table is complete, then
+ it checks that it can write to the selected location.
+ If the folder does not exist or the user does not have permission to write
+ to it then they will be prompted.
+\end_layout
+
+\begin_layout Standard
+Finally the file is created.
+ This process should be very fast even on a slow computer, ensure that 
+\emph on
+RUN! 
+\emph default
+is only pressed once.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/MISHAP_dd.eps
+	lyxscale 50
+	width 75col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Flowchart of the MISHAP distance distribution window process
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the next page is an example output from the command window.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},numbers=left,numberstyle={\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+             __  __ _____  _____ _    _          _____            
+\end_layout
+
+\begin_layout Plain Layout
+
+            |  
+\backslash
+/  |_   _|/ ____| |  | |   /
+\backslash
+   |  __ 
+\backslash
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+            | 
+\backslash
+  / | | | | (___ | |__| |  /  
+\backslash
+  | |__) |                 
+\end_layout
+
+\begin_layout Plain Layout
+
+            | |
+\backslash
+/| | | |  
+\backslash
+___ 
+\backslash
+|  __  | / /
+\backslash
+ 
+\backslash
+ |  ___/                   
+\end_layout
+
+\begin_layout Plain Layout
+
+            | |  | |_| |_ ____) | |  | |/ ____ 
+\backslash
+| |                       
+\end_layout
+
+\begin_layout Plain Layout
+
+            |_|  |_|_____|_____/|_|  |_/_/    
+\backslash
+_
+\backslash
+_|                       
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                                       
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+      _____                _             _       _                     
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+     / ____|              | |           (_)     | |                    
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+    | |     ___  _ __  ___| |_ _ __ __ _ _ _ __ | |_                   
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+    | |    / _ 
+\backslash
+| '_ 
+\backslash
+/ __| __| '__/ _` | | '_ 
+\backslash
+| __|                     
+\end_layout
+
+\begin_layout Plain Layout
+
+    | |___| (_) | | | 
+\backslash
+__ 
+\backslash
+ |_| | | (_| | | | | | |_                      
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+_____
+\backslash
+___/|_| |_|___/
+\backslash
+__|_|  
+\backslash
+__,_|_|_| |_|
+\backslash
+__|                     
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                    _                  
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                   | |                 
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                     __ _  ___ _ __   ___ _ __ __ _| |_ ___  _ __      
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                    / _` |/ _ 
+\backslash
+ '_ 
+\backslash
+ / _ 
+\backslash
+ '__/ _` | __/ _ 
+\backslash
+| '__|        
+\end_layout
+
+\begin_layout Plain Layout
+
+                   | (_| |  __/ | | |  __/ | | (_| | || (_) | |        
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                    
+\backslash
+__, |
+\backslash
+___|_| |_|
+\backslash
+___|_|  
+\backslash
+__,_|
+\backslash
+__
+\backslash
+___/|_|           
+\end_layout
+
+\begin_layout Plain Layout
+
+                     __/ |                                             
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                    |___/                                              
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+STARTING Distance Constraint Creation
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MISHAP version    - 13.06
+\end_layout
+
+\begin_layout Plain Layout
+
+Release date      - 16th May 2013
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+System            - Linux - 64 bit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MatLab version    - 7.12.0.635 (R2011a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Checking the data table...
+\end_layout
+
+\begin_layout Plain Layout
+
+Checking complete
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Setting label variables...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Saving file...
+\end_layout
+
+\begin_layout Plain Layout
+
+File saved as
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MISHAP/test_files/unambig.tbl
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MISHAP - distance constraint generator completed in 0.00589 seconds
+\end_layout
+
+\begin_layout Plain Layout
+
+Thank you for using MISHAP
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+MISHAP PDB creator window
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:MISHAP-protein-creator"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The MISHAP PDB creator window is launched from the MISHAP distance distribution
+ window by clicking 
+\emph on
+Generate
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/241-MS-Pro-Over.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution and PDB creator windows
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The purpose of the PDB creator is 2 fold.
+ First is to ensure that PDB files are generated that are compaitble with
+ HADDOCK.
+\end_layout
+
+\begin_layout Standard
+Unfortunately, the PDB format has first created in the 1970's and has been
+ extensively developed, often without any strict enforcement of the PDB
+ format meaning that it is quite common for PDB files generated in one program
+ to not be compatible with a different PDB handling program.
+ Previously MMM conformed well with the PDB format, version 2013 after a
+ major rewrite of the PDB writing functions now conforms fully.
+ HADDOCK will only accept PDB files in a very explicit format, which differs
+ significantly from the PDB standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+for more information see http://www.nmr.chem.uu.nl/haddock/pdb.html
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The second purpose of the PDB creator is to combine the PDB file supplied
+ from a PDB file, directly from the PDB website using an access number or
+ from a loaded MMM model with a MMM rotamer analysis.
+\end_layout
+
+\begin_layout Standard
+MMM provides some basic functionality on this account but we require a single
+ PDB file where an amino acid residue has been mutated to a spin label attached
+ cysteine residue.
+ Alternatively, a set of PDBs and a list file that can be inserted into
+ HADDOCK as an ensemble of starting conformations.
+\end_layout
+
+\begin_layout Subsection
+Load a PDB file
+\end_layout
+
+\begin_layout Standard
+For the first protein select the PDB file location.
+ If the PDB is a local file click 
+\emph on
+file
+\emph default
+ this will open a user interface for selecting the file.
+\end_layout
+
+\begin_layout Standard
+The PDB can also be obtained directly from rcsb.org in which case select
+ 
+\emph on
+web
+\emph default
+ and enter the accession number when prompted.
+\end_layout
+
+\begin_layout Standard
+If MMM is open then the current model can be used by clicking 
+\emph on
+MMM
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/242-MS-Pro-LoadP.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP PDB creator load PDB file selection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There will be a slight delay as the file is processed.
+ Once processed the 
+\emph on
+Structure
+\emph default
+ box will update with the PDB accession code, the 
+\emph on
+Chain
+\emph default
+ dropdown box will update with the chains found in the PDB and the sequence
+ of the selected chain will be shown in the 
+\emph on
+Sequence preview
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/243.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP PDB creator with loaded PDB file
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Load a MMM rotamer file
+\end_layout
+
+\begin_layout Standard
+For the first protein select the MMM rotamer file location.
+ If the PDB is a local file saved during the MMM site scan then click 
+\emph on
+file
+\emph default
+ this will open a user interface for selecting the file.
+\end_layout
+
+\begin_layout Standard
+In a later release, it will be possible to click 
+\emph on
+MMM 
+\emph default
+and pull the rotamer information from MMM.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/244-MS-Pro-LoadM.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP PDB creator load MMM file selection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It will take a little time to process the rotamer information.
+ Once processed the 
+\emph on
+Label
+\emph default
+ box will update with the 3 character amino acid residue code for the spin
+ label, the 
+\emph on
+Temp.
+ 
+\emph default
+box will update with the labeling temperature used in the site scan, the
+ 
+\emph on
+Residue 
+\emph default
+box will update with the amino acid residue number of the labeling site
+ and the 
+\emph on
+Rotamer 
+\emph default
+will update with the selected rotamer number from the MMM rotamer analysis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/245.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP PDB creator load with PDB and MMM file loaded
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By default, the 
+\emph on
+Rotamer
+\emph default
+ box will default to rotamer 1 though this can be changed to any rotamer.
+ If a rotamer is selected that is outside the range of avaiable rotamers
+ then the box will automatically default back to rotamer 1.
+ If an ensemble style rotamer analysis is desired type in this box:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+all
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Output location
+\end_layout
+
+\begin_layout Standard
+By default the protein PDB will be saved as:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Protein[A/B]_[YYMMDD].pdb
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These can be changed freely with any operating system valid name.
+ Do not include 
+\emph on
+.pdb
+\emph default
+ in the file name, otherwise you will generate a file called 
+\family typewriter
+ProteinA_YYMMDD.pdb.pdb
+\end_layout
+
+\begin_layout Standard
+The output path is defined in the 
+\emph on
+Output location
+\emph default
+ box, the path will be that of the MatLab path when MISHAP was first opened.
+\end_layout
+
+\begin_layout Standard
+If this is not suitable simply click 
+\emph on
+Change.
+\end_layout
+
+\begin_layout Subsection
+RUN!
+\end_layout
+
+\begin_layout Standard
+When happy with the settings for 
+\emph on
+Binding Partner 1
+\emph default
+ the PDB creator can be run or a PDB and MMM rotamer analysis can also be
+ loaded for 
+\emph on
+Binding Partner 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/246.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP PDB creator showing 2 proteins loaded with MMM rotamer files
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When all the information is loaded and set click 
+\emph on
+RUN!
+\end_layout
+
+\begin_layout Standard
+All information is passed out to the MatLab command window.
+ 
+\emph on
+Binding Partner 1
+\emph default
+ is addressed before 
+\emph on
+Binding Partner 2 
+\emph default
+but in both the creator checks that a PDB and MMM rotamer analysis is loaded,
+ then it checks that it can write to the selected output location.
+ If the folder does not exist or the user does not have permission to write
+ to it then they will be prompted.
+\end_layout
+
+\begin_layout Standard
+Finally the creator merges the selected MMM rotamer(s) with the PDB file
+ is created.
+\end_layout
+
+\begin_layout Standard
+Briefly, the creator essentially splits the PDB file before and after the
+ select residue.
+ It then pastes in the rotamer residue and merges the residues before the
+ residue, the rotamer residue and residies after the rotamer residue with
+ appropiate linkers.
+ All hydrogen atoms are then removed as these are prone to causing problems
+ in HADDOCK and CNS before finally renumbering every atom in the merged
+ PDB so that read sequentially.
+ The file is finally written out line by line.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/MISHAP_pdb_handling.eps
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Flowchart of PDB handling within the MISHAP PDB creator
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the next page is an example output from the command window.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true,numbers=left,numberstyle={\footnotesize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+             __  __ _____  _____ _    _          _____         
+\end_layout
+
+\begin_layout Plain Layout
+
+            |  
+\backslash
+/  |_   _|/ ____| |  | |   /
+\backslash
+   |  __ 
+\backslash
+                   
+\end_layout
+
+\begin_layout Plain Layout
+
+            | 
+\backslash
+  / | | | | (___ | |__| |  /  
+\backslash
+  | |__) |                  
+\end_layout
+
+\begin_layout Plain Layout
+
+            | |
+\backslash
+/| | | |  
+\backslash
+___ 
+\backslash
+|  __  | / /
+\backslash
+ 
+\backslash
+ |  ___/                   
+\end_layout
+
+\begin_layout Plain Layout
+
+            | |  | |_| |_ ____) | |  | |/ ____ 
+\backslash
+| |                       
+\end_layout
+
+\begin_layout Plain Layout
+
+            |_|  |_|_____|_____/|_|  |_/_/    
+\backslash
+_
+\backslash
+_|                       
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                                       
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+       _____  _____  ____     _____                _                   
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+      |  __ 
+\backslash
+|  __ 
+\backslash
+|  _ 
+\backslash
+   / ____|              | |                     
+\end_layout
+
+\begin_layout Plain Layout
+
+      | |__) | |  | | |_) | | |     _ __ ___  __ _| |_ ___  _ __       
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+      |  ___/| |  | |  _ <  | |    | '__/ _ 
+\backslash
+/ _` | __/ _ 
+\backslash
+| '__|         
+\end_layout
+
+\begin_layout Plain Layout
+
+      | |    | |__| | |_) | | |____| | |  __/ (_| | || (_) | |         
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+      |_|    |_____/|____/   
+\backslash
+_____|_|  
+\backslash
+___|
+\backslash
+__,_|
+\backslash
+__
+\backslash
+___/|_|            
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                                       
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+STARTING PDB Creation
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MISHAP version    - 13.06
+\end_layout
+
+\begin_layout Plain Layout
+
+Release date      - 15th May 2013
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+System            - Linux - 64 bit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MatLab version    - 7.12.0.635 (R2011a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+Binding partner 1
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Finding the selected PDB...
+\end_layout
+
+\begin_layout Plain Layout
+
+Loading file...
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MISHAP/test_files/2K5X.pdb...
+\end_layout
+
+\begin_layout Plain Layout
+
+Using structure 2K5X  and chain A
+\end_layout
+
+\begin_layout Plain Layout
+
+PDB loaded!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Finding the selected MMM rotamer...
+\end_layout
+
+\begin_layout Plain Layout
+
+Loading file...
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MISHAP/test_files/rotamers_[2K5X](A){1}23_IA1_175.pdb
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Rotamers loaded!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Setting labelling conditions:
+\end_layout
+
+\begin_layout Plain Layout
+
+Label                  - IA1
+\end_layout
+
+\begin_layout Plain Layout
+
+Temperature            - 175 K
+\end_layout
+
+\begin_layout Plain Layout
+
+Attaching to residue   - 23
+\end_layout
+
+\begin_layout Plain Layout
+
+Using rotamer          - 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Adding rotamer to PDB...
+\end_layout
+
+\begin_layout Plain Layout
+
+Rotamer successfully added!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Saving file...
+\end_layout
+
+\begin_layout Plain Layout
+
+File saved as
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MISHAP/test_files/ProteinA_130610.pdb
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+Binding partner 2
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Finding the selected PDB!
+\end_layout
+
+\begin_layout Plain Layout
+
+Loading file...
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MISHAP/test_files/2K5X.pdb
+\end_layout
+
+\begin_layout Plain Layout
+
+Using structure 2K5X  and chain B
+\end_layout
+
+\begin_layout Plain Layout
+
+PDB loaded!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Finding the selected MMM rotamer
+\end_layout
+
+\begin_layout Plain Layout
+
+Loading file...
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MISHAP/test_files/rotamers_[2K5X](B){1}3_IA1_175.pdb
+\end_layout
+
+\begin_layout Plain Layout
+
+Rotamers loaded!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Setting labelling conditions:
+\end_layout
+
+\begin_layout Plain Layout
+
+Label                  - IA1
+\end_layout
+
+\begin_layout Plain Layout
+
+Temperature            - 175 K
+\end_layout
+
+\begin_layout Plain Layout
+
+Attaching to residue   - 3
+\end_layout
+
+\begin_layout Plain Layout
+
+Using rotamer          - 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Attaching rotamer to PDB...
+\end_layout
+
+\begin_layout Plain Layout
+
+Rotamer successfully added!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Saving file...
+\end_layout
+
+\begin_layout Plain Layout
+
+File saved as
+\end_layout
+
+\begin_layout Plain Layout
+
+/opt/matlab/MyScripts/MISHAP/test_files/ProteinB_130610.pdb
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+============================================
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MISHAP - PDB Creator completed in 0.79016 seconds
+\end_layout
+
+\begin_layout Plain Layout
+
+Thank you for using MISHAP
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+HADDOCK interface
+\end_layout
+
+\begin_layout Standard
+HADDOCK (the high ambiguity data driven biomolecular docking program) is
+ an approach that makes use of biochemical and biophysical interaction data
+ such as chemical shift perturbations from NMR titration experiments, mutagenesi
+s data or bioinformatic predictions to study protein complexes.
+\end_layout
+
+\begin_layout Standard
+Traditionally most approaches to protein complex formation relied upon a
+ combination of energetics and shape complementarity rather than experimental
+ data.
+ The previously mentioned experiments are presented to the HADDOCK program
+ as ambiguous interaction restraints (AIRs) to drive the docking process.
+ More formally these are defined as an ambiguous distance between all residues
+ shown to be involved in the interaction.
+\end_layout
+
+\begin_layout Standard
+Since the original 2003 JACS publication HADDOCK has been extended to deal
+ with a large varity of data and complexes including protein-DNA, protein-RNA,
+ protein-oligosaccharides and protein-ligand complexes.
+ HADDOCK has consistently performed well in the blind protein-protein complex
+ CAPRI competitions
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://capri.ebi.ac.uk
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+HADDOCK remains a command line tool requiring the generation and configuration
+ of many files before a run can commence.
+ HADDOCK consists primarily as a collection of python scripts derived from
+ ARIA written by Michael Nilges and Jens Linge and makes use of CNS as structure
+ calculation software.
+ 
+\end_layout
+
+\begin_layout Section
+Spin label definitions
+\end_layout
+
+\begin_layout Section
+Protocols
+\end_layout
+
+\begin_layout Chapter
+Other tools
+\end_layout
+
+\begin_layout Section
+Naccess
+\end_layout
+
+\begin_layout Standard
+Naccess is a program that calculates the exposed surface area of a protein
+ by running a simulated sphere across the surface of a protein.
+ By default the sphere radius is set to 1.4 
+\begin_inset Formula $Å$
+\end_inset
+
+ 
+\begin_inset Formula $\approx$
+\end_inset
+
+the size of a water molecule.
+\end_layout
+
+\begin_layout Standard
+Within the 
+\family typewriter
+MISHAP/_private
+\family default
+ folder is the 
+\family typewriter
+NACCESS
+\family default
+ folder, within this folder is a special 
+\family typewriter
+MISHAP.radii
+\family default
+ file which allows Naccess to calculate the exposed surface area of a protein
+ which includes the residues R1A/CYM and IA1.
+\end_layout
+
+\begin_layout Section
+HADDOCK processing tools
+\end_layout
+
+\begin_layout Chapter
+Postface
+\end_layout
+
+\begin_layout Section
+License
+\end_layout
+
+\begin_layout Standard
+For a human-readable summary of the legal code below, please visit:
+\end_layout
+
+\begin_layout Standard
+http://creativecommons.org/licenses/by-nc-sa/3.0/
+\end_layout
+
+\begin_layout Standard
+This is a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
+ License.
+ To use MISHAP assumes agreement with this license, and is repeated in LICENSE.tx
+t in the MISHAP root directory.
+\end_layout
+
+\begin_layout Subsubsection*
+License
+\end_layout
+
+\begin_layout Standard
+THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
+ COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE").
+ THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW.
+ ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT
+ LAW IS PROHIBITED.
+\end_layout
+
+\begin_layout Standard
+BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE
+ TO BE BOUND BY THE TERMS OF THIS LICENSE.
+ TO THE EXTENT THIS LICENSE MAY BE CONSIDERED TO BE A CONTRACT, THE LICENSOR
+ GRANTS YOU THE RIGHTS CONTAINED HERE IN CONSIDERATION OF YOUR ACCEPTANCE
+ OF SUCH TERMS AND CONDITIONS.
+\end_layout
+
+\begin_layout Standard
+1.
+ Definitions
+\end_layout
+
+\begin_layout Standard
+"Adaptation" means a work based upon the Work, or upon the Work and other
+ pre-existing works, such as a translation, adaptation, derivative work,
+ arrangement of music or other alterations of a literary or artistic work,
+ or phonogram or performance and includes cinematographic adaptations or
+ any other form in which the Work may be recast, transformed, or adapted
+ including in any form recognizably derived from the original, except that
+ a work that constitutes a Collection will not be considered an Adaptation
+ for the purpose of this License.
+ For the avoidance of doubt, where the Work is a musical work, performance
+ or phonogram, the synchronization of the Work in timed-relation with a
+ moving image ("synching") will be considered an Adaptation for the purpose
+ of this License.
+ "Collection" means a collection of literary or artistic works, such as
+ encyclopedias and anthologies, or performances, phonograms or broadcasts,
+ or other works or subject matter other than works listed in Section 1(g)
+ below, which, by reason of the selection and arrangement of their contents,
+ constitute intellectual creations, in which the Work is included in its
+ entirety in unmodified form along with one or more other contributions,
+ each constituting separate and independent works in themselves, which together
+ are assembled into a collective whole.
+ A work that constitutes a Collection will not be considered an Adaptation
+ (as defined above) for the purposes of this License.
+ "Distribute" means to make available to the public the original and copies
+ of the Work or Adaptation, as appropriate, through sale or other transfer
+ of ownership.
+ "License Elements" means the following high-level license attributes as
+ selected by Licensor and indicated in the title of this License: Attribution,
+ Noncommercial, ShareAlike.
+ "Licensor" means the individual, individuals, entity or entities that offer(s)
+ the Work under the terms of this License.
+ "Original Author" means, in the case of a literary or artistic work, the
+ individual, individuals, entity or entities who created the Work or if
+ no individual or entity can be identified, the publisher; and in addition
+ (i) in the case of a performance the actors, singers, musicians, dancers,
+ and other persons who act, sing, deliver, declaim, play in, interpret or
+ otherwise perform literary or artistic works or expressions of folklore;
+ (ii) in the case of a phonogram the producer being the person or legal
+ entity who first fixes the sounds of a performance or other sounds; and,
+ (iii) in the case of broadcasts, the organization that transmits the broadcast.
+ "Work" means the literary and/or artistic work offered under the terms
+ of this License including without limitation any production in the literary,
+ scientific and artistic domain, whatever may be the mode or form of its
+ expression including digital form, such as a book, pamphlet and other writing;
+ a lecture, address, sermon or other work of the same nature; a dramatic
+ or dramatico-musical work; a choreographic work or entertainment in dumb
+ show; a musical composition with or without words; a cinematographic work
+ to which are assimilated works expressed by a process analogous to cinematograp
+hy; a work of drawing, painting, architecture, sculpture, engraving or lithograp
+hy; a photographic work to which are assimilated works expressed by a process
+ analogous to photography; a work of applied art; an illustration, map,
+ plan, sketch or three-dimensional work relative to geography, topography,
+ architecture or science; a performance; a broadcast; a phonogram; a compilation
+ of data to the extent it is protected as a copyrightable work; or a work
+ performed by a variety or circus performer to the extent it is not otherwise
+ considered a literary or artistic work.
+ "You" means an individual or entity exercising rights under this License
+ who has not previously violated the terms of this License with respect
+ to the Work, or who has received express permission from the Licensor to
+ exercise rights under this License despite a previous violation.
+ "Publicly Perform" means to perform public recitations of the Work and
+ to communicate to the public those public recitations, by any means or
+ process, including by wire or wireless means or public digital performances;
+ to make available to the public Works in such a way that members of the
+ public may access these Works from a place and at a place individually
+ chosen by them; to perform the Work to the public by any means or process
+ and the communication to the public of the performances of the Work, including
+ by public digital performance; to broadcast and rebroadcast the Work by
+ any means including signs, sounds or images.
+ "Reproduce" means to make copies of the Work by any means including without
+ limitation by sound or visual recordings and the right of fixation and
+ reproducing fixations of the Work, including storage of a protected performance
+ or phonogram in digital form or other electronic medium.
+ 2.
+ Fair Dealing Rights.
+ Nothing in this License is intended to reduce, limit, or restrict any uses
+ free from copyright or rights arising from limitations or exceptions that
+ are provided for in connection with the copyright protection under copyright
+ law or other applicable laws.
+\end_layout
+
+\begin_layout Standard
+3.
+ License Grant.
+ Subject to the terms and conditions of this License, Licensor hereby grants
+ You a worldwide, royalty-free, non-exclusive, perpetual (for the duration
+ of the applicable copyright) license to exercise the rights in the Work
+ as stated below:
+\end_layout
+
+\begin_layout Standard
+to Reproduce the Work, to incorporate the Work into one or more Collections,
+ and to Reproduce the Work as incorporated in the Collections; to create
+ and Reproduce Adaptations provided that any such Adaptation, including
+ any translation in any medium, takes reasonable steps to clearly label,
+ demarcate or otherwise identify that changes were made to the original
+ Work.
+ For example, a translation could be marked "The original work was translated
+ from English to Spanish," or a modification could indicate "The original
+ work has been modified."; to Distribute and Publicly Perform the Work including
+ as incorporated in Collections; and, to Distribute and Publicly Perform
+ Adaptations.
+ The above rights may be exercised in all media and formats whether now
+ known or hereafter devised.
+ The above rights include the right to make such modifications as are technicall
+y necessary to exercise the rights in other media and formats.
+ Subject to Section 8(f), all rights not expressly granted by Licensor are
+ hereby reserved, including but not limited to the rights described in Section
+ 4(e).
+\end_layout
+
+\begin_layout Standard
+4.
+ Restrictions.
+ The license granted in Section 3 above is expressly made subject to and
+ limited by the following restrictions:
+\end_layout
+
+\begin_layout Standard
+You may Distribute or Publicly Perform the Work only under the terms of
+ this License.
+ You must include a copy of, or the Uniform Resource Identifier (URI) for,
+ this License with every copy of the Work You Distribute or Publicly Perform.
+ You may not offer or impose any terms on the Work that restrict the terms
+ of this License or the ability of the recipient of the Work to exercise
+ the rights granted to that recipient under the terms of the License.
+ You may not sublicense the Work.
+ You must keep intact all notices that refer to this License and to the
+ disclaimer of warranties with every copy of the Work You Distribute or
+ Publicly Perform.
+ When You Distribute or Publicly Perform the Work, You may not impose any
+ effective technological measures on the Work that restrict the ability
+ of a recipient of the Work from You to exercise the rights granted to that
+ recipient under the terms of the License.
+ This Section 4(a) applies to the Work as incorporated in a Collection,
+ but this does not require the Collection apart from the Work itself to
+ be made subject to the terms of this License.
+ If You create a Collection, upon notice from any Licensor You must, to
+ the extent practicable, remove from the Collection any credit as required
+ by Section 4(d), as requested.
+ If You create an Adaptation, upon notice from any Licensor You must, to
+ the extent practicable, remove from the Adaptation any credit as required
+ by Section 4(d), as requested.
+ You may Distribute or Publicly Perform an Adaptation only under: (i) the
+ terms of this License; (ii) a later version of this License with the same
+ License Elements as this License; (iii) a Creative Commons jurisdiction
+ license (either this or a later license version) that contains the same
+ License Elements as this License (e.g., Attribution-NonCommercial-ShareAlike
+ 3.0 US) ("Applicable License").
+ You must include a copy of, or the URI, for Applicable License with every
+ copy of each Adaptation You Distribute or Publicly Perform.
+ You may not offer or impose any terms on the Adaptation that restrict the
+ terms of the Applicable License or the ability of the recipient of the
+ Adaptation to exercise the rights granted to that recipient under the terms
+ of the Applicable License.
+ You must keep intact all notices that refer to the Applicable License and
+ to the disclaimer of warranties with every copy of the Work as included
+ in the Adaptation You Distribute or Publicly Perform.
+ When You Distribute or Publicly Perform the Adaptation, You may not impose
+ any effective technological measures on the Adaptation that restrict the
+ ability of a recipient of the Adaptation from You to exercise the rights
+ granted to that recipient under the terms of the Applicable License.
+ This Section 4(b) applies to the Adaptation as incorporated in a Collection,
+ but this does not require the Collection apart from the Adaptation itself
+ to be made subject to the terms of the Applicable License.
+ You may not exercise any of the rights granted to You in Section 3 above
+ in any manner that is primarily intended for or directed toward commercial
+ advantage or private monetary compensation.
+ The exchange of the Work for other copyrighted works by means of digital
+ file-sharing or otherwise shall not be considered to be intended for or
+ directed toward commercial advantage or private monetary compensation,
+ provided there is no payment of any monetary compensation in con-nection
+ with the exchange of copyrighted works.
+ If You Distribute, or Publicly Perform the Work or any Adaptations or Collectio
+ns, You must, unless a request has been made pursuant to Section 4(a), keep
+ intact all copyright notices for the Work and provide, reasonable to the
+ medium or means You are utilizing: (i) the name of the Original Author
+ (or pseudonym, if applicable) if supplied, and/or if the Original Author
+ and/or Licensor designate another party or parties (e.g., a sponsor institute,
+ publishing entity, journal) for attribution ("Attribution Parties") in
+ Licensor's copyright notice, terms of service or by other reasonable means,
+ the name of such party or parties; (ii) the title of the Work if supplied;
+ (iii) to the extent reasonably practicable, the URI, if any, that Licensor
+ specifies to be associated with the Work, unless such URI does not refer
+ to the copyright notice or licensing information for the Work; and, (iv)
+ consistent with Section 3(b), in the case of an Adaptation, a credit identifyin
+g the use of the Work in the Adaptation (e.g., "French translation of the
+ Work by Original Author," or "Screenplay based on original Work by Original
+ Author").
+ The credit required by this Section 4(d) may be implemented in any reasonable
+ manner; provided, however, that in the case of a Adaptation or Collection,
+ at a minimum such credit will appear, if a credit for all contributing
+ authors of the Adaptation or Collection appears, then as part of these
+ credits and in a manner at least as prominent as the credits for the other
+ contributing authors.
+ For the avoidance of doubt, You may only use the credit required by this
+ Section for the purpose of attribution in the manner set out above and,
+ by exercising Your rights under this License, You may not implicitly or
+ explicitly assert or imply any connection with, sponsorship or endorsement
+ by the Original Author, Licensor and/or Attribution Parties, as appropriate,
+ of You or Your use of the Work, without the separate, express prior written
+ permission of the Original Author, Licensor and/or Attribution Parties.
+ For the avoidance of doubt:
+\end_layout
+
+\begin_layout Standard
+Non-waivable Compulsory License Schemes.
+ In those jurisdictions in which the right to collect royalties through
+ any statutory or compulsory licensing scheme cannot be waived, the Licensor
+ reserves the exclusive right to collect such royalties for any exercise
+ by You of the rights granted under this License; Waivable Compulsory License
+ Schemes.
+ In those jurisdictions in which the right to collect royalties through
+ any statutory or compulsory licensing scheme can be waived, the Licensor
+ reserves the exclusive right to collect such royalties for any exercise
+ by You of the rights granted under this License if Your exercise of such
+ rights is for a purpose or use which is otherwise than noncommercial as
+ permitted under Section 4(c) and otherwise waives the right to collect
+ royalties through any statutory or compulsory licensing scheme; and, Voluntary
+ License Schemes.
+ The Licensor reserves the right to collect royalties, whether individually
+ or, in the event that the Licensor is a member of a collecting society
+ that administers voluntary licensing schemes, via that society, from any
+ exercise by You of the rights granted under this License that is for a
+ purpose or use which is otherwise than noncommercial as permitted under
+ Section 4(c).
+ Except as otherwise agreed in writing by the Licensor or as may be otherwise
+ permitted by applicable law, if You Reproduce, Distribute or Publicly Perform
+ the Work either by itself or as part of any Adaptations or Collections,
+ You must not distort, mutilate, modify or take other derogatory action
+ in relation to the Work which would be prejudicial to the Original Author's
+ honor or reputation.
+ Licensor agrees that in those jurisdictions (e.g.
+ Japan), in which any exercise of the right granted in Section 3(b) of this
+ License (the right to make Adaptations) would be deemed to be a distortion,
+ mutilation, modification or other derogatory action prejudicial to the
+ Original Author's honor and reputation, the Licensor will waive or not
+ assert, as appropriate, this Section, to the fullest extent permitted by
+ the applicable national law, to enable You to reasonably exercise Your
+ right under Section 3(b) of this License (right to make Adaptations) but
+ not otherwise.
+ 5.
+ Representations, Warranties and Disclaimer
+\end_layout
+
+\begin_layout Standard
+UNLESS OTHERWISE MUTUALLY AGREED TO BY THE PARTIES IN WRITING AND TO THE
+ FULLEST EXTENT PERMITTED BY APPLICABLE LAW, LICENSOR OFFERS THE WORK AS-IS
+ AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE WORK,
+ EXPRESS, IMPLIED, STATUTORY OR OTHERWISE, INCLUDING, WITHOUT LIMITATION,
+ WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+ NONINFRINGEMENT, OR THE ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR
+ THE PRESENCE OF ABSENCE OF ERRORS, WHETHER OR NOT DISCOVERABLE.
+ SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO
+ THIS EXCLUSION MAY NOT APPLY TO YOU.
+\end_layout
+
+\begin_layout Standard
+6.
+ Limitation on Liability.
+ EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE LAW, IN NO EVENT WILL LICENSOR
+ BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL
+, PUNITIVE OR EXEMPLARY DAMAGES ARISING OUT OF THIS LICENSE OR THE USE OF
+ THE WORK, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+ DAMAGES.
+\end_layout
+
+\begin_layout Standard
+7.
+ Termination
+\end_layout
+
+\begin_layout Standard
+This License and the rights granted hereunder will terminate automatically
+ upon any breach by You of the terms of this License.
+ Individuals or entities who have received Adaptations or Collections from
+ You under this License, however, will not have their licenses terminated
+ provided such individuals or entities remain in full compliance with those
+ licenses.
+ Sections 1, 2, 5, 6, 7, and 8 will survive any termination of this License.
+ Subject to the above terms and conditions, the license granted here is
+ perpetual (for the duration of the applicable copyright in the Work).
+ Notwithstanding the above, Licensor reserves the right to release the Work
+ under different license terms or to stop distributing the Work at any time;
+ provided, however that any such election will not serve to withdraw this
+ License (or any other license that has been, or is required to be, granted
+ under the terms of this License), and this License will continue in full
+ force and effect unless terminated as stated above.
+ 8.
+ Miscellaneous
+\end_layout
+
+\begin_layout Standard
+Each time You Distribute or Publicly Perform the Work or a Collection, the
+ Licensor offers to the recipient a license to the Work on the same terms
+ and conditions as the license granted to You under this License.
+ Each time You Distribute or Publicly Perform an Adaptation, Licensor offers
+ to the recipient a license to the original Work on the same terms and condition
+s as the license granted to You under this License.
+ If any provision of this License is invalid or unenforceable under applicable
+ law, it shall not affect the validity or enforceability of the remainder
+ of the terms of this License, and without further action by the parties
+ to this agreement, such provision shall be reformed to the minimum extent
+ necessary to make such provision valid and enforceable.
+ No term or provision of this License shall be deemed waived and no breach
+ consented to unless such waiver or consent shall be in writing and signed
+ by the party to be charged with such waiver or consent.
+ This License constitutes the entire agreement between the parties with
+ respect to the Work licensed here.
+ There are no understandings, agreements or representations with respect
+ to the Work not specified here.
+ Licensor shall not be bound by any additional provisions that may appear
+ in any communication from You.
+ This License may not be modified without the mutual written agreement of
+ the Licensor and You.
+ The rights granted under, and the subject matter referenced, in this License
+ were drafted utilizing the terminology of the Berne Convention for the
+ Protection of Literary and Artistic Works (as amended on September 28,
+ 1979), the Rome Convention of 1961, the WIPO Copyright Treaty of 1996,
+ the WIPO Performances and Phonograms Treaty of 1996 and the Universal Copyright
+ Convention (as revised on July 24, 1971).
+ These rights and subject matter take effect in the relevant jurisdiction
+ in which the License terms are sought to be enforced according to the correspon
+ding provisions of the implementation of those treaty provisions in the
+ applicable national law.
+ If the standard suite of rights granted under applicable copyright law
+ includes additional rights not granted under this License, such additional
+ rights are deemed to be included in the License; this License is not intended
+ to restrict the license of any rights under applicable law.
+\end_layout
+
+\begin_layout Section
+Third-party software
+\end_layout
+
+\begin_layout Subsection
+Software within MISHAP
+\end_layout
+
+\begin_layout Standard
+MISHAP makes use of the following freely available scripts from MatLab Central
+\end_layout
+
+\begin_layout Subsubsection*
+Peak detection
+\end_layout
+
+\begin_layout Standard
+fpeak.m by Geng Jun, 2003
+\end_layout
+
+\begin_layout Subsubsection*
+Wrapping of strings
+\end_layout
+
+\begin_layout Standard
+linewrap.m by Steve Eddins, 2006
+\end_layout
+
+\begin_layout Subsection
+MMM
+\end_layout
+
+\begin_layout Standard
+MMM (Multiscale Modeling of Macromolecular systems) is an open-source program
+ for the visualization, inspection, and improvement of models of proteins
+ and protein assemblies based on restraints from multiple experimental technique
+s.
+ Authored by Yevhen Polyhach and Gunnar Jeschke, with design support by
+ Enrica Bordignon from ETH Zurich, Switzerland with additional development
+ by Stefan Stoll, University of Washington, USA.
+\end_layout
+
+\begin_layout Standard
+Available from: http://www.epr.ethz.ch/software
+\end_layout
+
+\begin_layout Subsection
+HADDOCK
+\end_layout
+
+\begin_layout Standard
+HADDOCK (High Ambiguity Driven biomolecular DOCKing) is an information-driven
+ flexible docking approach for the modeling of biomolecular complexes.
+ HADDOCK distinguishes itself from ab-initio docking methods in the fact
+ that it encodes information from identified or predicted protein interfaces
+ in ambiguous interaction restraints (AIRs) to drive the docking process.
+ Authored by Alexandre Bonvin, Utrecht University, Netherlands with support
+ from João Rodrigues.
+\end_layout
+
+\begin_layout Standard
+Available from: http://www.nmr.chem.uu.nl/haddock/
+\end_layout
+
+\begin_layout Standard
+With public webservers available at: http://haddock.science.uu.nl/
+\end_layout
+
+\begin_layout Section
+Acknowledgements
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+Morgan
+\begin_inset space ~
+\end_inset
+
+Bye
+\emph default
+ - primary software writer, testing, documentation
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+Fraser
+\begin_inset space ~
+\end_inset
+
+MacMillan
+\emph default
+ - head of Henry Wellcome Unit for Biological EPR
+\end_layout
+
+\begin_layout Section
+Hardware and computation time
+\end_layout
+
+\begin_layout Standard
+The vast majority of testing of MISHAP has been conducted upon a 64-bit
+ Linux system (Ubuntu 12.04 LTS), MatLab R2011a.
+\end_layout
+
+\begin_layout Standard
+This system comprises an Intel Core 2 processor @ 2 
+\begin_inset Formula $\times$
+\end_inset
+
+ 2.40 
+\begin_inset Formula $GHz$
+\end_inset
+
+ with 4 
+\begin_inset Formula $GB$
+\end_inset
+
+ of RAM.
+\end_layout
+
+\begin_layout Standard
+With this system generation of a distance restraint file is ~5 
+\begin_inset Formula $ms$
+\end_inset
+
+, PDB file load time is ~3 
+\begin_inset Formula $s$
+\end_inset
+
+ (for a ~25 kDa protein with ~2500 atoms), MMM rotamer file load time is
+ ~3 
+\begin_inset Formula $s$
+\end_inset
+
+, the PDB creator running 2 proteins (~ 15 kDa) is ~1 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+These timings will not vary much with newer machines as MatLab by default
+ will not parallelise tasks.
+ If your version of MatLab is set up to use parrallelisation these times
+ will drop significantly.
+\end_layout
+
+\begin_layout Standard
+A HADDOCK docking run with this setup takes ~4 - 16 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ It is highly recommended to perform the HADDOCK tasks on a computing cluster
+ or server.
+ With a 16 core Intel Xeon server with 16 
+\begin_inset Formula $GB$
+\end_inset
+
+ of RAM the HADDOCK runs drop to ~20 
+\begin_inset Formula $min$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The MISHAP MatLab interface has been briefly tested upon a Windows XP machine
+ (MatLab 2010a) and is shown to be functional.
+ Though with the specifications of this machine (Intel Celeron @ 1 
+\begin_inset Formula $\times$
+\end_inset
+
+ 2.00 
+\begin_inset Formula $GHz$
+\end_inset
+
+ with 1 
+\begin_inset Formula $GB$
+\end_inset
+
+ of RAM) loading of PDB files can take as long as 10 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Standard
+S.J.
+ de Vries, M.
+ van Dijk and A.M.J.J.
+ Bonvin "The HADDOCK web server for data-driven biomolecular docking." Nature
+ Protocols, 5, 883-897 (2010).
+\end_layout
+
+\begin_layout Standard
+T.A.
+ Wassenaar, M.
+ van Dijk, N.
+ Loureiro-Ferreira, G.
+ van der Schot, S.J.
+ de Vries, C.
+ Schmitz, J.
+ van der Zwan, R.
+ Boelens, A.
+ Giachetti, L.
+ Ferella, A.
+ Rosato, I.
+ Bertini, T.
+ Herrmann, H.R.A.
+ Jonker, A.
+ Bagaria, V.
+ Jaravine, P.
+ Guntert, H.
+ Schwalbe, W.F.
+ Vranken, J.F.
+ Doreleijers, G.
+ Vriend, G.W.
+ Vuister, D.
+ Franke, A.
+ Kikhney, D.I.
+ Svergun, R.
+ Fogh, J.
+ Ionides, E.D.
+ Laue, C.
+ Spronk, S.
+ Jurka, M.
+ Verlato, S.
+ Badoer, S.
+ Dal Pra, M.
+ Mazzucato, E.
+ Frizziero and A.M.J.J.
+ Bonvin "WeNMR: Structural Biology on the Grid." J.
+ Grid.
+ Comp., 10, 743-767 (2012).
+\end_layout
+
+\end_body
+\end_document
