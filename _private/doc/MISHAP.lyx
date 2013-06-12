@@ -3645,8 +3645,157 @@ HADDOCK remains a command line tool requiring the generation and configuration
 Spin label definitions
 \end_layout
 
+\begin_layout Standard
+HADDOCK being designed to accept input data from several different sources
+ already has the facility to use several unnatural amino acids such as phosphory
+lated CYS, HIS, SER, THR, several methyl variants such as mono-, di-, tri-
+ methyl lysine, to name but a few.
+\end_layout
+
+\begin_layout Standard
+Thus if correctly defined it is perfectly possible to add MTSL and IA-PROXYL
+ labelled cysteines as an unnatural, but allowed, amino acid residue.
+\end_layout
+
+\begin_layout Standard
+For an amino acid to be defined in HADDOCK and the underlying structural
+ program CNS requires explicit definitions of all atoms, charges, bonds,
+ bond lengths and allowed bond angles (both dihedral and improper dihedrals).
+ When combined this gives the modelling software not only the atomic position
+ and bonding of the atoms, it also allows for the free rotation of bonds
+ - which is essential in the final binding stage of HADDOCK before the final
+ energy optimisation in water.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename _fig/MTSL.eps
+	width 40col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MTSL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename _fig/IAP.eps
+	width 40col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+IAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Atom naming convention used in MMM and MISHAP for nitroxide spin labels
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Protocols
+\end_layout
+
+\begin_layout Standard
+Whereas with MMM there is an increasing amount of published data that shows
+ that rotamer population prediction from a rotamer library reflects the
+ experimental situation, it is not known whether the bond rotation allowed
+ in HADDOCK/CNS reflects well with that seen experimentally.
+ Previously, the authors of HADDOCK when performing paramagnetic relaxation
+ enhancement studies take the spin label and during the early stages of
+ docking spawn 4 structures with the spin label in different conformations.
+ Docking is then performed in an ensemble style analysis and it is hoped
+ that during the allowed side chain freedom stage of energy minimisation
+ that starting from 4 random positions will find the overall position(s)
+ and not get caught in a local energy minima.
+\end_layout
+
+\begin_layout Standard
+To this end, MISHAP provides the ability in the PDB creator to not only
+ create a single PDB file but automatically generate an ensemble folder
+ of PDB files, with the appropiate HADDOCK file list file, of rotamers from
+ MMM with populations of greater than 1 %.
+ Whilst a typical MMM analysis can generate up to 100 rotamers on a greatly
+ solvent exposed site from the rotamer library most will have populations
+ of below 1 %.
+ In more rigidly located spin label positions the rotamer population quickly
+ reduces in number with the remaining allowed rotamers covering a large
+ proportion of the population, in some cases above 50 %, in these cases
+ an ensemble analysis may not be necessary and a single rotamer PDB file
+ should be sufficient for an accurate docking simulation.
 \end_layout
 
 \begin_layout Chapter
