@@ -686,6 +686,13 @@ MMM is an open-source program for the visualisation, inspection and improvement
 
 \begin_layout Subsection
 Save rotamers from MMM
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:MMM-Save-rotamers"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1157,7 +1164,7 @@ The rotamer analysis can be tracked in the message board and once complete
 \end_layout
 
 \begin_layout Section
-Installer
+MISHAP Installer
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Installer"
@@ -1201,11 +1208,17 @@ or by clicking from the main MatLab menu or by clicking
 \end_layout
 
 \begin_layout Quote
-File 
+
+\emph on
+File
+\emph default
+ 
 \begin_inset Formula $\rightarrow$
 \end_inset
 
- Set Path
+ 
+\emph on
+Set Path
 \end_layout
 
 \begin_layout Standard
@@ -3594,7 +3607,7 @@ Thank you for using MISHAP
 \end_layout
 
 \begin_layout Chapter
-HADDOCK interface
+HADDOCK configuration
 \end_layout
 
 \begin_layout Standard
@@ -3680,9 +3693,12 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Graphics
 	filename _fig/MTSL.eps
-	width 40col%
+	lyxscale 50
+	height 35theight%
 
 \end_inset
 
@@ -3718,9 +3734,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Graphics
 	filename _fig/IAP.eps
-	width 40col%
+	height 35theight%
 
 \end_inset
 
@@ -3796,6 +3814,508 @@ To this end, MISHAP provides the ability in the PDB creator to not only
  proportion of the population, in some cases above 50 %, in these cases
  an ensemble analysis may not be necessary and a single rotamer PDB file
  should be sufficient for an accurate docking simulation.
+\end_layout
+
+\begin_layout Section
+Topology parameters (toppar)
+\end_layout
+
+\begin_layout Standard
+HADDOCK contains a series of files contain all of the necessary parameters
+ for amino acid residues, ligands, DNA, etc.
+ These parameters largely are default parameters for CNS that have been
+ extensively modfied and added to for the purposes of HADDOCK.
+ HADDOCK creates CNS scripts and then calls CNS in order to perform docking.
+\end_layout
+
+\begin_layout Standard
+Note that HADDOCK must make use of topology version 5.4 for many of the features
+ to work, however HADDOCK by default uses version 5.3 - to ensure as broad
+ compatibility as possible the provided MISHAP files provide both 5.3 and
+ 5.4 topology files.
+ The following files from the 
+\family typewriter
+HADDOCK/toppar
+\family default
+ folder require updating in order for HADDOCK to accept nitroxide spin labels:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.3.pep
+\family default
+ allows the labels to exist in a peptide
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.3.pep-noCter
+\family default
+ allows the labels to exist in a peptide where the C-terminus does not exist
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.3.pep-noNter
+\family default
+ allows the labels to exist in a peptide where the N-terminus does not exist
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.3.pro
+\family default
+ defines the mass and charge of each atom, as well as each bond, angle,
+ improper angle, dihedral angle and hydrogen bond acceptor/donor site.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.3.pro-caro
+\family default
+ defines the mass and charge of each atom, as well as each bond, angle,
+ improper angle, dihedral angle and hydrogen bond acceptor/donor site.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.4.pep
+\family default
+ allows the labels to exist in a peptide, and defines how the peptide would
+ bind to surrounding amino acid residues
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.4.pep-noCter
+\family default
+ allows the labels to exist and bond to it's neighbours in a peptide where
+ no C-terminus exists
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.4.pep-noNter
+\family default
+ allows the labels to exist and bond to it's neighbours in a peptide where
+ no N-terminus exists
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.4.pep-noter
+\family default
+ allows the labels to exist and bond to it's neighbours in a peptide where
+ neither a N nor C -termini exists
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.4.pro
+\family default
+ defines the mass and charge of each atom, as well as each bond, angle,
+ improper angle, dihedral angle and hydrogen bond acceptor/donor site.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+topallhdg5.4.pro-new
+\family default
+ defines the mass and charge of each atom, as well as each bond, angle,
+ improper angle, dihedral angle and hydrogen bond acceptor/donor site.
+\end_layout
+
+\begin_layout Standard
+Whilst it is possible to create these topology parameter files by hand methodica
+lly, several tools exist that can speed up the process.
+ For example the PRODRG tool
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Acta Cryst.
+ (2004).
+ D60, 1355-1363
+\end_layout
+
+\end_inset
+
+ has a free web server
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://davapc1.bioch.dundee.ac.uk/prodrg/
+\end_layout
+
+\end_inset
+
+ that can be used to generate CNS topology files.
+ This tool is only designed to create ligands and so to incorporate a structure
+ as an amino acid requires some modification.
+\end_layout
+
+\begin_layout Section
+Run settings
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+run.cns
+\family default
+ is the primary file that HADDOCK runs a docking experiment from.
+ When a run is first generated it is imperative to change this file to reflect
+ not only your own system but also to ensure the correct settings are used.
+\end_layout
+
+\begin_layout Subsection
+CNS address
+\end_layout
+
+\begin_layout Standard
+Despite what is set in the 
+\family typewriter
+new.html
+\family default
+ when the run is generated the CNS address often does not update and is
+ often defaulted to:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/sw/nmr/cns_solve_1.2-para/mac-intel-darwin/bin/cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This can be editted by hand or with the command:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sed 's,'/sw/nmr/cns_solve_1.2-para/mac-intel-darwin/bin/cns', '/path/to/cns_solve
+_1.3/intel-x86_64bit-linux/bin/cns',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where the 
+\family typewriter
+sed
+\family default
+ command searches for the string in the first quote and replaces it with
+ the second string.
+ We then need to save to a temporary file and overwrite the original file
+ with the temporary one.
+\end_layout
+
+\begin_layout Subsection
+Topology selection
+\end_layout
+
+\begin_layout Standard
+HADDOCK will always by default use topology parameters v5.3, we require HADDOCK
+ to use version 5.4 when using CNS v1.3.
+\end_layout
+
+\begin_layout Standard
+Update the version selection with:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sed 's,'topallhdg5.3','topallhdg5.4',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parallelisation
+\end_layout
+
+\begin_layout Standard
+HADDOCK by default assumes only a dual cored processor.
+ If you are using it upon a cluster or server ensure that you update the
+ 
+\family typewriter
+run.cns
+\family default
+ file to take this into account; replacing 'XXX' with the number available
+ on your system.
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sed 's,'cpunumber_1=2','cpunumber_1=XXX',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Protocols
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+run.cns
+\family default
+ in the run root is not the same run.cns file that is called when protocols
+ are run.
+ To ensure that our changes are reflected throughout the entire HADDOCK
+ run we need to copy the 
+\family typewriter
+run.cns
+\family default
+ root and replace the 
+\family typewriter
+run.cns
+\family default
+ file in the 
+\family typewriter
+protocols
+\family default
+ folder.
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cp run.cns protocols/run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Structure generation
+\end_layout
+
+\begin_layout Standard
+Each amino acid chain or ligand is generated as a seperate structure, so
+ for a docking experiment the bear minimum we will have is structure A and
+ B, whilst HADDOCK supports up to 6 structures.
+\end_layout
+
+\begin_layout Standard
+For each structure to be used in the docking run requires that the structure
+ generation script be forced to use topology parameters v5.4.
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sed 's,'hdg5.3','hdg5.4',' generate_A.inp > tmp ; mv tmp generate_A.inp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Repeating this command but replacing 
+\family typewriter
+generate_A.inp
+\family default
+ with 
+\family typewriter
+generate_B.inp
+\family default
+, ..., etc.
+ for every structure.
+\end_layout
+
+\begin_layout Standard
+Also check that the 
+\family typewriter
+generate_X.inp
+\family default
+ file has the correct file location, all to often it will default to:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/home/abonvin/software/haddock/examples/e2a.pdb
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+An example docking experiment
+\end_layout
+
+\begin_layout Standard
+MISHAP comes with the folder 
+\family typewriter
+test_files
+\family default
+ in the root directory.
+ In this folder the user will find all the files necessary to run their
+ first MISHAP/HADDOCK docking experiment, without performing any PELDOR
+ experiments.
+ It is assumed that the user is proficient in DeerAnalysis and MMM and would
+ be able to follow the instructions in chapter 2 to generate their own files.
+ If the user is unversed in these programs then it is recommended to read
+ the freely available user manuals
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.epr.ethz.ch/software/DeerAnalysis2013_manual.pdf
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.epr.ethz.ch/software/MMM_2013_manual.pdf
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Example files
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+test_files
+\family default
+ folder contains 
+\family typewriter
+2K5X.pdb
+\family default
+ the published NMR energy minimised structure of colicin E9 DNase bound
+ to it's immunity protein, Im9 from rcsb.org.
+ Additionally, there are the further 
+\family typewriter
+2K5X_ChainA.pdb 
+\family default
+and
+\family typewriter
+ 2K5X_ChainB.pdb 
+\family default
+files created with the EPR toolbox's
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+morganbye.net/eprtoolbox
+\end_layout
+
+\end_inset
+
+ PDBSplitter function, which simply splits the original PDB file into seperate
+ chains.
+\end_layout
+
+\begin_layout Standard
+Additionally in this folder we have several files with the root 
+\family typewriter
+4PEL_[2K5X](A)23_[2K5X](B)3
+\family default
+, these files are saved DeerAnalysis results from a PELDOR experiment between
+ the C23 position of the Im9 to the S3C position of E9 DNase.
+\end_layout
+
+\begin_layout Standard
+Finally we have the files 
+\family typewriter
+rotamers_[2K5X](A){1}23_IA1_175.pdb
+\family default
+ and 
+\family typewriter
+rotamers_[2K5X](B){1}3_IA1_175.pdb
+\family default
+, these are the saved MMM site scan rotamer analysis files of the 2 sites
+ using IA-PROXYL at 175 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+MISHAP
 \end_layout
 
 \begin_layout Chapter
