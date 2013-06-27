@@ -6,7 +6,6 @@ remark   simulated annealing.
 remark   Original author: Michael Nilges, EMBL Heidelberg
 remark   Modifications: Mark A. Williams, UCL London
 remark   Several modifications for HADDOCK: Alexandre Bonvin, Utrecht Uni
-remark   Modifications for HADDOCK/MISHAP: M. Bye, UEA, UK, June 2013
 
 set echo on message on end
 
@@ -72,28 +71,6 @@ set echo on message on end
 ! all dihedrals defining planarity converted to impropers (MN, PK)
 ! additional impropers at planar centers (MN)
 !***********************************************************************!
-
-! added by M. Bye for IA-PROXYL-Cys (IA1)
- 
- BOND   C    NP1         1000.000 {sd=     0.001}       1.470
- BOND   NP1  OP1         1000.000 {sd=     0.001}       1.460
-
- ANGLe  CH2E S    CH2E     500.00 {sd=     0.031}    100.0000 ! CB TO SG TO CD
- ANGLe  C    CH2E S        500.00 {sd=     0.031}    113.0000 ! SG TO CB TO CB
- ANGLe  NH1  C    CH2E     500.00 {sd=     0.031}    115.0000 ! NZ TO CE TO CD
- ANGLe  CH1E NH1  C        500.00 {sd=     0.031}    122.0000 ! C3 TO NZ TO CE
- ANGLe  C    NP1  OP1      500.00 {sd=     0.031}    109.5000 ! C2/5 TO N1 TO O1
- ANGLe  C    NP1  C        500.00 {sd=     0.031}    104.0000 ! C2 TO N1 TO C5
- ANGLe  NP1  C    CH3E     500.00 {sd=     0.031}    111.0000 ! N1 TO C2/5 TO C6/7/8/9
- ANGLe  NP1  C    CH2E     500.00 {sd=     0.031}    104.0000 ! N1 TO C5 TO C4
- ANGLe  NP1  C    CH1E     500.00 {sd=     0.031}    104.0000 ! N1 TO C2 TO C3
- ANGLe  CH2E C    CH3E     500.00 {sd=     0.031}    109.5000 ! C4 TO C5 TO C6/7
- ANGLe  CH1E C    CH3E     500.00 {sd=     0.031}    109.5000 ! C3 TO C2 TO C8/9
- ANGLe  CH1E CH2E C        500.00 {sd=     0.031}    104.0000 ! C3 TO C4 TO C5
- ANGLe  CH3E C    CH3E     500.00 {sd=     0.031}    109.5000 ! C8 TO C2 TO C9
-                                                              ! C6 TO C5 TO C7 
- NONBONDED NP1   0.10000 2.67270 0.10000 2.40543
- NONBONDED OP1   0.10000 2.58361 0.10000 2.31634
 
 !added by nocky
  BOND  S     C      1000.000 {sd=     0.001}      1.822

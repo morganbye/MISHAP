@@ -5,7 +5,7 @@ remark      simulated annealing.
 remark   Author: Michael Nilges, EMBL Heidelberg; Institut Pasteur, Paris
 remark   This file contains modifications from M. Williams, UCL London
 remark   and multiple modifications for HADDOCK from A. Bonvin, Utrecht University
-remark   and minor additions for R1A and IA1 by M. Bye, UEA, UK
+remark   Modifications for HADDOCK/MISHAP: M. Bye, UEA, UK, June 2013
 remark   Last modification 09-January-13
 
 set message ? end eval ($old_message=$result) set echo ? end eval ($old_echo=$result)

@@ -4101,6 +4101,46 @@ sed 's,'cpunumber_1=2','cpunumber_1=XXX',' run.cns > tmp ; mv tmp run.cns
 
 \end_layout
 
+\begin_layout Standard
+The number of CPU cores on a UNIX system can be easily found with the command:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+grep "cpu cores" /proc/cpuinfo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or with the terminal command (available in most Linux distributions):
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+lscpu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Protocols
 \end_layout

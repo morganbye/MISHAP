@@ -7,7 +7,7 @@ remarks      simulated annealing.
 remarks   Author: Michael Nilges, EMBL Heidelberg; Institut Pasteur, Paris
 remarks   This file contains modifications from M. Williams, UCL London
 remarks   and multiple modifications for HADDOCK from A. Bonvin, Utrecht University
-remarks   Last modification 07-July-10
+remarks   Modifications for HADDOCK/MISHAP: M. Bye, UEA, UK, June 2013
 
 set message ? end eval ($old_message=$result) set echo ? end eval ($old_echo=$result)
 set message=off echo=off end
@@ -133,6 +133,8 @@ MASS  HHAC   1.0080   ! equivalent to     H
 MASS  HHAD   1.0080   ! equivalent to     H
 MASS  HHAB   1.0080   ! equivalent to     H
 
+MASS  NP1   14.0067
+
 
 ! RESIDUE CYM
 
@@ -235,451 +237,188 @@ GROUP
 
 END
 
-set echo=false end
-AUTOGENERATE  ANGLES=FALSE  END
-MASS OE_Y  15.9994   ! equivalent to         O
-MASS CE_Y  12.0110   ! equivalent to         C
-MASS HE_Y   1.0080   ! equivalent to        HC
-MASS CEA   12.0110   ! equivalent to       CH1
-MASS HEA    1.0080   ! equivalent to        HC
-MASS NE_Y  14.0067   ! equivalent to        NL
-MASS HE3    1.0080   ! equivalent to         H
-MASS HE5    1.0080   ! equivalent to         H
-MASS HE2    1.0080   ! equivalent to         H
-MASS CEB   12.0110   ! equivalent to       CH2
-MASS HEB1   1.0080   ! equivalent to        HC
-MASS HEB2   1.0080   ! equivalent to        HC
-MASS SEG   32.0600   ! equivalent to         S
-MASS SED   32.0600   ! equivalent to         S
-MASS CEE   12.0110   ! equivalent to       CH2
-MASS HEE1   1.0080   ! equivalent to        HC
-MASS HEE2   1.0080   ! equivalent to        HC
-MASS CE3   12.0110   ! equivalent to      CR50
-MASS CE4   12.0110   ! equivalent to      CR51
-MASS HE4    1.0080   ! equivalent to        HC
-MASS CE5   12.0110   ! equivalent to       CR2
-MASS CE7   12.0110   ! equivalent to       CH3
-MASS HE72   1.0080   ! equivalent to        HC
-MASS HE73   1.0080   ! equivalent to        HC
-MASS HE71   1.0080   ! equivalent to        HC
-MASS CE6   12.0110   ! equivalent to       CH3
-MASS HE62   1.0080   ! equivalent to        HC
-MASS HE63   1.0080   ! equivalent to        HC
-MASS HE61   1.0080   ! equivalent to        HC
-MASS NE1   14.0067   ! equivalent to        NL
-MASS OE1   15.9994   ! equivalent to        OA
-MASS HE1    1.0080   ! equivalent to         H
-MASS CE2   12.0110   ! equivalent to       CR2
-MASS CE8   12.0110   ! equivalent to       CH3
-MASS HE82   1.0080   ! equivalent to        HC
-MASS HE83   1.0080   ! equivalent to        HC
-MASS HE81   1.0080   ! equivalent to        HC
-MASS CE9   12.0110   ! equivalent to       CH3
-MASS HE92   1.0080   ! equivalent to        HC
-MASS HE93   1.0080   ! equivalent to        HC
-MASS HE91   1.0080   ! equivalent to        HC
+! RESIDUE R1A - THIS IS A COPY OF CYM
 
-Residue R1A  
+residue R1A
 GROUP
-  ATOM O    TYPE=OE_Y CHARGE=-0.557 END
-  ATOM C    TYPE=CE_Y CHARGE= 0.164 END
-  ATOM H    TYPE=HE_Y CHARGE=-0.007 END
-  ATOM CA   TYPE=CEA  CHARGE= 0.072 END
-  ATOM HA   TYPE=HEA  CHARGE=-0.006 END
-  ATOM N    TYPE=NE_Y CHARGE= 0.294 END
-  ATOM H3   TYPE=HE3  CHARGE=-0.002 END
-  ATOM H5   TYPE=HE5  CHARGE=-0.002 END
-  ATOM H2   TYPE=HE2  CHARGE=-0.002 END
-  ATOM CB   TYPE=CEB  CHARGE= 0.059 END
-  ATOM HB1  TYPE=HEB1 CHARGE=-0.007 END
-  ATOM HB2  TYPE=HEB2 CHARGE=-0.006 END
-  ATOM SG   TYPE=SEG  CHARGE= 0.028 END
-  ATOM SD   TYPE=SED  CHARGE= 0.029 END
-  ATOM CE   TYPE=CEE  CHARGE= 0.059 END
-  ATOM HE1  TYPE=HEE1 CHARGE=-0.006 END
-  ATOM HE2  TYPE=HEE2 CHARGE=-0.006 END
-  ATOM C3   TYPE=CE3  CHARGE=-0.019 END
-  ATOM C4   TYPE=CE4  CHARGE=-0.031 END
-  ATOM H4   TYPE=HE4  CHARGE=-0.006 END
-  ATOM C5   TYPE=CE5  CHARGE= 0.072 END
-  ATOM C7   TYPE=CE7  CHARGE= 0.058 END
-  ATOM H72  TYPE=HE72 CHARGE=-0.007 END
-  ATOM H73  TYPE=HE73 CHARGE=-0.006 END
-  ATOM H71  TYPE=HE71 CHARGE=-0.006 END
-  ATOM C6   TYPE=CE6  CHARGE= 0.058 END
-  ATOM H62  TYPE=HE62 CHARGE=-0.006 END
-  ATOM H63  TYPE=HE63 CHARGE=-0.006 END
-  ATOM H61  TYPE=HE61 CHARGE=-0.007 END
-  ATOM N1   TYPE=NE1  CHARGE=-0.217 END
-  ATOM O1   TYPE=OE1  CHARGE=-0.153 END
-  ATOM C2   TYPE=CE2  CHARGE= 0.072 END
-  ATOM C8   TYPE=CE8  CHARGE= 0.058 END
-  ATOM H82  TYPE=HE82 CHARGE=-0.006 END
-  ATOM H83  TYPE=HE83 CHARGE=-0.006 END
-  ATOM H81  TYPE=HE81 CHARGE=-0.006 END
-  ATOM C9   TYPE=CE9  CHARGE= 0.058 END
-  ATOM H92  TYPE=HE92 CHARGE=-0.006 END
-  ATOM H93  TYPE=HE93 CHARGE=-0.006 END
-  ATOM H91  TYPE=HE91 CHARGE=-0.006 END
+  ATOM CAC  TYPE= CHAC CHARGE= 0.000 END
+  ATOM CAS  TYPE= CHAS CHARGE= 0.000 END
+  ATOM CAD  TYPE= CHAD CHARGE= 0.000 END
+  ATOM NAQ  TYPE= NHAQ CHARGE= 0.265 END
+  ATOM OAH  TYPE= OHAH CHARGE=-0.700 END
+  ATOM HAA  TYPE= HHAA CHARGE= 0.435 END
+  ATOM CAR  TYPE= CHAR CHARGE= 0.000 END
+  ATOM CAA  TYPE= CHAA CHARGE= 0.000 END
+  ATOM CAB  TYPE= CHAB CHARGE= 0.000 END
+  ATOM CAI  TYPE= CHAI CHARGE= 0.000 END
+  ATOM CAO  TYPE= CHAO CHARGE= 0.000 END
+  ATOM CAJ  TYPE= CHAJ CHARGE= 0.080 END
+  ATOM SAL  TYPE= SHAL CHARGE=-0.080 END
+  atom N   type=NH1    charge=-0.570 end
+  atom HN  type=H      charge= 0.370 end
+  atom CA  type=CH1E   charge= 0.200 end
+  atom HA  type=HA     charge= 0.000 end
+  atom CB  type=CH2E   charge= 0.080 end
+  atom HB1 type=HA     charge= 0.000 end
+  atom HB2 type=HA     charge= 0.000 end
+  atom SG  type=S      charge=-0.080 end
+  atom C   type=C      charge= 0.500 end
+  atom O   type=O      charge=-0.500 end
 
-  BOND C    O   
-  BOND C    H   
-  BOND CA   C   
-  BOND CA   HA  
-  BOND CA   N   
-  BOND CA   CB  
-  BOND N    H3  
-  BOND N    H5  
-  BOND N    H2  
-  BOND CB   HB1 
-  BOND CB   HB2 
-  BOND CB   SG  
-  BOND SG   SD  
-  BOND CE   SD  
-  BOND CE   HE1 
-  BOND CE   HE2 
-  BOND C3   CE  
-  BOND C3   C4  
-  BOND C2   C3  
-  BOND C4   H4  
-  BOND C5   C4  
-  BOND C5   C7  
-  BOND C5   C6  
-  BOND C5   N1  
-  BOND C7   H72 
-  BOND C7   H73 
-  BOND C7   H71 
-  BOND C6   H62 
-  BOND C6   H63 
-  BOND C6   H61 
-  BOND N1   O1  
-  BOND C2   N1  
-  BOND C2   C8  
-  BOND C2   C9  
-  BOND C8   H82 
-  BOND C8   H83 
-  BOND C8   H81 
-  BOND C9   H92 
-  BOND C9   H93 
-  BOND C9   H91 
+  bond N  HN
+  bond N  CA     bond CA HA
+  bond CA CB     bond CB HB1     bond CB HB2
+  bond CB SG     bond SG HG 
+  bond CA C
+  bond C  O
 
-  ANGLE O    C    H   
-  ANGLE O    C    CA  
-  ANGLE H    C    CA  
-  ANGLE C    CA   HA  
-  ANGLE C    CA   N   
-  ANGLE C    CA   CB  
-  ANGLE HA   CA   N   
-  ANGLE HA   CA   CB  
-  ANGLE N    CA   CB  
-  ANGLE CA   N    H3  
-  ANGLE CA   N    H5  
-  ANGLE CA   N    H2  
-  ANGLE H3   N    H5  
-  ANGLE H3   N    H2  
-  ANGLE H5   N    H2  
-  ANGLE CA   CB   HB1 
-  ANGLE CA   CB   HB2 
-  ANGLE CA   CB   SG  
-  ANGLE HB1  CB   HB2 
-  ANGLE HB1  CB   SG  
-  ANGLE HB2  CB   SG  
-  ANGLE CB   SG   SD  
-  ANGLE SG   SD   CE  
-  ANGLE SD   CE   HE1 
-  ANGLE SD   CE   HE2 
-  ANGLE SD   CE   C3  
-  ANGLE HE1  CE   HE2 
-  ANGLE HE1  CE   C3  
-  ANGLE HE2  CE   C3  
-  ANGLE CE   C3   C4  
-  ANGLE CE   C3   C2  
-  ANGLE C4   C3   C2  
-  ANGLE C3   C4   H4  
-  ANGLE C3   C4   C5  
-  ANGLE H4   C4   C5  
-  ANGLE C4   C5   C7  
-  ANGLE C4   C5   C6  
-  ANGLE C4   C5   N1  
-  ANGLE C7   C5   C6  
-  ANGLE C7   C5   N1  
-  ANGLE C6   C5   N1  
-  ANGLE C5   C7   H72 
-  ANGLE C5   C7   H73 
-  ANGLE C5   C7   H71 
-  ANGLE H72  C7   H73 
-  ANGLE H72  C7   H71 
-  ANGLE H73  C7   H71 
-  ANGLE C5   C6   H62 
-  ANGLE C5   C6   H63 
-  ANGLE C5   C6   H61 
-  ANGLE H62  C6   H63 
-  ANGLE H62  C6   H61 
-  ANGLE H63  C6   H61 
-  ANGLE C5   N1   O1  
-  ANGLE C5   N1   C2  
-  ANGLE O1   N1   C2  
-  ANGLE C3   C2   N1  
-  ANGLE C3   C2   C8  
-  ANGLE C3   C2   C9  
-  ANGLE N1   C2   C8  
-  ANGLE N1   C2   C9  
-  ANGLE C8   C2   C9  
-  ANGLE C2   C8   H82 
-  ANGLE C2   C8   H83 
-  ANGLE C2   C8   H81 
-  ANGLE H82  C8   H83 
-  ANGLE H82  C8   H81 
-  ANGLE H83  C8   H81 
-  ANGLE C2   C9   H92 
-  ANGLE C2   C9   H93 
-  ANGLE C2   C9   H91 
-  ANGLE H92  C9   H93 
-  ANGLE H92  C9   H91 
-  ANGLE H93  C9   H91 
+  BOND CAC  CAS 
+  BOND CAS  CAD 
+  BOND CAS  NAQ 
+  BOND CAS  CAO 
+  BOND NAQ  OAH 
+  BOND NAQ  CAR 
+  BOND OAH  HAA 
+  BOND CAR  CAA 
+  BOND CAR  CAB 
+  BOND CAR  CAI 
+  BOND CAI  CAO 
+  BOND CAO  CAJ 
+  BOND CAJ  SAL 
+  BOND SAL  SG 
 
-  IMPROPER C    O    H    CA  
-  IMPROPER CA   C    CB   N   
-  IMPROPER N    CA   H3   H5  
-  IMPROPER CB   CA   HB1  HB2 
-  IMPROPER CE   SD   HE1  HE2 
-  IMPROPER C3   CE   C2   C4  
-  IMPROPER C4   C3   C5   H4  
-  IMPROPER C5   C4   C7   C6  
-  IMPROPER C7   C5   H72  H73 
-  IMPROPER C6   C5   H62  H63 
-  IMPROPER N1   C5   O1   C2  
-  IMPROPER C2   C3   C8   N1  
-  IMPROPER C8   C2   H82  H83 
-  IMPROPER C9   C2   H92  H93 
+  ANGLE CAC  CAS  CAD 
+  ANGLE CAC  CAS  NAQ 
+  ANGLE CAC  CAS  CAO 
+  ANGLE CAD  CAS  NAQ 
+  ANGLE CAD  CAS  CAO 
+  ANGLE NAQ  CAS  CAO 
+  ANGLE CAS  NAQ  OAH 
+  ANGLE CAS  NAQ  CAR 
+  ANGLE OAH  NAQ  CAR 
+  ANGLE NAQ  OAH  HAA 
+  ANGLE NAQ  CAR  CAA 
+  ANGLE NAQ  CAR  CAB 
+  ANGLE NAQ  CAR  CAI 
+  ANGLE CAA  CAR  CAB 
+  ANGLE CAA  CAR  CAI 
+  ANGLE CAB  CAR  CAI 
+  ANGLE CAR  CAI  CAO 
+  ANGLE CAS  CAO  CAI 
+  ANGLE CAS  CAO  CAJ 
+  ANGLE CAI  CAO  CAJ 
+  ANGLE CAO  CAJ  SAL 
+  ANGLE CAJ  SAL  SG 
+  ANGLE SAL  SG  CB  
 
-  DIHEDRAL CB   CA   C    O   
-  DIHEDRAL C    CA   N    H2  
-  DIHEDRAL SG   CB   CA   C   
-  DIHEDRAL CA   CB   SG   SD  
-  DIHEDRAL CE   SD   SG   CB  
-  DIHEDRAL C3   CE   SD   SG  
-  DIHEDRAL SD   CE   C3   C2  
-  DIHEDRAL CE   C3   C4   C5  
-  DIHEDRAL C9   C2   C3   CE  
-  DIHEDRAL N1   C5   C4   C3  
-  DIHEDRAL H71  C7   C5   C4  
-  DIHEDRAL H61  C6   C5   C4  
-  DIHEDRAL C4   C5   N1   C2    
-  DIHEDRAL C9   C2   N1   C5  
-  DIHEDRAL H81  C8   C2   C3  
-  DIHEDRAL H91  C9   C2   C3  
+
+  improper HA N C CB   !chirality CA
+  improper HB1 HB2 CA SG  !stereo CB
+  IMPROPER CAO  CAS  CAI  CAJ 
+  IMPROPER CAS  CAC  NAQ  CAD 
+  IMPROPER NAQ  CAS  OAH  CAR 
+  IMPROPER CAR  NAQ  CAB  CAA 
+
+  dihedral SG  CB  CA  N
+  DIHEDRAL CAC  CAS  NAQ  CAR 
+  DIHEDRAL CAC  CAS  CAO  CAJ 
+  DIHEDRAL CAS  NAQ  OAH  HAA 
+  DIHEDRAL CAI  CAR  NAQ  CAS 
+  DIHEDRAL NAQ  CAR  CAI  CAO 
+  DIHEDRAL CAR  CAI  CAO  CAJ 
+  DIHEDRAL CAS  CAO  CAJ  SAL 
+  DIHEDRAL SG  SAL  CAJ  CAO 
+  DIHEDRAL CB   SG  SAL  CAJ 
+  DIHEDRAL SAL  SG  CB   CA  
+
+  DONO HN   N
+  DONO HG  SG
+  !!! ACCE SG    !REMOVED, ATB
+  ACCE O    C
+
 END
-set echo=true end
 
 
-set echo=false end
-AUTOGENERATE  ANGLES=FALSE  END
-MASS OP_Y  15.9994   ! equivalent to         O
-MASS CP_Y  12.0110   ! equivalent to         C
-MASS HP_Y   1.0080   ! equivalent to        HC
-MASS CPA   12.0110   ! equivalent to       CH1
-MASS HPA    1.0080   ! equivalent to        HC
-MASS NP_Y  14.0067   ! equivalent to        NL
-MASS HP4    1.0080   ! equivalent to         H
-MASS HP5    1.0080   ! equivalent to         H
-MASS HP2    1.0080   ! equivalent to         H
-MASS CPB   12.0110   ! equivalent to       CH2
-MASS HPB1   1.0080   ! equivalent to        HC
-MASS HPB2   1.0080   ! equivalent to        HC
-MASS SPG   32.0600   ! equivalent to         S
-MASS CPD   12.0110   ! equivalent to       CH2
-MASS HPD1   1.0080   ! equivalent to        HC
-MASS HPD2   1.0080   ! equivalent to        HC
-MASS CPE   12.0110   ! equivalent to         C
-MASS OPE   15.9994   ! equivalent to         O
-MASS NPZ   14.0067   ! equivalent to         N
-MASS HPZ    1.0080   ! equivalent to         H
-MASS CP3   12.0110   ! equivalent to        CS
-MASS HP3    1.0080   ! equivalent to        HC
-MASS CP4   12.0110   ! equivalent to        CS
-MASS HP41   1.0080   ! equivalent to        HC
-MASS HP42   1.0080   ! equivalent to        HC
-MASS CP5   12.0110   ! equivalent to        CS
-MASS CP7   12.0110   ! equivalent to       CH3
-MASS HP72   1.0080   ! equivalent to        HC
-MASS HP73   1.0080   ! equivalent to        HC
-MASS HP71   1.0080   ! equivalent to        HC
-MASS CP6   12.0110   ! equivalent to       CH3
-MASS HP62   1.0080   ! equivalent to        HC
-MASS HP63   1.0080   ! equivalent to        HC
-MASS HP61   1.0080   ! equivalent to        HC
-MASS NP1   14.0067   ! equivalent to        NL
-MASS OP1   15.9994   ! equivalent to        OA
-MASS HP1    1.0080   ! equivalent to         H
-MASS CP2   12.0110   ! equivalent to        CS
-MASS CP8   12.0110   ! equivalent to       CH3
-MASS HP82   1.0080   ! equivalent to        HC
-MASS HP83   1.0080   ! equivalent to        HC
-MASS HP81   1.0080   ! equivalent to        HC
-MASS CP9   12.0110   ! equivalent to       CH3
-MASS HP92   1.0080   ! equivalent to        HC
-MASS HP93   1.0080   ! equivalent to        HC
-MASS HP91   1.0080   ! equivalent to        HC
+! RESIDUE IA1 - BUILT BY M. BYE, JUNE 2013
 
-Residue IA1  
+residue IA1
 GROUP
-  ATOM O    TYPE=OP_Y CHARGE=-0.515 END
-  ATOM C    TYPE=CP_Y CHARGE= 0.177 END
-  ATOM H    TYPE=HP_Y CHARGE=-0.007 END
-  ATOM CA   TYPE=CPA  CHARGE= 0.076 END
-  ATOM HA   TYPE=HPA  CHARGE=-0.007 END
-  ATOM N    TYPE=NP_Y CHARGE= 0.318 END
-  ATOM H4   TYPE=HP4  CHARGE=-0.002 END
-  ATOM H5   TYPE=HP5  CHARGE=-0.002 END
-  ATOM H2   TYPE=HP2  CHARGE=-0.002 END
-  ATOM CB   TYPE=CPB  CHARGE= 0.063 END
-  ATOM HB1  TYPE=HPB1 CHARGE=-0.007 END
-  ATOM HB2  TYPE=HPB2 CHARGE=-0.007 END
-  ATOM SG   TYPE=SPG  CHARGE= 0.031 END
-  ATOM CD   TYPE=CPD  CHARGE= 0.063 END
-  ATOM HD1  TYPE=HPD1 CHARGE=-0.007 END
-  ATOM HD2  TYPE=HPD2 CHARGE=-0.007 END
-  ATOM CE   TYPE=CPE  CHARGE= 0.177 END
-  ATOM OE   TYPE=OPE  CHARGE=-0.515 END
-  ATOM NZ   TYPE=NPZ  CHARGE= 0.063 END
-  ATOM HZ   TYPE=HPZ  CHARGE=-0.002 END
-  ATOM C3   TYPE=CP3  CHARGE= 0.077 END
-  ATOM H3   TYPE=HP3  CHARGE=-0.007 END
-  ATOM C4   TYPE=CP4  CHARGE= 0.063 END
-  ATOM H41  TYPE=HP41 CHARGE=-0.007 END
-  ATOM H42  TYPE=HP42 CHARGE=-0.008 END
-  ATOM C5   TYPE=CP5  CHARGE= 0.077 END
-  ATOM C7   TYPE=CP7  CHARGE= 0.062 END
-  ATOM H72  TYPE=HP72 CHARGE=-0.007 END
-  ATOM H73  TYPE=HP73 CHARGE=-0.007 END
-  ATOM H71  TYPE=HP71 CHARGE=-0.007 END
-  ATOM C6   TYPE=CP6  CHARGE= 0.062 END
-  ATOM H62  TYPE=HP62 CHARGE=-0.007 END
-  ATOM H63  TYPE=HP63 CHARGE=-0.008 END
-  ATOM H61  TYPE=HP61 CHARGE=-0.007 END
-  ATOM N1   TYPE=NP1  CHARGE=-0.202 END
-  ATOM O1   TYPE=OP1  CHARGE=-0.142 END
-  ATOM C2   TYPE=CP2  CHARGE= 0.077 END
-  ATOM C8   TYPE=CP8  CHARGE= 0.062 END
-  ATOM H82  TYPE=HP82 CHARGE=-0.007 END
-  ATOM H83  TYPE=HP83 CHARGE=-0.007 END
-  ATOM H81  TYPE=HP81 CHARGE=-0.007 END
-  ATOM C9   TYPE=CP9  CHARGE= 0.062 END
-  ATOM H92  TYPE=HP92 CHARGE=-0.007 END
-  ATOM H93  TYPE=HP93 CHARGE=-0.007 END
-  ATOM H91  TYPE=HP91 CHARGE=-0.007 END
+! Normal CYS
+  atom N   type=NH1    charge=-0.570 end
+  atom HN  type=H      charge= 0.370 end
+  atom CA  type=CH1E   charge= 0.200 end
+  atom HA  type=HA     charge= 0.000 end
+  atom CB  type=CH2E   charge= 0.080 end
+  atom HB1 type=HA     charge= 0.000 end
+  atom HB2 type=HA     charge= 0.000 end
+  atom SG  type=S      charge=-0.080 end
+  atom C   type=C      charge= 0.500 end
+  atom O   type=O      charge=-0.500 end
 
-  BOND C    O   
-  BOND C    H   
-  BOND CA   C   
-  BOND CA   HA  
-  BOND CA   N   
-  BOND CA   CB  
-  BOND N    H4  
-  BOND N    H5  
-  BOND N    H2  
-  BOND CB   HB1 
-  BOND CB   HB2 
-  BOND CB   SG  
-  BOND CD   SG  
-  BOND CD   HD1 
-  BOND CD   HD2 
-  BOND CE   CD  
-  BOND CE   OE  
-  BOND CE   NZ  
-  BOND NZ   HZ  
-  BOND C3   NZ  
-  BOND C3   H3  
+! Linker chain
+  ATOM CD  type=CH2E   charge= 0.080 end
+  ATOM CE  type=C      charge= 0.177 end
+  ATOM OE  type=O      charge=-0.515 end
+  ATOM NZ  type=NH1    charge= 0.063 end
+
+! Ring
+  ATOM C3  type=CH1E charge= 0.077 end
+  ATOM C4  TYPE=CH2E CHARGE= 0.063 END
+  ATOM C5  TYPE=C    CHARGE= 0.077 END
+  ATOM C7  TYPE=CH3E CHARGE= 0.062 END
+  ATOM C6  TYPE=CH3E CHARGE= 0.062 END
+  ATOM N1  TYPE=NP1  CHARGE=-0.202 END
+  ATOM O1  TYPE=OP1  CHARGE=-0.142 END
+  ATOM C2  TYPE=C    CHARGE= 0.077 END
+  ATOM C8  TYPE=CH3E CHARGE= 0.062 END
+  ATOM C9  TYPE=CH3E CHARGE= 0.062 END
+
+! Normal CYS
+  bond N  HN
+  bond N  CA     bond CA HA
+  bond CA CB     bond CB HB1     bond CB HB2
+  bond CB SG     bond SG HG 
+  bond CA C
+  bond C  O
+
+! Linker
+  BOND CD SG
+  BOND CE CD
+  BOND CE OE
+  BOND NZ CE
+
+! Ring
+  BOND C3   NZ
   BOND C3   C4  
   BOND C2   C3  
-  BOND C4   H41 
-  BOND C4   H42 
   BOND C5   C4  
   BOND C5   C7  
   BOND C5   C6  
   BOND C5   N1  
-  BOND C7   H72 
-  BOND C7   H73 
-  BOND C7   H71 
-  BOND C6   H62 
-  BOND C6   H63 
-  BOND C6   H61 
   BOND N1   O1  
   BOND C2   N1  
   BOND C2   C8  
   BOND C2   C9  
-  BOND C8   H82 
-  BOND C8   H83 
-  BOND C8   H81 
-  BOND C9   H92 
-  BOND C9   H93 
-  BOND C9   H91 
 
-  ANGLE O    C    H   
-  ANGLE O    C    CA  
-  ANGLE H    C    CA  
-  ANGLE C    CA   HA  
-  ANGLE C    CA   N   
-  ANGLE C    CA   CB  
-  ANGLE HA   CA   N   
-  ANGLE HA   CA   CB  
-  ANGLE N    CA   CB  
-  ANGLE CA   N    H4  
-  ANGLE CA   N    H5  
-  ANGLE CA   N    H2  
-  ANGLE H4   N    H5  
-  ANGLE H4   N    H2  
-  ANGLE H5   N    H2  
-  ANGLE CA   CB   HB1 
-  ANGLE CA   CB   HB2 
-  ANGLE CA   CB   SG  
-  ANGLE HB1  CB   HB2 
-  ANGLE HB1  CB   SG  
-  ANGLE HB2  CB   SG  
-  ANGLE CB   SG   CD  
-  ANGLE SG   CD   HD1 
-  ANGLE SG   CD   HD2 
-  ANGLE SG   CD   CE  
-  ANGLE HD1  CD   HD2 
-  ANGLE HD1  CD   CE  
-  ANGLE HD2  CD   CE  
-  ANGLE CD   CE   OE  
-  ANGLE CD   CE   NZ  
-  ANGLE OE   CE   NZ  
-  ANGLE CE   NZ   HZ  
-  ANGLE CE   NZ   C3  
-  ANGLE HZ   NZ   C3  
-  ANGLE NZ   C3   H3  
+! Linker
+  ANGLE CD  SG  CB
+  ANGLE CE  CD  SG
+  ANGLE OE  CE  CD
+  ANGLE NZ  CE  CD
+  ANGLE NZ  CE  OE
+
+! Ring
+  ANGLE C3   NZ   CE
   ANGLE NZ   C3   C4  
   ANGLE NZ   C3   C2  
-  ANGLE H3   C3   C4  
-  ANGLE H3   C3   C2  
   ANGLE C4   C3   C2  
-  ANGLE C3   C4   H41 
-  ANGLE C3   C4   H42 
   ANGLE C3   C4   C5  
-  ANGLE H41  C4   H42 
-  ANGLE H41  C4   C5  
-  ANGLE H42  C4   C5  
   ANGLE C4   C5   C7  
   ANGLE C4   C5   C6  
   ANGLE C4   C5   N1  
   ANGLE C7   C5   C6  
   ANGLE C7   C5   N1  
   ANGLE C6   C5   N1  
-  ANGLE C5   C7   H72 
-  ANGLE C5   C7   H73 
-  ANGLE C5   C7   H71 
-  ANGLE H72  C7   H73 
-  ANGLE H72  C7   H71 
-  ANGLE H73  C7   H71 
-  ANGLE C5   C6   H62 
-  ANGLE C5   C6   H63 
-  ANGLE C5   C6   H61 
-  ANGLE H62  C6   H63 
-  ANGLE H62  C6   H61 
-  ANGLE H63  C6   H61 
   ANGLE C5   N1   O1  
   ANGLE C5   N1   C2  
   ANGLE O1   N1   C2 
@@ -688,57 +427,22 @@ GROUP
   ANGLE C3   C2   C9  
   ANGLE N1   C2   C8  
   ANGLE N1   C2   C9  
-  ANGLE C8   C2   C9  
-  ANGLE C2   C8   H82 
-  ANGLE C2   C8   H83 
-  ANGLE C2   C8   H81 
-  ANGLE H82  C8   H83 
-  ANGLE H82  C8   H81 
-  ANGLE H83  C8   H81 
-  ANGLE C2   C9   H92 
-  ANGLE C2   C9   H93 
-  ANGLE C2   C9   H91 
-  ANGLE H92  C9   H93 
-  ANGLE H92  C9   H91 
-  ANGLE H93  C9   H91 
+  ANGLE C8   C2   C9
 
-  IMPROPER C    O    H    CA  
-  IMPROPER CA   C    CB   N   
-  IMPROPER N    CA   H4   H5  
-  IMPROPER CB   CA   HB1  HB2 
-  IMPROPER CD   SG   HD1  HD2 
-  IMPROPER CE   CD   OE   NZ  
-  IMPROPER NZ   CE   HZ   C3  
-  IMPROPER C3   NZ   C2   C4  
-  IMPROPER C4   C3   H41  H42 
-  IMPROPER C5   C4   C7   C6  
-  IMPROPER C7   C5   H72  H73 
-  IMPROPER C6   C5   H62  H63 
-  IMPROPER N1   C5   C2   O1  
-  IMPROPER C2   C3   C8   N1  
-  IMPROPER C8   C2   H82  H83 
-  IMPROPER C9   C2   H92  H93 
 
-  DIHEDRAL CB   CA   C    O   
-  DIHEDRAL C    CA   N    H2  
-  DIHEDRAL SG   CB   CA   C   
-  DIHEDRAL CA   CB   SG   CD  
-  DIHEDRAL CE   CD   SG   CB  
-  DIHEDRAL SG   CD   CE   NZ  
-  DIHEDRAL CD   CE   NZ   C3  
-  DIHEDRAL C2   C3   NZ   CE  
-  DIHEDRAL C5   C4   C3   NZ  
-  DIHEDRAL C9   C2   C3   NZ  
-  DIHEDRAL N1   C5   C4   C3  
-  DIHEDRAL H71  C7   C5   C4  
-  DIHEDRAL H61  C6   C5   C4  
-  DIHEDRAL C4   C5   N1   C2  
-  DIHEDRAL C9   C2   N1   C5  
-  DIHEDRAL H81  C8   C2   C3  
-  DIHEDRAL H91  C9   C2   C3  
+  improper HA N C CB   !chirality CA
+  improper HB1 HB2 CA SG  !stereo CB
+
+
+  dihedral SG  CB  CA  N
+
+
+  DONO HN   N
+  DONO HG  SG
+  !!! ACCE SG    !REMOVED, ATB
+  ACCE O    C
+
 END
-set echo=true end
-
 
 
 residue ALA

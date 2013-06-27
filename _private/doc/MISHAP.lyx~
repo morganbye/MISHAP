@@ -4101,6 +4101,46 @@ sed 's,'cpunumber_1=2','cpunumber_1=XXX',' run.cns > tmp ; mv tmp run.cns
 
 \end_layout
 
+\begin_layout Standard
+The number of CPU cores on a UNIX system can be easily found with the command:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+grep "cpu cores" /proc/cpuinfo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or with the terminal command:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+lscpu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Protocols
 \end_layout
@@ -4225,8 +4265,30 @@ test_files
  In this folder the user will find all the files necessary to run their
  first MISHAP/HADDOCK docking experiment, without performing any PELDOR
  experiments.
- It is assumed that the user is proficient in DeerAnalysis and MMM and was
- able to follow the instructions in chapter 2 to generate their own files
+ It is assumed that the user is proficient in DeerAnalysis and MMM and would
+ be able to follow the instructions in chapter 2 to generate their own files.
+ If the user is unversed in these programs then it is recommended to read
+ the freely available user manuals
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.epr.ethz.ch/software/DeerAnalysis2013_manual.pdf
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.epr.ethz.ch/software/MMM_2013_manual.pdf
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section

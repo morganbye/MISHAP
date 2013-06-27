@@ -1,4 +1,5 @@
-remark   file parallhdg.param  version 5.4  date 07-JUL-10
+remarks file toppar/protein-allhdg5-4.param 
+remark   
 remark   for file protein-allhdg-ucl.top  version UCL  date 14-MAR-00
 remark   for file protein-allhdg-dih-ucl.top  version UCL  date 07-JUL-01
 remark   Geometric energy function parameters for distance geometry and
@@ -6,9 +7,11 @@ remark   simulated annealing.
 remark   Original author: Michael Nilges, EMBL Heidelberg
 remark   Modifications: Mark A. Williams, UCL London
 remark   Several modifications for HADDOCK: Alexandre Bonvin, Utrecht Uni
-remark   Modifications for HADDOCK/MISHAP: M. Bye, UEA, UK, June 2013
 
-set echo on message on end
+set message ? end eval ($old_message=$result) set echo ? end eval ($old_echo=$result)
+set message=off echo=off end
+
+checkversion 1.3
 
 !***********************************************************************!
 ! Copyright (C) 1995,1996 by Michael Nilges. All rights reserved.       !
@@ -40,6 +43,7 @@ set echo on message on end
 ! PARALLHDG.                                                            !
 !***********************************************************************!
 ! History:
+! version CNS 1.3, revision 2: added impropers for Arg planarity
 ! version UCL   (07-Jul-01) : modified backbone & disulphide paprameters 
 ! version UCL   (05-Jul-01) : put dihedrals to maximum of 2 kcal/mol 
 ! version UCL   (03-Jul-01) : added new backbone dihedral parameters
@@ -73,27 +77,17 @@ set echo on message on end
 ! additional impropers at planar centers (MN)
 !***********************************************************************!
 
-! added by M. Bye for IA-PROXYL-Cys (IA1)
- 
- BOND   C    NP1         1000.000 {sd=     0.001}       1.470
- BOND   NP1  OP1         1000.000 {sd=     0.001}       1.460
+!***********************************************************************!
+!                             IA - PROXYL                               !
+!***********************************************************************!
 
- ANGLe  CH2E S    CH2E     500.00 {sd=     0.031}    100.0000 ! CB TO SG TO CD
- ANGLe  C    CH2E S        500.00 {sd=     0.031}    113.0000 ! SG TO CB TO CB
- ANGLe  NH1  C    CH2E     500.00 {sd=     0.031}    115.0000 ! NZ TO CE TO CD
- ANGLe  CH1E NH1  C        500.00 {sd=     0.031}    122.0000 ! C3 TO NZ TO CE
- ANGLe  C    NP1  OP1      500.00 {sd=     0.031}    109.5000 ! C2/5 TO N1 TO O1
- ANGLe  C    NP1  C        500.00 {sd=     0.031}    104.0000 ! C2 TO N1 TO C5
- ANGLe  NP1  C    CH3E     500.00 {sd=     0.031}    111.0000 ! N1 TO C2/5 TO C6/7/8/9
- ANGLe  NP1  C    CH2E     500.00 {sd=     0.031}    104.0000 ! N1 TO C5 TO C4
- ANGLe  NP1  C    CH1E     500.00 {sd=     0.031}    104.0000 ! N1 TO C2 TO C3
- ANGLe  CH2E C    CH3E     500.00 {sd=     0.031}    109.5000 ! C4 TO C5 TO C6/7
- ANGLe  CH1E C    CH3E     500.00 {sd=     0.031}    109.5000 ! C3 TO C2 TO C8/9
- ANGLe  CH1E CH2E C        500.00 {sd=     0.031}    104.0000 ! C3 TO C4 TO C5
- ANGLe  CH3E C    CH3E     500.00 {sd=     0.031}    109.5000 ! C8 TO C2 TO C9
-                                                              ! C6 TO C5 TO C7 
- NONBONDED NP1   0.10000 2.67270 0.10000 2.40543
- NONBONDED OP1   0.10000 2.58361 0.10000 2.31634
+
+
+
+
+!***********************************************************************!
+!                             MTSL - R1A                                !
+!***********************************************************************!
 
 !added by nocky
  BOND  S     C      1000.000 {sd=     0.001}      1.822
@@ -769,7 +763,9 @@ eval ($pd_v=$pd_x*   640.0) ANGLE  HHAD  NH_Y  HHAB $pd_v 109.500
  IMPRoper  HC   CH2E HC   HC        500.00 {sd=     0.031}    0    -66.4262
  IMPRoper  HC   CH2G HC   HC        500.00 {sd=     0.031}    0    -66.4073
  IMPRoper  HC   HC   C    NC2       500.00 {sd=     0.031}    0     -0.0094
- IMPRoper  HC   NC2  C    NH1       500.00 {sd=     0.031}    0      0.0000
+
+!!!! IMPRoper  HC   NC2  C    NH1       500.00 {sd=     0.031}    0      0.0000
+
  IMPRoper  NH1  C5   CR1E NR        500.00 {sd=     0.031}    0     -0.0249
  IMPRoper  NH1  C5   CR1H NH1       500.00 {sd=     0.031}    0     -0.0178
  IMPRoper  NH1  C5   CR1H NR        500.00 {sd=     0.031}    0     -0.0178
@@ -830,6 +826,11 @@ eval ($pd_v=$pd_x*   640.0) ANGLE  HHAD  NH_Y  HHAB $pd_v 109.500
  IMPRoper  CH2P CCIS NH1  CH1E      500.00   0      0.0000 
  IMPRoper  CH2P CCIS NH1  CH2G      500.00   0      0.0000 
  IMPRoper  CH2P CCIS NH1  CH2P      500.00   0      0.0000 
+
+! added impropers for Arg planarity to reduce chances of reaching singularity, ATB 8/12/10
+improper CH2E    NH1    C  NC2     500.0       0       0.0 ! omega torsion angle for ARG and to maintain proper NH1/NH2 stereochemistry
+improper C     NC2    NC2  NH1     500.0       0       0.0 
+improper NH1    C     NC2  HC      100.0       2     180.0 ! ARG -c-nh2 dihdedral angle 
 
 ! Residue DRG
 
@@ -1603,5 +1604,7 @@ END
 
  end if
 
-!set echo on message on end
+!------------------------------------------------------------------
+
+set message=$old_message echo=$old_echo end
 
