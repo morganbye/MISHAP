@@ -64,7 +64,7 @@ function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
 %                      |___/                   |___/                       
 %
 %
-% M. Bye v13.06
+% M. Bye v13.08
 %
 % Author:       Morgan Bye
 % Work address: Henry Wellcome Unit for Biological EPR
@@ -72,9 +72,15 @@ function pdb_out = MISHAP_pdb_add_MMM_rotamers(varargin)
 %               NORWICH, UK
 % Email:        morgan.bye@uea.ac.uk
 % Website:      http://www.morganbye.net/mishap/
-% May 2013;     Last revision: 06-May-2013
+% Aug 2013;     Last revision: 16-August-2013
 %
 % Version history:
+% Aug 13        > Better error handling
+%               > Adjustment so that if merging of atoms fails then the
+%                   chainID of the insert (SL) is removed and attempted
+%                   again. This should make the merging succeed almost 100%
+%                   of the time.
+%
 % May 13        > Pull from EPR toolbox
 %               > Made MISHAP compatible
 %               > Added MMM rotamer option
@@ -215,9 +221,20 @@ if r.ToBeReplaced(1) == 1
 
 % Normal residues
 else
-    outmodel = [r.Atoms_beforeresidue ...
-        r.Atoms_insert ...
-        r.Atoms_afterresidue];
+    try
+        outmodel = [r.Atoms_beforeresidue ...
+            r.Atoms_insert ...
+            r.Atoms_afterresidue];
+        
+    % Depending on the PDB that was loaded it may or may not have a
+    % chainID, if it doesn't then we need to remove it from the insert
+    % otherwise the merge will fail
+    catch
+        r.Atoms_insert = rmfield(r.Atoms_insert,'chainID');
+        outmodel = [r.Atoms_beforeresidue ...
+            r.Atoms_insert ...
+            r.Atoms_afterresidue];
+    end
 end
 
 % Remove hydrogens

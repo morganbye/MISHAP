@@ -117,9 +117,9 @@ set(handles.edit_seq1,'FontName','FixedWidth');
 % set(handles.edit_seq2,'FontName','FixedWidth');
 
 set(handles.edit_save1,'String',...
-    ['ProteinA_' datestr(now,'yymmdd')]);
+    ['ProteinA_' datestr(now,'yymmdd') '.pdb']);
 set(handles.edit_save2,'String',...
-    ['ProteinB_' datestr(now,'yymmdd')]);
+    ['ProteinB_' datestr(now,'yymmdd') '.pdb']);
 
 % get_from_MMM;
 
@@ -635,10 +635,6 @@ if isfield(MISHAP.PDB.(['p' partner]).PDB,'Terminal')
     set(MISHAP.handles.pro.(['popupmenu_chain' partner]),'String',chain);
     set(MISHAP.handles.pro.(['popupmenu_chain' partner]),'Value',1);
     
-else
-    set(MISHAP.handles.pro.(['popupmenu_chain' partner]),'String','A');
-    set(MISHAP.handles.pro.(['popupmenu_chain' partner]),'Value',1);
-    
 end
 
 % Update sequence box
@@ -662,7 +658,7 @@ else
     
 end
 
-MISHAP_pro_sequence(partner);
+% MISHAP_pro_sequence(partner);
 
 
 function get_PDB_from_MMM
