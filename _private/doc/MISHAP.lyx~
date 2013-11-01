@@ -139,7 +139,7 @@ MISHAP
 \begin_layout Standard
 \noindent
 \align center
-v13.06
+v13.08
 \end_layout
 
 \begin_layout Standard
@@ -182,7 +182,7 @@ This document was created during study for the degree of Doctor of Philosophy
 \begin_layout Standard
 \noindent
 \align center
-11th June 2013
+17th August 2013
 \end_layout
 
 \begin_layout Standard
@@ -193,18 +193,6 @@ This document was created during study for the degree of Doctor of Philosophy
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename _fig/002-cmsb.jpg
-	lyxscale 50
-	height 1.5cm
-
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-
 \begin_inset Graphics
 	filename _fig/004-mb.png
 	lyxscale 50
@@ -229,6 +217,7 @@ This document was created during study for the degree of Doctor of Philosophy
 \begin_layout Standard
 \paragraph_spacing single
 \noindent
+\align center
 
 \size scriptsize
 This document has been supplied on condition that anyone whom consults it
@@ -556,8 +545,11 @@ MISHAP.m
 \family typewriter
 test_files
 \family default
- containing some example files (referenced later) and _private which contains
- all the files associated with MISHAP.
+ containing some example files (referenced later) and 
+\family typewriter
+_private 
+\family default
+which contains all the files associated with MISHAP.
 \end_layout
 
 \begin_layout Standard
@@ -570,9 +562,9 @@ Current folder
 \end_layout
 
 \begin_layout Quote
-
+Add to Path
 \emph on
-Add to Path 
+ 
 \emph default
 
 \begin_inset Formula $\rightarrow$
@@ -580,7 +572,9 @@ Add to Path
 
 
 \emph on
- with Selected folders and Subfolders
+ 
+\emph default
+with Selected folders and Subfolders
 \end_layout
 
 \begin_layout Standard
@@ -647,12 +641,21 @@ This begins the installation of MISHAP.
 Change history
 \end_layout
 
-\begin_layout Subsection
-Release v13.6 - BETA
+\begin_layout Subsection*
+Release v13.08 - BETA
 \end_layout
 
 \begin_layout Standard
-v13.6 is the first publicly available release of MISHAP and marks the first
+v13.08 shows much improved error handling and allows for MISHAP generated
+ PDBs be reloaded in the PDB creator and have additional spin labels attached.
+\end_layout
+
+\begin_layout Subsection*
+Release v13.06 - BETA
+\end_layout
+
+\begin_layout Standard
+v13.06 is the first publicly viable release of MISHAP and marks the first
  build from alpha.
  It shows far greater error handling, Windows compatibility and an improved
  graphical user interface.
@@ -660,13 +663,13 @@ v13.6 is the first publicly available release of MISHAP and marks the first
  in HADDOCK/CNS.
 \end_layout
 
-\begin_layout Subsection
-Build v13.5 - ALPHA
+\begin_layout Subsection*
+Build v13.05 - ALPHA
 \end_layout
 
 \begin_layout Standard
-v13.5 is the first functional build of MISHAP that generates distance distributio
-n constraints and MMM rotamer merged PDBs.
+v13.05 is the first functional build of MISHAP that generates distance distributi
+on constraints and MMM rotamer merged PDBs.
 \end_layout
 
 \begin_layout Chapter
@@ -681,7 +684,17 @@ MMM
 MMM is an open-source program for the visualisation, inspection and improvement
  of models of proteins and protein assemblies based on restraints from multiple
  experimental techniques, though primarily focussing on experimental techniques
- from electron paramagnetic resonance.
+ from electron paramagnetic resonance
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+MMM - http://www.epr.ethz.ch/software/index
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -706,7 +719,7 @@ For MISHAP we require these spin label attached protein models.
  with the command
 \end_layout
 
-\begin_layout Standard
+\begin_layout Quote
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},language=Matlab"
 inline false
@@ -818,7 +831,7 @@ Next select a residue.
  To do this at the command line level type
 \end_layout
 
-\begin_layout Standard
+\begin_layout Quote
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},language=Matlab"
 inline false
@@ -844,7 +857,7 @@ Display
 \begin_inset Formula $\rightarrow$
 \end_inset
 
- Hierarchy (MMM §2.3 and 4.1.2)
+ Hierarchy (MMM manual §2.3 and 4.1.2)
 \end_layout
 
 \begin_layout Standard
@@ -894,7 +907,7 @@ Once a residue is select the message board will update with the selection.
  If a selection is made incorrectly use:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Quote
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},language=Matlab"
 inline false
@@ -919,7 +932,7 @@ EPR
 \begin_inset Formula $\rightarrow$
 \end_inset
 
- Site scan/selected residues (MMM §2.1.7)
+ Site scan/selected residues (MMM manual §2.1.7)
 \end_layout
 
 \begin_layout Standard
@@ -960,7 +973,7 @@ MMM menu showing the site scan option
 \end_layout
 
 \begin_layout Standard
-This displays the Site scan setup window (MMM §4.1.2).
+This displays the Site scan setup window (MMM manual §4.1.2).
  It is imperative that 
 \emph on
 Save statistics
@@ -1985,7 +1998,15 @@ MISHAP distance distribution window
 
 \begin_layout Standard
 From the distance distribution panel select whether the distance distribtion
- is from DeerAnalysis or MMM and click 
+ is from 
+\emph on
+DeerAnalysis
+\emph default
+ or 
+\emph on
+MMM
+\emph default
+ and click 
 \emph on
 Load
 \emph default
@@ -2091,7 +2112,7 @@ A
 \emph on
 s(r)
 \emph default
- of 0.5 nm is automatically set and the boundaries are plotted as about the
+ of 0.5 nm is automatically set and the boundaries are plotted about the
  distance as dotted lines in the same colour as the peak.
  At a later date the 
 \emph on
@@ -2641,12 +2662,12 @@ The purpose of the PDB creator is 2 fold.
 \end_layout
 
 \begin_layout Standard
-Unfortunately, the PDB format has first created in the 1970's and has been
- extensively developed, often without any strict enforcement of the PDB
- format meaning that it is quite common for PDB files generated in one program
- to not be compatible with a different PDB handling program.
- Previously MMM conformed well with the PDB format, version 2013 after a
- major rewrite of the PDB writing functions now conforms fully.
+Unfortunately, the PDB format was first created in the 1970's and has been
+ extensively developed, without any strict enforcement of the PDB format
+ for many years meaning that it is quite common for PDB files generated
+ in one program to not be compatible with a different PDB handling program.
+ MMM version 2013 after a major rewrite of the PDB file writing functions
+ now conforms fully.
  HADDOCK will only accept PDB files in a very explicit format, which differs
  significantly from the PDB standard
 \begin_inset Foot
@@ -2662,17 +2683,18 @@ for more information see http://www.nmr.chem.uu.nl/haddock/pdb.html
 \end_layout
 
 \begin_layout Standard
-The second purpose of the PDB creator is to combine the PDB file supplied
- from a PDB file, directly from the PDB website using an access number or
- from a loaded MMM model with a MMM rotamer analysis.
+The second purpose of the PDB creator is to combine a PDB file supplied
+ from a local source, from the PDB website (using an access number) or from
+ a loaded MMM model with a MMM rotamer analysis.
 \end_layout
 
 \begin_layout Standard
-MMM provides some basic functionality on this account but we require a single
- PDB file where an amino acid residue has been mutated to a spin label attached
+MMM provides some basic functionality for this but we require a single PDB
+ file where an amino acid residue has been mutated to a spin label attached
  cysteine residue.
- Alternatively, a set of PDBs and a list file that can be inserted into
- HADDOCK as an ensemble of starting conformations.
+ Alternatively, a set of PDB files and a list file that can be inserted
+ into HADDOCK as an ensemble of starting conformations - similar to an NMR
+ ensemble.
 \end_layout
 
 \begin_layout Subsection
@@ -2685,7 +2707,7 @@ For the first protein select the PDB file location.
 \emph on
 file
 \emph default
- this will open a user interface for selecting the file.
+ this will open a user interface for selecting the file from your computer.
 \end_layout
 
 \begin_layout Standard
@@ -2698,7 +2720,7 @@ web
 \end_layout
 
 \begin_layout Standard
-If MMM is open then the current model can be used by clicking 
+If MMM is open, then the current model can be used by clicking 
 \emph on
 MMM
 \emph default
@@ -2743,7 +2765,7 @@ MISHAP PDB creator load PDB file selection
 \end_layout
 
 \begin_layout Standard
-There will be a slight delay as the file is processed.
+There will be a delay as the file is processed.
  Once processed the 
 \emph on
 Structure
@@ -2924,7 +2946,7 @@ By default, the
 Rotamer
 \emph default
  box will default to rotamer 1 though this can be changed to any rotamer.
- If a rotamer is selected that is outside the range of avaiable rotamers
+ If a rotamer is selected that is outside the range of available rotamers
  then the box will automatically default back to rotamer 1.
  If an ensemble style rotamer analysis is desired type in this box:
 \end_layout
@@ -3068,19 +3090,20 @@ but in both the creator checks that a PDB and MMM rotamer analysis is loaded,
 
 \begin_layout Standard
 Finally the creator merges the selected MMM rotamer(s) with the PDB file
- is created.
+ and the output file is created.
 \end_layout
 
 \begin_layout Standard
 Briefly, the creator essentially splits the PDB file before and after the
  select residue.
  It then pastes in the rotamer residue and merges the residues before the
- residue, the rotamer residue and residies after the rotamer residue with
+ residue, the rotamer residue and residues after the rotamer residue with
  appropiate linkers.
  All hydrogen atoms are then removed as these are prone to causing problems
- in HADDOCK and CNS before finally renumbering every atom in the merged
- PDB so that read sequentially.
- The file is finally written out line by line.
+ in HADDOCK and CNS.
+ Finally, every atom is renumbered in the merged PDB so that read sequentially.
+ The file is finally written out line by line with space padding so that
+ each line is exactly 80 characters.
 \end_layout
 
 \begin_layout Standard
@@ -3618,12 +3641,12 @@ s data or bioinformatic predictions to study protein complexes.
 \end_layout
 
 \begin_layout Standard
-Traditionally most approaches to protein complex formation relied upon a
- combination of energetics and shape complementarity rather than experimental
+Traditionally, most approaches to protein complex formation relied upon
+ a combination of energetics and shape complementarity rather than experimental
  data.
  The previously mentioned experiments are presented to the HADDOCK program
  as ambiguous interaction restraints (AIRs) to drive the docking process.
- More formally these are defined as an ambiguous distance between all residues
+ More formally, these are defined as an ambiguous distance between all residues
  shown to be involved in the interaction.
 \end_layout
 
@@ -3649,8 +3672,8 @@ http://capri.ebi.ac.uk
 HADDOCK remains a command line tool requiring the generation and configuration
  of many files before a run can commence.
  HADDOCK consists primarily as a collection of python scripts derived from
- ARIA written by Michael Nilges and Jens Linge and makes use of CNS as structure
- calculation software.
+ ARIA written by Michael Nilges and Jens Linge and makes use for CNS as
+ structure calculation.
  
 \end_layout
 
@@ -3661,8 +3684,8 @@ Spin label definitions
 \begin_layout Standard
 HADDOCK being designed to accept input data from several different sources
  already has the facility to use several unnatural amino acids such as phosphory
-lated CYS, HIS, SER, THR, several methyl variants such as mono-, di-, tri-
- methyl lysine, to name but a few.
+lated CYS, HIS, SER, THR, several methyl variants such as mono-, di- and
+ tri- methyl lysine, to name but a few.
 \end_layout
 
 \begin_layout Standard
@@ -3672,19 +3695,20 @@ Thus if correctly defined it is perfectly possible to add MTSL and IA-PROXYL
 
 \begin_layout Standard
 For an amino acid to be defined in HADDOCK and the underlying structural
- program CNS requires explicit definitions of all atoms, charges, bonds,
- bond lengths and allowed bond angles (both dihedral and improper dihedrals).
+ calculation program, CNS, requires explicit definitions of all atoms, charges,
+ bonds, bond lengths and allowed bond angles (both dihedral and improper
+ dihedral).
  When combined this gives the modelling software not only the atomic position
- and bonding of the atoms, it also allows for the free rotation of bonds
- - which is essential in the final binding stage of HADDOCK before the final
- energy optimisation in water.
+ and bonding of the atoms, but also allows for the rotation of bonds - which
+ is essential in the final energy optimisation stage of HADDOCK before the
+ final energy optimisation in water.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -3749,7 +3773,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-IAP
+IA-PROXYL
 \end_layout
 
 \end_inset
@@ -3788,10 +3812,11 @@ Protocols
 \end_layout
 
 \begin_layout Standard
-Whereas with MMM there is an increasing amount of published data that shows
- that rotamer population prediction from a rotamer library reflects the
- experimental situation, it is not known whether the bond rotation allowed
- in HADDOCK/CNS reflects well with that seen experimentally.
+With MMM there is an increasing amount of published data that shows that
+ rotamer population prediction from a rotamer library accurately reflects
+ the experimental situation.
+ It is not known whether the bond rotation allowed in HADDOCK/CNS reflects
+ well with that seen experimentally.
  Previously, the authors of HADDOCK when performing paramagnetic relaxation
  enhancement studies take the spin label and during the early stages of
  docking spawn 4 structures with the spin label in different conformations.
@@ -3821,7 +3846,7 @@ Topology parameters (toppar)
 \end_layout
 
 \begin_layout Standard
-HADDOCK contains a series of files contain all of the necessary parameters
+HADDOCK contains a series of files which contain all of the necessary parameters
  for amino acid residues, ligands, DNA, etc.
  These parameters largely are default parameters for CNS that have been
  extensively modfied and added to for the purposes of HADDOCK.
@@ -3830,9 +3855,9 @@ HADDOCK contains a series of files contain all of the necessary parameters
 
 \begin_layout Standard
 Note that HADDOCK must make use of topology version 5.4 for many of the features
- to work, however HADDOCK by default uses version 5.3 - to ensure as broad
- compatibility as possible the provided MISHAP files provide both 5.3 and
- 5.4 topology files.
+ to work.
+ HADDOCK however by default uses version 5.3 - to ensure as broad compatibility
+ as possible the provided MISHAP files provide both 5.3 and 5.4 topology files.
  The following files from the 
 \family typewriter
 HADDOCK/toppar
@@ -3924,16 +3949,7 @@ topallhdg5.4.pep-noter
 topallhdg5.4.pro
 \family default
  defines the mass and charge of each atom, as well as each bond, angle,
- improper angle, dihedral angle and hydrogen bond acceptor/donor site.
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-topallhdg5.4.pro-new
-\family default
- defines the mass and charge of each atom, as well as each bond, angle,
- improper angle, dihedral angle and hydrogen bond acceptor/donor site.
+ improper angle, dihedral angle and hydrogen bond acceptor/donor site
 \end_layout
 
 \begin_layout Standard
@@ -3968,6 +3984,13 @@ http://davapc1.bioch.dundee.ac.uk/prodrg/
 
 \begin_layout Section
 Run settings
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Run-settings"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4122,7 +4145,7 @@ grep "cpu cores" /proc/cpuinfo
 \end_layout
 
 \begin_layout Standard
-or with the terminal command:
+or with the terminal command (available in most Linux distributions):
 \end_layout
 
 \begin_layout Quote
@@ -4142,6 +4165,183 @@ lscpu
 \end_layout
 
 \begin_layout Subsection
+Initial seed number
+\end_layout
+
+\begin_layout Standard
+HADDOCK uses a random number generator to begin the structure formation
+ in the rigid body stage.
+ However, this number generator requires a starting point and should be
+ recorded for reproducability.
+ It is easiest to set this as a fixed number, though a random number generator
+ could be piped into the argument.
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sed 's,'iniseed=917','iniseed=999',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+MD time step
+\end_layout
+
+\begin_layout Standard
+The HADDOCK protocol uses a process of simulated heating and cooling for
+ energy optimisation and minimisation.
+ By default HADDOCK uses an molecular dynamics (MD) time step of 2 
+\begin_inset Formula $fs$
+\end_inset
+
+, however, docking runs will often fail with this setting.
+ With such a time step, atoms that are moving toward each other in one time
+ step can often jump on top of each other, when HADDOCK then calculates
+ the energy there is a massive potential energy in these atoms.
+ Entropy resolves this in the next time step by moving the atoms far apart,
+ often outside the calculation co-ordinate space (> 99,999 
+\begin_inset Formula $Å$
+\end_inset
+
+).
+ This causes the structure to fail, if more than 20 % of a run's structures
+ fail then HADDOCK will abort the run.
+\end_layout
+
+\begin_layout Standard
+By decreasing the time step reduces the risk of this scenario, however,
+ to ensure a good fit the total simulation cannot change, thus the number
+ of steps increases, which increases the experiment time.
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Change MD time step
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'timestep=0.002','timestep=0.0005',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Increase MD iterations to maintain total simulation time
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'initiosteps=500','initiosteps=2000',' run.cns > tmp ; mv tmp run.cns
+ sed 's,'cool1_steps=500','cool1_steps=2000',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'cool2_steps=1000','cool2_steps=4000',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'cool3_steps=1000','cool3_steps=4000',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Annealing temperature
+\end_layout
+
+\begin_layout Standard
+Energy optimisation in HADDOCK is conducted by raising the temperture in
+ the system to a high value and then allowing it to cool 
+\emph on
+in vacuo.
+ 
+\emph default
+Reducing the time step described in the previous section can help.
+ However, if greater than 20 % of structures fail during it1 (energy optimisatio
+n) step then HADDOCK will abort and solvent optimisation will not occur.
+ First, change the initial seed number and restart the run (this will require
+ deletion of all it0 files, for the creation of new structures).
+ If however, the runs continue to fail then the structures have too much
+ energy and will fall to same problems discussed in the MD time step section.
+\end_layout
+
+\begin_layout Standard
+The best solution is to lower the temperature that the system is raised
+ to in each energy optimisation step.
+ This again is defined in 
+\family typewriter
+run.cns
+\family default
+ and can be quickly changed using the following commands.
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sed 's,'tadhigh_t=2000','tadhigh_t=500',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'tadinit1_t=2000','tadinit2_t=1000',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'tadinit2_t=1000','tadinit2_t=500',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'tadinit3_t=500','tadinit3_t=250',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\begin_layout Plain Layout
+
+sed 's,'tadfactor=8','tadfactor=4',' run.cns > tmp ; mv tmp run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These temperatures can be dropped further, but should only be done with
+ considerable care.
+\end_layout
+
+\begin_layout Subsection
 Protocols
 \end_layout
 
@@ -4150,8 +4350,11 @@ The
 \family typewriter
 run.cns
 \family default
- in the run root is not the same run.cns file that is called when protocols
- are run.
+ in the run root is not the same 
+\family typewriter
+run.cns
+\family default
+ file that is called when protocols are run.
  To ensure that our changes are reflected throughout the entire HADDOCK
  run we need to copy the 
 \family typewriter
@@ -4252,6 +4455,190 @@ status open
 
 \end_layout
 
+\begin_layout Section
+Run analysis
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Run-analysis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the HADDOCK run is not being performed upon the Utrecht University webserver
+ then the run needs to be manually analysed (detailed in the documentation
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.nmr.chem.uu.nl/haddock/analysis.html
+\end_layout
+
+\end_inset
+
+ and online tutorial
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.wenmr.eu/wenmr/haddock-web-server-tutorial
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+With CNS and HADDOCK programs sourced in your terminal session navigate
+ to the run then
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd structures/it1/water
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this directory run the HADDOCK tool 
+\family typewriter
+ana_structures.csh
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$HADDOCKTOOLS/ana_structures.csh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Move into the analysis directory
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd analysis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now run:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cluster_struc RUN_NAME_rmsd.disp 7.5 4 > cluster.out
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\family typewriter
+RUN_NAME
+\family default
+ is the name of the HADDOCK run, 7.5 is the RMSD distance cutoff to which
+ structures within an RMSD of 7.5 
+\begin_inset Formula $Å$
+\end_inset
+
+ are clustered, with a minimum cluster size of 4 structures.
+\end_layout
+
+\begin_layout Standard
+Move back to the water (or other solvent) directory
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd ..
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now run 
+\family typewriter
+ana_clusters.csh
+\family default
+ to perform cluster analysis on the structures (this requires ProFit to
+ be defined in the 
+\family typewriter
+haddock_configure.csh
+\family default
+ file).
+ This script will only analyse the top 4 scoring structures in the cluster
+ analysis, the best flag can be removed (but will increase calculation time)
+ or the number changed.
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$HADDOCKTOOLS/ana_clusters.csh -best 4 analysis/cluster.out
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 An example docking experiment
 \end_layout
@@ -4267,7 +4654,7 @@ test_files
  experiments.
  It is assumed that the user is proficient in DeerAnalysis and MMM and would
  be able to follow the instructions in chapter 2 to generate their own files.
- If the user is unversed in these programs then it is recommended to read
+ If the user is not versed in these programs then it is recommended to read
  the freely available user manuals
 \begin_inset Foot
 status open
@@ -4306,7 +4693,7 @@ test_files
 \family default
  the published NMR energy minimised structure of colicin E9 DNase bound
  to it's immunity protein, Im9 from rcsb.org.
- Additionally, there are the further 
+ There are also the files 
 \family typewriter
 2K5X_ChainA.pdb 
 \family default
@@ -4334,19 +4721,29 @@ Additionally in this folder we have several files with the root
 4PEL_[2K5X](A)23_[2K5X](B)3
 \family default
 , these files are saved DeerAnalysis results from a PELDOR experiment between
- the C23 position of the Im9 to the S3C position of E9 DNase.
+ the C23 position of the Im9 to the S3C position of colicin E9 DNase.
 \end_layout
 
 \begin_layout Standard
-Finally we have the files 
+Finally we have the files:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
 \family typewriter
 rotamers_[2K5X](A){1}23_IA1_175.pdb
-\family default
- and 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
 \family typewriter
 rotamers_[2K5X](B){1}3_IA1_175.pdb
-\family default
-, these are the saved MMM site scan rotamer analysis files of the 2 sites
+\end_layout
+
+\begin_layout Standard
+These are the saved MMM site scan rotamer analysis files of the 2 sites
  using IA-PROXYL at 175 
 \begin_inset Formula $K$
 \end_inset
@@ -4356,6 +4753,556 @@ rotamers_[2K5X](B){1}3_IA1_175.pdb
 
 \begin_layout Section
 MISHAP
+\end_layout
+
+\begin_layout Standard
+Open MatLab and into the command window type
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MISHAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A splash screen will display briefly whilst MISHAP is loaded.
+\end_layout
+
+\begin_layout Standard
+Initially only the MISHAP Distance Distribution window will be open.
+ In the 
+\family typewriter
+Distance Distribution
+\family default
+ box, select 
+\family typewriter
+DeerAnalysis
+\family default
+ from the menu and click the 
+\family typewriter
+Load
+\family default
+ button.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/232-MS-dd.png
+	lyxscale 50
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution window
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A file selection window will appear.
+ Navigate to the MISHAP test files folder and select the DeerAnalysis file
+ 
+\family typewriter
+4PEL_[2K5X](A)23_[2K5X](B)3__distr.dat
+\family default
+.
+ Click 
+\family typewriter
+Open
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/233-MM-dd-Load.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution load interface
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The distance distribution will be opened and displayed in the box in the
+ top right of the window.
+ The distribution will automatically be scanned for peaks and the best peak
+ selected.
+ Notice that the 
+\family typewriter
+r / nm
+\family default
+ column of the table has been updated with the peak information.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/234-MS-dd-Plot.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution window showing a loaded distance distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the 
+\family typewriter
+PDBs
+\family default
+ box click the 
+\family typewriter
+Generate
+\family default
+ button.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/241-MS-Pro-Over.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP distance distribution and PDB creator windows
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This will open the MISHAP PDB creator window.
+ First only consider the left hand side of the window.
+\end_layout
+
+\begin_layout Standard
+Click the 
+\family typewriter
+file
+\family default
+ button next to 
+\family typewriter
+Get PDB from
+\family default
+, again a file selection window will appear.
+ Navigate to the MISHAP test files folder and select 
+\family typewriter
+2K5X.pdb
+\end_layout
+
+\begin_layout Standard
+After a few seconds the 
+\family typewriter
+Sequence preview
+\family default
+ will display an amino acid sequence the 
+\family typewriter
+Structure
+\family default
+ will update with 
+\family typewriter
+2K5X
+\family default
+, and 
+\family typewriter
+Chain
+\family default
+ with 
+\family typewriter
+A
+\end_layout
+
+\begin_layout Standard
+In the 
+\family typewriter
+MMM rotamer
+\family default
+ box click the 
+\family typewriter
+file
+\family default
+ button, selecting 
+\family typewriter
+rotamers_[2K5X](A){1}23_IA1_175.pdb
+\end_layout
+
+\begin_layout Standard
+After a few seconds the boxes in 
+\family typewriter
+MMM rotamers
+\family default
+ will update with the rotamer information that has just been loaded.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/245.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MISHAP PDB creator load with PDB and MMM file loaded
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now repeat the process on the right hand side for 
+\family typewriter
+Binding partner 2
+\family default
+.
+ This time however, make sure to change the 
+\family typewriter
+Chain
+\family default
+ with the dropdown menu to B and instead select the other MMM rotamer file:
+ 
+\family typewriter
+rotamers_[2K5X](B){1}3_IA1_175.pdb
+\end_layout
+
+\begin_layout Standard
+Check that the 
+\family typewriter
+Output location
+\family default
+ is set to a suitable location, it can be changed by clicking 
+\family typewriter
+Change
+\end_layout
+
+\begin_layout Standard
+Click 
+\family typewriter
+RUN
+\family default
+!
+\end_layout
+
+\begin_layout Standard
+The command window will update as the PDBs are generated.
+\end_layout
+
+\begin_layout Standard
+The PDB generation will also update the table in the Distance distribution
+ window.
+\end_layout
+
+\begin_layout Standard
+Now click 
+\family typewriter
+RUN
+\family default
+! in the Distance distribution window.
+\end_layout
+
+\begin_layout Standard
+The command window will update as the distance restraints file is generated.
+\end_layout
+
+\begin_layout Section
+HADDOCK run generation
+\end_layout
+
+\begin_layout Standard
+Following HADDOCK documentation create a new folder that contains the 2
+ protein PDBs (from MISHAP), 
+\family typewriter
+ambig.tbl
+\family default
+ (NMR AIRs file, if available), 
+\family typewriter
+unambig.tbl
+\family default
+ (from MISHAP) and a 
+\family typewriter
+new.html
+\family default
+ file.
+\end_layout
+
+\begin_layout Standard
+The new.html file needs to be editted to reflect your personal settings regarding
+ folder location, HADDOCK location, run name, etc.
+ Be sure to source HADDOCK with the MISHAP parameter files.
+\end_layout
+
+\begin_layout Standard
+Open a terminal.
+\end_layout
+
+\begin_layout Standard
+Per HADDOCK documentation source CNS and HADDOCK.
+\end_layout
+
+\begin_layout Standard
+Move to run directory.
+\end_layout
+
+\begin_layout Standard
+Initialise HADDOCK with:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+haddock2.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This will generate the HADDOCK run.
+ Move into the run directory.
+\end_layout
+
+\begin_layout Standard
+Edit 
+\family typewriter
+run.cns
+\family default
+ as per requirements detailed in §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Run-settings"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Copy run.cns into /protocols
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cp run.cns protocols/run.cns
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Copy restraints files (
+\family typewriter
+ambig.tbl
+\family default
+ and 
+\family typewriter
+unambig.tbl
+\family default
+) into /structures/it0, /structures/it1 and /data/distances
+\end_layout
+
+\begin_layout Standard
+Run HADDOCK with:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+haddock2.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+HADDOCK run analysis
+\end_layout
+
+\begin_layout Standard
+Perform the data analysis outlined in §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Run-analysis"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Open MatLab, change directory to the run folder.
+ Move to /structures/it1/water.
+\end_layout
+
+\begin_layout Standard
+Run 
+\family typewriter
+HADDOCK_CLUSTERS_PROCESSING.m
+\family default
+ and 
+\family typewriter
+HADDOCK_CLUSTERS_TO_PYMOL.m
+\family default
+ scripts if desired (detailed in §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:HADDOCK-processing-tools"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Chapter
@@ -4373,11 +5320,7 @@ Naccess is a program that calculates the exposed surface area of a protein
 \begin_inset Formula $Å$
 \end_inset
 
- 
-\begin_inset Formula $\approx$
-\end_inset
-
-the size of a water molecule.
+ the approximate diameter of a water molecule.
 \end_layout
 
 \begin_layout Standard
@@ -4389,16 +5332,27 @@ MISHAP/_private
 \family typewriter
 NACCESS
 \family default
- folder, within this folder is a special 
+ folder, this folder contains 
 \family typewriter
-MISHAP.radii
+MISHAP.radii,
 \family default
- file which allows Naccess to calculate the exposed surface area of a protein
- which includes the residues R1A/CYM and IA1.
+ a special file which allows Naccess to calculate the exposed surface area
+ of a protein which includes the residues R1A/CYM and IA1.
 \end_layout
 
 \begin_layout Section
 HADDOCK processing tools
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:HADDOCK-processing-tools"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+HADDOCK cluster processing
 \end_layout
 
 \begin_layout Standard
@@ -4411,20 +5365,36 @@ HADDOCK_CLUSTERS_PROCESSING.m
 s and present them as a figure plotting HADDOCK score against any of the
  HADDOCK parameters (bsa, dH, Edesolv, rmsd, rmsd-Emin (default), ener (by
  default this is Einter), ener-Einter, ener-Enb, ener-Evdw, ener-Eelec,
- ener-Eair, ener-Ecdih, ener-Ecoup, ener-Esani, ener-Evean, ener-Edani)
+ ener-Eair, ener-Ecdih, ener-Ecoup, ener-Esani, ener-Evean, ener-Edani),
+ as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:HADDOCK-processing"
+
+\end_inset
+
+.
+ Each structure that completed the docking run is shown as a blue circle
+ and the top 4 scoring structures from each cluster are averaged and shown
+ as closed red circles.
+\end_layout
+
+\begin_layout Standard
+Scores can be saved to the workspace, if the script is called with output
+ variables.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Graphics
-	filename _fig/421-HADDOCK_score.png
+	filename _fig/PROCESSING_output.eps
 	width 50col%
 
 \end_inset
@@ -4441,8 +5411,133 @@ A typical figure from the
 HADDOCK_CLUSTERS_PROCESSING
 \family default
  script showing HADDOCK score plotted against the RMSD of the structure
- from the average structure, with structures as blue circles and cluster
- averages as red filled circles.
+ from the average structure
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:HADDOCK-processing"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+HADDOCK clusters to PyMOL
+\end_layout
+
+\begin_layout Standard
+PyMOL is a long established program for the three dimensional visualisation
+ of protein structures and their ligands.
+ Due to the nature of the program, PyMOL can easily be called from the command
+ line using Python code.
+\end_layout
+
+\begin_layout Standard
+Included is a MatLab script, 
+\family typewriter
+HADDOCK_CLUSTERS_TO_PYMOL.m
+\family default
+, which when called from MatLab by default will take the top 4 structures
+ from the top 4 clusters and align all of the chain B's using an RMSD refinement
+ process.
+ The top result from chain B is displayed as a cartoon model and all the
+ chain A's backbones as colour coded lines, where blue is the best scoring
+ model and red is the 4th structure from the 4th cluster.
+\end_layout
+
+\begin_layout Standard
+This script can be called with different input arguments to adjust the number
+ of clusters and structures from each cluster to be considered.
+ This takes the general form:
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+HADDOCK_CLUSTERS_TO_PYMOL
+\family typewriter
+(number_of_clusters , structures)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example,
+\end_layout
+
+\begin_layout Quote
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+HADDOCK_CLUSTERS_TO_PYMOL
+\family typewriter
+(1 , 16)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Would present the top 16 structures from only the top scoring cluster.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename _fig/PyMOL_output.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A typical figure from the 
+\family typewriter
+HADDOCK_CLUSTERS_TO_PYMOL
+\family default
+ script showing chain B (in grey cartoon) plotted against the top 4 structures
+ of the top 4 clusters
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:HADDOCK-pymol"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4479,10 +5574,14 @@ t in the MISHAP root directory.
 \end_layout
 
 \begin_layout Subsubsection*
+
+\size scriptsize
 License
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
  COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE").
  THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW.
@@ -4491,6 +5590,8 @@ THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE
  TO BE BOUND BY THE TERMS OF THIS LICENSE.
  TO THE EXTENT THIS LICENSE MAY BE CONSIDERED TO BE A CONTRACT, THE LICENSOR
@@ -4499,11 +5600,15 @@ BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 1.
  Definitions
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 "Adaptation" means a work based upon the Work, or upon the Work and other
  pre-existing works, such as a translation, adaptation, derivative work,
  arrangement of music or other alterations of a literary or artistic work,
@@ -4585,6 +5690,8 @@ hy; a photographic work to which are assimilated works expressed by a process
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 3.
  License Grant.
  Subject to the terms and conditions of this License, Licensor hereby grants
@@ -4594,6 +5701,8 @@ hy; a photographic work to which are assimilated works expressed by a process
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 to Reproduce the Work, to incorporate the Work into one or more Collections,
  and to Reproduce the Work as incorporated in the Collections; to create
  and Reproduce Adaptations provided that any such Adaptation, including
@@ -4615,6 +5724,8 @@ y necessary to exercise the rights in other media and formats.
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 4.
  Restrictions.
  The license granted in Section 3 above is expressly made subject to and
@@ -4622,6 +5733,8 @@ y necessary to exercise the rights in other media and formats.
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 You may Distribute or Publicly Perform the Work only under the terms of
  this License.
  You must include a copy of, or the Uniform Resource Identifier (URI) for,
@@ -4709,6 +5822,8 @@ g the use of the Work in the Adaptation (e.g., "French translation of the
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 Non-waivable Compulsory License Schemes.
  In those jurisdictions in which the right to collect royalties through
  any statutory or compulsory licensing scheme cannot be waived, the Licensor
@@ -4749,6 +5864,8 @@ Non-waivable Compulsory License Schemes.
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 UNLESS OTHERWISE MUTUALLY AGREED TO BY THE PARTIES IN WRITING AND TO THE
  FULLEST EXTENT PERMITTED BY APPLICABLE LAW, LICENSOR OFFERS THE WORK AS-IS
  AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE WORK,
@@ -4761,6 +5878,8 @@ UNLESS OTHERWISE MUTUALLY AGREED TO BY THE PARTIES IN WRITING AND TO THE
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 6.
  Limitation on Liability.
  EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE LAW, IN NO EVENT WILL LICENSOR
@@ -4771,11 +5890,15 @@ UNLESS OTHERWISE MUTUALLY AGREED TO BY THE PARTIES IN WRITING AND TO THE
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 7.
  Termination
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 This License and the rights granted hereunder will terminate automatically
  upon any breach by You of the terms of this License.
  Individuals or entities who have received Adaptations or Collections from
@@ -4796,6 +5919,8 @@ This License and the rights granted hereunder will terminate automatically
 \end_layout
 
 \begin_layout Standard
+
+\size scriptsize
 Each time You Distribute or Publicly Perform the Work or a Collection, the
  Licensor offers to the recipient a license to the Work on the same terms
  and conditions as the license granted to You under this License.
@@ -4986,22 +6111,18 @@ These timings will not vary much with newer machines as MatLab by default
 \end_layout
 
 \begin_layout Standard
-A HADDOCK docking run with this setup takes ~4 - 16 
+HADDOCK runs were performed on a local computing cluster, a 16 core Intel
+ Xeon server node with 32 
+\begin_inset Formula $GB$
+\end_inset
+
+ of RAM would complete a run in ~16 - 18 
 \begin_inset Formula $h$
 \end_inset
 
 .
- It is highly recommended to perform the HADDOCK tasks on a computing cluster
- or server.
- With a 16 core Intel Xeon server with 16 
-\begin_inset Formula $GB$
-\end_inset
-
- of RAM the HADDOCK runs drop to ~20 
-\begin_inset Formula $min$
-\end_inset
-
-.
+ Whilst HADDOCK runs are possible on a desktop computer the calculation
+ time will be approximately a week and the machine will be otherwise unusable.
 \end_layout
 
 \begin_layout Standard
