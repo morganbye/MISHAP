@@ -133,7 +133,11 @@ if isfield(MISHAP.PDB,'p1') && isfield(MISHAP.MMM,'p1')
         p1StructNum = get(MISHAP.handles.pro.popupmenu_structure1,'Value');
         p1StructOpt = get(MISHAP.handles.pro.popupmenu_structure1,'String');
         if size(p1StructOpt,1) == 1
-            p1StructStr = p1StructOpt;
+            try
+                p1StructStr = p1StructOpt{1};
+            catch
+                p1StructStr = p1StructOpt;
+            end
         else
             p1StructStr = p1StructOpt{p1StructNum};
         end
@@ -141,7 +145,11 @@ if isfield(MISHAP.PDB,'p1') && isfield(MISHAP.MMM,'p1')
         p1ChainNum = get(MISHAP.handles.pro.popupmenu_chain1,'Value');
         p1ChainOpt = get(MISHAP.handles.pro.popupmenu_chain1,'String');
         if size(p1ChainOpt,1) == 1
-            p1ChainStr = p1ChainOpt;
+            try
+                p1ChainStr = p1ChainOpt{1};
+            catch
+                p1ChainStr = p1ChainOpt;
+            end
         else
             p1ChainStr = p1ChainOpt{p1ChainNum};
         end        
